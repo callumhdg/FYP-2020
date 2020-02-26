@@ -11,7 +11,16 @@ namespace FPY_Homework_Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+        }
 
+        protected void StudentLink_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Student_Login.aspx");
+        }
+
+        protected void TeacherLink_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Teacher_Login.aspx");
         }
     }
 }
