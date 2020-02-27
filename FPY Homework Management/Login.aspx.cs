@@ -38,8 +38,8 @@ namespace FPY_Homework_Management
                     if (input.Equals(s.studentUsername) && txtPassword.Text.Equals(s.studentPassword))
                     {
                         s.studentPassword = null; //clears password 
-                        //Response.Redirect(""); //login sucsessul, redirecting to 
-                        txtNotify.Text = "login succsessfull"; //testing
+                        Response.Redirect("Student_Home.aspx"); //login sucsessul, redirecting to Student landing page
+                        //txtNotify.Text = "login succsessfull"; //testing
                     }
                     else
                     {
@@ -62,8 +62,8 @@ namespace FPY_Homework_Management
                     if (input.Equals(t.teacherUsername) && txtPassword.Text.Equals(t.teacherPassword))
                     {
                         t.teacherPassword = null; //clears password 
-                        //Response.Redirect(""); //login sucsessul, redirecting to 
-                        txtNotify.Text = "login succsessfull"; //testing
+                        Response.Redirect("Teacher_Home.aspx"); //login sucsessul, redirecting to Teacher landing page
+                        //txtNotify.Text = "login succsessfull"; //testing
                     }
                     else
                     {

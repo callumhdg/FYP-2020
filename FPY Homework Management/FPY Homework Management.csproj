@@ -153,7 +153,9 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="Student_Home.aspx" />
     <Content Include="Student_Login.aspx" />
+    <Content Include="Teacher_Home.aspx" />
     <Content Include="Teacher_Login.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -195,6 +197,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Student.cs" />
+    <Compile Include="Student_Home.aspx.cs">
+      <DependentUpon>Student_Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student_Home.aspx.designer.cs">
+      <DependentUpon>Student_Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Student_Login.aspx.cs">
       <DependentUpon>Student_Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,6 +212,13 @@
       <DependentUpon>Student_Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Teacher.cs" />
+    <Compile Include="Teacher_Home.aspx.cs">
+      <DependentUpon>Teacher_Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Teacher_Home.aspx.designer.cs">
+      <DependentUpon>Teacher_Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Teacher_Login.aspx.cs">
       <DependentUpon>Teacher_Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
