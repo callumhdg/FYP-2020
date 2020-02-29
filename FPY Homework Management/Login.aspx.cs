@@ -24,15 +24,15 @@ namespace FPY_Homework_Management
             string userMarker = userType.Substring(0, 1);
 
             if (userMarker == "s")
-            { 
-            ArrayList stu = new ArrayList();
-            Student storedStudent = new Student();
-            stu = storedStudent.readStudents();
+            {
+                ArrayList stu = new ArrayList();
+                Student storedStudent = new Student();
+                stu = storedStudent.readStudents();
 
                 foreach (Student s in stu)
                 {
-                //if(txtUsername.Text.Equals(s.studentUsername) && txtPassword.Text.Equals(s.studentPassword))
-                //(txtUsername.Text.ToLower().Equals(s.studentUsername) && txtPassword.Text.Equals(s.studentPassword))
+                    //if(txtUsername.Text.Equals(s.studentUsername) && txtPassword.Text.Equals(s.studentPassword))
+                    //(txtUsername.Text.ToLower().Equals(s.studentUsername) && txtPassword.Text.Equals(s.studentPassword))
 
                     string input = txtUsername.Text.ToLower();
                     if (input.Equals(s.studentUsername) && txtPassword.Text.Equals(s.studentPassword))
@@ -82,7 +82,7 @@ namespace FPY_Homework_Management
 
 
 
-
+        }
 
     }
 }
