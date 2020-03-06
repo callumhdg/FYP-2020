@@ -23,47 +23,54 @@ namespace FPY_Homework_Management
             string userType = txtUsername.Text.ToLower();
             string userMarker = userType.Substring(0, 1);
 
+            ArrayList userList = new ArrayList();
+
             if (userMarker == "s")
             {
-                ArrayList stu = new ArrayList();
+                
                 Student storedStudent = new Student();
-                stu = storedStudent.readStudents();
+                userList = storedStudent.readStudents();
 
-                foreach (Student s in stu)
+                foreach (Student s in userList)
                 {
                     //if(txtUsername.Text.Equals(s.studentUsername) && txtPassword.Text.Equals(s.studentPassword))
                     //(txtUsername.Text.ToLower().Equals(s.studentUsername) && txtPassword.Text.Equals(s.studentPassword))
 
-                    string input = txtUsername.Text.ToLower();
-                    if (input.Equals(s.studentUsername) && txtPassword.Text.Equals(s.studentPassword))
+                    string input = txtUsername.Text;//.ToLower();
+                    //if (input.Equals(s.studentUsername) && txtPassword.Text.Equals(s.studentPassword))
+                    if (txtUsername.Text.Equals(s.studentUsername) && txtPassword.Text.Equals(s.studentPassword))
                     {
                         s.studentPassword = null; //clears password 
                         Response.Redirect("Student_Home.aspx"); //login sucsessul, redirecting to Student landing page
                         //txtNotify.Text = "login succsessfull"; //testing
+                        Session["user"] = s.studentUsername;
                     }
                     else
                     {
                         txtNotify.Text = "Username or Password is incorrect, please try again";
                     }
+                    s.studentPassword = null; //clears password 
                 }
 
 
             }
             else if (userMarker == "t")
             {
-                ArrayList tea = new ArrayList();
+                //ArrayList tea = new ArrayList();
                 Teacher storedTeacher = new Teacher();
-                tea = storedTeacher.readTeachers();
+                userList = storedTeacher.readTeachers();
 
-                foreach (Teacher t in tea)
+                foreach (Teacher t in userList)
                 {
 
-                    string input = txtUsername.Text.ToLower();
-                    if (input.Equals(t.teacherUsername) && txtPassword.Text.Equals(t.teacherPassword))
+                    string input = txtUsername.Text;//.ToLower();
+                    //if (input.Equals(t.teacherUsername) && txtPassword.Text.Equals(t.teacherPassword))
+                    if (txtUsername.Text.Equals(t.teacherUsername) && txtPassword.Text.Equals(t.teacherPassword))
                     {
                         t.teacherPassword = null; //clears password 
                         Response.Redirect("Teacher_Home.aspx"); //login sucsessul, redirecting to Teacher landing page
                         //txtNotify.Text = "login succsessfull"; //testing
+                        Session["user"] = t.teacherUsername;
                     }
                     else
                     {

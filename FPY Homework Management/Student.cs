@@ -11,7 +11,6 @@ namespace FPY_Homework_Management.Classes
     {
         SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["PRCO304_CHarding"].ToString());
 
-
         public string studentID { get; set; }
 
         public string studentUsername { get; set; }
@@ -23,8 +22,8 @@ namespace FPY_Homework_Management.Classes
         public Student(string sID, string sUsername, string sPassword)
         {
             studentID = sID;
-            studentID = sUsername;
-            studentID = sPassword;
+            studentUsername = sUsername;
+            studentPassword = sPassword;
         }
 
         public Student()
