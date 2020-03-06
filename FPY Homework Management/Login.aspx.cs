@@ -78,6 +78,28 @@ namespace FPY_Homework_Management
                     }
                 }
             }
+            else if (userMarker == "a")
+            {                
+                Admin storedAdmin = new Admin();
+                userList = storedAdmin.readAdmins();
+
+                foreach (Admin a in userList)
+                {
+
+                    //string input = txtUsername.Text;//.ToLower();
+                    if (txtUsername.Text.Equals(a.adminUsername) && txtPassword.Text.Equals(a.adminPassword))
+                    {
+                        a.adminPassword = null; //clears password 
+                        Response.Redirect("Admin_Home.aspx"); //login sucsessul, redirecting to Teacher landing page
+                        //txtNotify.Text = "login succsessfull"; //testing
+                        Session["user"] = a.adminUsername;
+                    }
+                    else
+                    {
+                        txtNotify.Text = "Username or Password is incorrect, please try again";
+                    }
+                }
+            }
             else
             {
                 txtNotify.Text = "Username or Password is incorrect, please try again";
