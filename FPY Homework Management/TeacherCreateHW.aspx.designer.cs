@@ -13,5 +13,41 @@ namespace FPY_Homework_Management
 
     public partial class TeacherCreateHW
     {
+
+        /// <summary>
+        /// frmCreateHW control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm frmCreateHW;
+
+        /// <summary>
+        /// CoreHomeworkTitleInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox CoreHomeworkTitleInput;
+
+        /// <summary>
+        /// minutesToCompleteInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox minutesToCompleteInput;
+
+        /// <summary>
+        /// addQuestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addQuestion;
     }
 }

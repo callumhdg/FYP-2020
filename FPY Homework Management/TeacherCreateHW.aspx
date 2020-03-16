@@ -11,7 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
         <div id="NavBarDiv"><!-- NavBar -->
@@ -33,14 +35,40 @@
             </nav>
         </div>
 
+    <form id="frmCreateHW" runat="server">
+        <div id="coreHWCreate" class="container">
 
-    <div>
+            <div class="row">
+                <!-- homework title -->
+                <span>Homework Title</span><br/>
+                <asp:TextBox ID="CoreHomeworkTitleInput" runat="server" placeholder="Title"></asp:TextBox>
+            </div>
 
+            <div class="row">
+                <!-- minutes to complete -->
+                <span>Time to complete (minutes)</span><br/>
+                <asp:TextBox ID="minutesToCompleteInput" runat="server" placeholder="Minutes to Complete"></asp:TextBox>
+            </div>         
 
+        </div>
+        <div id="coreQCreate" class="container">
 
+            <!-- question text -->
+            <div class="row">
+                <span id="qNumTitle">Question 1</span><br/>
+                <asp:TextBox ID="Qtext"runat="server" placeholder="Question"></asp:TextBox>
+            </div>
 
-    </div>
+            <!-- question max marks -->
+            <div class="row">
+                <span>Question Marks</span><br/>
+                <asp:TextBox ID="QMaxMarks"runat="server" placeholder="Marks for question"></asp:TextBox>
+            </div>
 
+            <asp:Button id="addQuestion" Text="Add Question" runat="server"></asp:Button>
+
+        </div>
+    </form>
 
 
 
