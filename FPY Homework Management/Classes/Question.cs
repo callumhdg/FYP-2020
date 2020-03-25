@@ -27,6 +27,14 @@ namespace FPY_Homework_Management.Classes
             maxMarksForQuestion = marks;
         }
 
+        public Question(string hwID, string qNum, string qText, string marks)
+        {
+            fkCoreHWID = hwID;
+            questionNumber = qNum;
+            questionText = qText;
+            maxMarksForQuestion = marks;
+        }
+
         public Question()
         {
         }
