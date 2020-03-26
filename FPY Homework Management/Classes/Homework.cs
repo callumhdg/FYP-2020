@@ -71,10 +71,11 @@ namespace FPY_Homework_Management.Classes
 
         public void createCoreHomework()
         {
-            string query = "INSERT into CoreHomework (LastEditBy, MinutesToComplete, HomeworkTitle) VALUES (@LastEditBy, @MinutesToComplete, @HomeworkTitle)";
+            string query = "INSERT into CoreHomework (CoreHomeworkID, LastEditBy, MinutesToComplete, HomeworkTitle) VALUES (@CoreHomeworkID, @LastEditBy, @MinutesToComplete, @HomeworkTitle)";
             conn.Open();
             SqlCommand cmd = new SqlCommand(query, conn);
 
+            cmd.Parameters.AddWithValue("@CoreHomeworkID", this.coreHWID);
             cmd.Parameters.AddWithValue("@LastEditBy", this.lastEditBy);
             cmd.Parameters.AddWithValue("@MinutesToComplete", this.timeToComplete);
             cmd.Parameters.AddWithValue("@HomeworkTitle", this.hwTitle);

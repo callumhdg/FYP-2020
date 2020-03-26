@@ -19,115 +19,146 @@ namespace FPY_Homework_Management
 
         protected void btnCreateHomework_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 ArrayList hwCount = new ArrayList();
                 Homework hw = new Homework();
                 hwCount = hw.readAllCoreHomework();
-                int idNum = hwCount.Count + 1;
+                int idNum;
 
-                Homework homework = new Homework(idNum.ToString(), "teacher id here", minutesToCompleteInput.Text, CoreHomeworkTitleInput.Text);//change teacher id field to teacher id
+
+                if (hwCount.Count == 0)
+                {
+                    idNum = 0;
+                }
+                else
+                {
+                    idNum = hwCount.Count;
+                }
+
+
+                Homework homework = new Homework(idNum.ToString(), "1", minutesToCompleteInput.Text, CoreHomeworkTitleInput.Text);//change teacher id field to teacher id
                 homework.createCoreHomework();
 
 
-                Question question1 = new Question(idNum.ToString(), "1", Qtext1.Text, QMaxMarks1.Text);
+                //Question question1 = new Question(idNum.ToString(), "1", Qtext1.Text, QMaxMarks1.Text);
                 //question1.createCoreQuestion();
-                Question question2 = new Question(idNum.ToString(), "2", Qtext2.Text, QMaxMarks2.Text);
-                //question2.createCoreQuestion();
-                Question question3 = new Question(idNum.ToString(), "3", Qtext3.Text, QMaxMarks3.Text);
-                //question3.createCoreQuestion();
-                Question question4 = new Question(idNum.ToString(), "4", Qtext4.Text, QMaxMarks4.Text);
-                //question4.createCoreQuestion();
-                Question question5 = new Question(idNum.ToString(), "5", Qtext5.Text, QMaxMarks5.Text);
-                //question5.createCoreQuestion();
-                Question question6 = new Question(idNum.ToString(), "6", Qtext6.Text, QMaxMarks6.Text);
-                //question6.createCoreQuestion();
-                Question question7 = new Question(idNum.ToString(), "7", Qtext7.Text, QMaxMarks7.Text);
-                //question7.createCoreQuestion();
-                Question question8 = new Question(idNum.ToString(), "8", Qtext8.Text, QMaxMarks8.Text);
-                //question8.createCoreQuestion();
-                Question question9 = new Question(idNum.ToString(), "9", Qtext9.Text, QMaxMarks9.Text);
-                //question9.createCoreQuestion();
-                Question question10 = new Question(idNum.ToString(), "10", Qtext10.Text, QMaxMarks10.Text);
+                //Question question2 = new Question(idNum.ToString(), "2", Qtext2.Text, QMaxMarks2.Text);
+                ////question2.createCoreQuestion();
+                //Question question3 = new Question(idNum.ToString(), "3", Qtext3.Text, QMaxMarks3.Text);
+                ////question3.createCoreQuestion();
+                //Question question4 = new Question(idNum.ToString(), "4", Qtext4.Text, QMaxMarks4.Text);
+                ////question4.createCoreQuestion();
+                //Question question5 = new Question(idNum.ToString(), "5", Qtext5.Text, QMaxMarks5.Text);
+                ////question5.createCoreQuestion();
+                //Question question6 = new Question(idNum.ToString(), "6", Qtext6.Text, QMaxMarks6.Text);
+                ////question6.createCoreQuestion();
+                //Question question7 = new Question(idNum.ToString(), "7", Qtext7.Text, QMaxMarks7.Text);
+                ////question7.createCoreQuestion();
+                //Question question8 = new Question(idNum.ToString(), "8", Qtext8.Text, QMaxMarks8.Text);
+                ////question8.createCoreQuestion();
+                //Question question9 = new Question(idNum.ToString(), "9", Qtext9.Text, QMaxMarks9.Text);
+                ////question9.createCoreQuestion();
+                //Question question10 = new Question(idNum.ToString(), "10", Qtext10.Text, QMaxMarks10.Text);
                 //question10.createCoreQuestion();
 
 
 
-                //check to see if questions are empty so they dont have to be created if they arent filled in
+                //check to see if questions are empty so they dont have to be created if they arent filled in, sets the number of questions to the next question
+                //e.g., if numbers: 1,2,3,5 were filled in the question numbers will be saved as: 1,2,3,4
+                int qCount = 1;
+
                 if (Qtext1.Text == "" || QMaxMarks1.Text == ""){}
                 else
-                { question1.createCoreQuestion(); }
+                {
+                    Question question1 = new Question(idNum.ToString(), qCount.ToString(), Qtext1.Text, QMaxMarks1.Text);
+                    question1.createCoreQuestion();
+                    qCount++;
+                }
 
                 if (Qtext2.Text == "" || QMaxMarks2.Text == "") {}
                 else
-                { question2.createCoreQuestion(); }
+                {
+                    Question question2 = new Question(idNum.ToString(), qCount.ToString(), Qtext2.Text, QMaxMarks2.Text);
+                    question2.createCoreQuestion();
+                    qCount++;
+                }
 
                 if (Qtext3.Text == "" || QMaxMarks3.Text == "") {}
                 else
-                { question3.createCoreQuestion(); }
+                {
+                    Question question3 = new Question(idNum.ToString(), qCount.ToString(), Qtext3.Text, QMaxMarks3.Text);
+                    question3.createCoreQuestion();
+                    qCount++;
+                }
 
                 if (Qtext4.Text == "" || QMaxMarks4.Text == "") {}
-                else
-                { question4.createCoreQuestion(); }
+                else                
+                {
+                    Question question4 = new Question(idNum.ToString(), qCount.ToString(), Qtext4.Text, QMaxMarks4.Text);
+                    question4.createCoreQuestion();
+                    qCount++;
+                }
 
                 if (Qtext5.Text == "" || QMaxMarks5.Text == "") {}
                 else
-                { question5.createCoreQuestion(); }
+                {
+                    Question question5 = new Question(idNum.ToString(), qCount.ToString(), Qtext5.Text, QMaxMarks5.Text);
+                    question5.createCoreQuestion();
+                    qCount++;
+                }
 
                 if (Qtext6.Text == "" || QMaxMarks6.Text == "") {}
                 else
-                { question6.createCoreQuestion(); }
+                {
+                    Question question6 = new Question(idNum.ToString(), qCount.ToString(), Qtext6.Text, QMaxMarks6.Text);
+                    question6.createCoreQuestion();
+                    qCount++;
+                }
 
                 if (Qtext7.Text == "" || QMaxMarks7.Text == "") {}
                 else
-                { question7.createCoreQuestion(); }
+                {
+                    Question question7 = new Question(idNum.ToString(), qCount.ToString(), Qtext7.Text, QMaxMarks7.Text);
+                    question7.createCoreQuestion();
+                    qCount++;
+                }
 
                 if (Qtext8.Text == "" || QMaxMarks8.Text == "") {}
                 else
-                { question8.createCoreQuestion(); }
+                {
+                    Question question8 = new Question(idNum.ToString(), qCount.ToString(), Qtext8.Text, QMaxMarks8.Text);
+                    question8.createCoreQuestion();
+                    qCount++;
+                }
 
                 if (Qtext9.Text == "" || QMaxMarks9.Text == "") {}
                 else
-                { question9.createCoreQuestion(); }
+                {
+                    Question question9 = new Question(idNum.ToString(), qCount.ToString(), Qtext9.Text, QMaxMarks9.Text);
+                    question9.createCoreQuestion();
+                    qCount++;
+                }
 
                 if (Qtext10.Text == "" || QMaxMarks10.Text == "") {}
                 else
-                { question10.createCoreQuestion(); }
+                {
+                    Question question10 = new Question(idNum.ToString(), qCount.ToString(), Qtext10.Text, QMaxMarks10.Text);
+                    question10.createCoreQuestion();
+                    qCount++;
+                }
 
 
-                                             
+
                 submissionFeedback.Text = "Homework was sucsesfully created";
+                clearInputs();
 
 
-                minutesToCompleteInput.Text = "";
-                CoreHomeworkTitleInput.Text = "";
-
-                Qtext1.Text = "";
-                QMaxMarks1.Text = "";
-                Qtext2.Text = "";
-                QMaxMarks2.Text = "";
-                Qtext3.Text = "";
-                QMaxMarks3.Text = "";
-                Qtext4.Text = "";
-                QMaxMarks4.Text = "";
-                Qtext5.Text = "";
-                QMaxMarks5.Text = "";
-                Qtext6.Text = "";
-                QMaxMarks6.Text = "";
-                Qtext7.Text = "";
-                QMaxMarks7.Text = "";
-                Qtext8.Text = "";
-                QMaxMarks8.Text = "";
-                Qtext9.Text = "";
-                QMaxMarks9.Text = "";
-                Qtext10.Text = "";
-                QMaxMarks10.Text = "";
-
-            }
-            catch
-            {
-                submissionFeedback.Text = "Homework creation failed, please fill all fields";
-            }
+            //}
+            //catch
+            //{
+            //    submissionFeedback.Text = "Homework creation failed, please fill all fields";
+            //}
 
 
         }
@@ -136,15 +167,15 @@ namespace FPY_Homework_Management
         {
             string title = CoreHomeworkTitleInput.Text;
             string time = minutesToCompleteInput.Text;
-            if (title == "" & time == "")
+            if (title == "" || time == "")
             {
                 btnCreateHomework.Enabled = false;
-                btnCreateHomework.CssClass = "bg-warning";
+                //btnCreateHomework.CssClass = "bg-warning";
             }
             else
             {
                 btnCreateHomework.Enabled = true;
-                btnCreateHomework.CssClass = "bg-primary";
+                //btnCreateHomework.CssClass = "bg-primary";
             }
         }
 
@@ -152,16 +183,46 @@ namespace FPY_Homework_Management
         {
             string title = CoreHomeworkTitleInput.Text;
             string time = minutesToCompleteInput.Text;
-            if (title == "" & time == "")
+            if (title == "" || time == "")
             {
                 btnCreateHomework.Enabled = false;
-                btnCreateHomework.CssClass = "bg-warning";
+                //btnCreateHomework.CssClass = "bg-warning";
             }
             else
             {
                 btnCreateHomework.Enabled = true;
-                btnCreateHomework.CssClass = "bg-primary";
+                //btnCreateHomework.CssClass = "bg-primary";
             }
         }
+
+        private void clearInputs()
+        {
+
+            minutesToCompleteInput.Text = "";
+            CoreHomeworkTitleInput.Text = "";
+
+            Qtext1.Text = "";
+            QMaxMarks1.Text = "";
+            Qtext2.Text = "";
+            QMaxMarks2.Text = "";
+            Qtext3.Text = "";
+            QMaxMarks3.Text = "";
+            Qtext4.Text = "";
+            QMaxMarks4.Text = "";
+            Qtext5.Text = "";
+            QMaxMarks5.Text = "";
+            Qtext6.Text = "";
+            QMaxMarks6.Text = "";
+            Qtext7.Text = "";
+            QMaxMarks7.Text = "";
+            Qtext8.Text = "";
+            QMaxMarks8.Text = "";
+            Qtext9.Text = "";
+            QMaxMarks9.Text = "";
+            Qtext10.Text = "";
+            QMaxMarks10.Text = "";
+
+        }
+
     }
 }
