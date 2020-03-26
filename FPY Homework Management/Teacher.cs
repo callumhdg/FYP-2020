@@ -72,5 +72,28 @@ namespace FPY_Homework_Management.Classes
         }
 
 
+        public void createTeacher()
+        {
+            string query = "INSERT into Teachers (TeacherUsername, TeacherPassword) Values (@TeacherUsername, @TeacherPassword)";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@TeacherUsername", this.teacherUsername);
+            cmd.Parameters.AddWithValue("@TeacherPassword", this.teacherPassword);
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 }

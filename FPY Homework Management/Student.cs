@@ -70,6 +70,23 @@ namespace FPY_Homework_Management.Classes
         }
 
 
+        public void createStudent()
+        {
+            string query = "INSERT into Students (StudentUsername, StudentPassword) VALUES (@StudentUsername, @StudentPassword)";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@StudentUsername", this.studentUsername);
+            cmd.Parameters.AddWithValue("@StudentPassword", this.studentPassword);
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+
+
+
+
 
 
     }
