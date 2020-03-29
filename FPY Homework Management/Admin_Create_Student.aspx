@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
-<body style="background-color:dimgray">
+<body style="background-color:lightgray">
     <div>
 
 
@@ -46,19 +46,27 @@
         <form id="frmCreateStudent" runat="server">
         <div>
 
+            <div id="divSuccessMessage" runat="server" class="row alert-success" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">                
+                <asp:label ID="lblSuccessMessage" runat="server" style="font-weight:bold">Student creation successful</asp:label>
+            </div><br/>
+
+            <div id="divErrorMessage" runat="server" class="row alert-danger" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">                
+                <asp:label ID="lblErrorMessage" runat="server" style="font-weight:bold">Invalid Input, please check all input fields</asp:label>
+            </div><br/>
+
             <div class="row" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">                
                 <span style="font-weight:bold">Student First-Name*</span><br/>
-                <asp:TextBox ID="StudentFirstNameIn" runat="server" class="form-control" placeholder="FirstName" ></asp:TextBox>
+                <asp:TextBox ID="StudentFirstNameIn" runat="server" class="form-control" placeholder="FirstName"></asp:TextBox>
             </div><br/>
 
 	        <div class="row" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">                
                 <span style="font-weight:bold">Student Last-Name*</span><br/>
-                <asp:TextBox ID="StudentLastNameIn" runat="server" class="form-control" placeholder="Surname" ></asp:TextBox>
+                <asp:TextBox ID="StudentLastNameIn" runat="server" class="form-control" placeholder="Surname"></asp:TextBox>
             </div><br/>
 
             <div class="row" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">                
                 <span style="font-weight:bold">Student Password*</span><br/>
-                <asp:TextBox ID="StudentPasswordIn" runat="server" class="form-control" TextMode="Password" placeholder="Password" ></asp:TextBox>
+                <asp:TextBox ID="StudentPasswordIn" runat="server" class="form-control" TextMode="Password" placeholder="Password"></asp:TextBox>
             </div><br/>
 
             <%--<div class="row" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">
@@ -66,6 +74,20 @@
                 <asp:TextBox ID="StudentDateOfBirth" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
             </div><br/>--%>
             
+            <div class="container" style="background-color:white">
+                <div class="row" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">
+                    <span style="font-weight:bold">Student Date of Birth* (DD/MM/YYYY)</span><br/>
+                    <div class="col-sm">
+                        <asp:TextBox ID="StudentDateOfBirthDay" runat="server" class="form-control" placeholder="DD"></asp:TextBox>
+                    </div>
+                    <div class="col-sm">
+                        <asp:TextBox ID="StudentDateOfBirthMonth" runat="server" class="form-control" placeholder="MM"></asp:TextBox>
+                    </div>
+                    <div class="col-sm">
+                        <asp:TextBox ID="StudentDateOfBirthYear" runat="server" class="form-control" placeholder="YYYY"></asp:TextBox>
+                    </div>
+                </div><br/>
+            </div>
             
             <div class="row" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">                
                 <span style="font-weight:bold">Parent Email Address</span><br/>

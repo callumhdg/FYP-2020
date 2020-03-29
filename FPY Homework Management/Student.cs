@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Collections;
+using System.Globalization;
 
 namespace FPY_Homework_Management.Classes
 {
@@ -17,10 +18,10 @@ namespace FPY_Homework_Management.Classes
         public string studentFirstName { get; set; }
         public string studentLastName { get; set; }
         public string studentParEmail { get; set; }
-        public string studentDOB { get; set; }
+        public DateTime studentDOB { get; set; }
 
 
-        public Student(string sID, string sFirstName, string sLastName, string sUsername, string sPassword, string sParEmail, string sDOB)
+        public Student(string sID, string sFirstName, string sLastName, string sUsername, string sPassword, string sParEmail, DateTime sDOB)
         {
             studentID = sID;
             studentFirstName = sFirstName;
@@ -31,7 +32,7 @@ namespace FPY_Homework_Management.Classes
             studentDOB = sDOB;
         }
 
-        public Student(string sFirstName, string sLastName, string sUsername, string sPassword, string sParEmail, string sDOB)
+        public Student(string sFirstName, string sLastName, string sUsername, string sPassword, string sParEmail, DateTime sDOB)
         {
             studentFirstName = sFirstName;
             studentLastName = sLastName;
@@ -60,7 +61,7 @@ namespace FPY_Homework_Management.Classes
 
             while (re.Read())
             {
-                Student student = new Student(re["StudentID"].ToString(), re["StudentFirstName"].ToString(), re["StudentLastName"].ToString(), re["StudentUsername"].ToString(), re["StudentPassword"].ToString(), re["ParentEmailAddress"].ToString(), re["StudentDOB"].ToString());
+                Student student = new Student(re["StudentID"].ToString(), re["StudentFirstName"].ToString(), re["StudentLastName"].ToString(), re["StudentUsername"].ToString(), re["StudentPassword"].ToString(), re["ParentEmailAddress"].ToString(), Convert.ToDateTime(re["StudentDOB"]));
                 allStudents.Add(student);
             }
             conn.Close();
@@ -99,7 +100,7 @@ namespace FPY_Homework_Management.Classes
 
             while (re.Read())
             {
-                seclectedStudent = new Student(re["StudentID"].ToString(), re["StudentFirstName"].ToString(), re["StudentLastName"].ToString(), re["StudentUsername"].ToString(), re["StudentPassword"].ToString(), re["ParentEmailAddress"].ToString(), re["StudentDOB"].ToString());
+                seclectedStudent = new Student(re["StudentID"].ToString(), re["StudentFirstName"].ToString(), re["StudentLastName"].ToString(), re["StudentUsername"].ToString(), re["StudentPassword"].ToString(), re["ParentEmailAddress"].ToString(), Convert.ToDateTime(re["StudentDOB"]));
             }
 
             conn.Close();

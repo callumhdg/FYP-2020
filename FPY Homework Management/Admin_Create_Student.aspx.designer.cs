@@ -24,6 +24,42 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.HtmlControls.HtmlForm frmCreateStudent;
 
         /// <summary>
+        /// divSuccessMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSuccessMessage;
+
+        /// <summary>
+        /// lblSuccessMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSuccessMessage;
+
+        /// <summary>
+        /// divErrorMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divErrorMessage;
+
+        /// <summary>
+        /// lblErrorMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorMessage;
+
+        /// <summary>
         /// StudentFirstNameIn control.
         /// </summary>
         /// <remarks>
@@ -49,6 +85,33 @@ namespace FPY_Homework_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox StudentPasswordIn;
+
+        /// <summary>
+        /// StudentDateOfBirthDay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox StudentDateOfBirthDay;
+
+        /// <summary>
+        /// StudentDateOfBirthMonth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox StudentDateOfBirthMonth;
+
+        /// <summary>
+        /// StudentDateOfBirthYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox StudentDateOfBirthYear;
 
         /// <summary>
         /// StudentParEmailIn control.
