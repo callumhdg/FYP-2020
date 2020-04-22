@@ -126,7 +126,22 @@ namespace FPY_Homework_Management.Classes
         }
 
 
+        public ArrayList findStudentsByYear(string dob)
+        {
+            ArrayList yearStudents = new ArrayList();
+            ArrayList allStudents = new ArrayList();
+            string query = "";
 
+            Student student = new Student();
+            allStudents = student.readStudents();
+
+            //todays date - dob = year group
+
+
+
+
+            return yearStudents;
+        }
 
 
 

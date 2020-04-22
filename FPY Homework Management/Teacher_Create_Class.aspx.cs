@@ -22,12 +22,57 @@ namespace FPY_Homework_Management
             string teachID = drpSelectTeacher.Text;
             string clsSubj = classSubjectIn.Text;
             string clsYea = classYearGroupIn.Text;
+            //string clsName = clsSubj.Substring(0, 3).ToUpper() + clsYea;
 
-            SchoolClass cls = new SchoolClass(teachID, clsSubj, clsYea);
+            string clsSubject = clsSubj.Substring(0, 1).ToUpper() + clsSubj.Substring(1, clsSubj.Length - 1).ToLower();
+
+            //year will always be 2 chars
+            if (clsYea.Length == 1)
+            {
+                clsYea = "0" + clsYea;
+            }
+
+            Teacher teach = new Teacher();
+            teach = teach.readSingleTeacher(teachID);
+            string tInitials = teach.teacherFirstname.Substring(0, 1).ToUpper() + teach.teacherLastname.Substring(0, 1).ToUpper();
+            string className = clsSubj.Substring(0, 3).ToUpper() + clsYea + tInitials;
+
+            //if class name exists + 1
+            string cName = checkUniqueName(className);
+                                 
+            SchoolClass cls = new SchoolClass(teachID, clsSubject, clsYea, cName);
             cls.createSchoolClass();                                              
 
         }
 
+
+        private string checkUniqueName(string name)
+        {
+            SchoolClass c = new SchoolClass();
+            ArrayList allClassNames = c.readClassNames();
+            string nameOut = name;
+
+            for (int i = 0; i < allClassNames.Count; i++)
+            {
+                string testName = allClassNames[i].ToString();
+                if (name.Length != 7)//default name length will always be 7, if longer then there are dupelicates
+                {
+                    string indicator = name.Substring(name.Length - 1, 1);
+                    int endNum = Convert.ToInt32(indicator);
+                    endNum = endNum + 1;
+
+                    nameOut = name.Substring(0, 7) + endNum.ToString();
+                }
+                else if (name == testName)
+                {
+                    name = name + "1";
+                    checkUniqueName(name);
+                }
+
+            }
+            
+            return nameOut;
+        }//end of Check
 
 
     }
