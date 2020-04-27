@@ -51,12 +51,39 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.WebControls.DropDownList drpSelectTeacher;
 
         /// <summary>
-        /// allStudents control.
+        /// ViewAllStudentsInClass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView allStudents;
+        protected global::System.Web.UI.WebControls.SqlDataSource ViewAllStudentsInClass;
+
+        /// <summary>
+        /// ViewAllStudentsNotInClass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource ViewAllStudentsNotInClass;
+
+        /// <summary>
+        /// allOtherStudents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView allOtherStudents;
+
+        /// <summary>
+        /// allStudentsInClass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView allStudentsInClass;
     }
 }

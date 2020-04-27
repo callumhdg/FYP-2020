@@ -29,20 +29,35 @@
 
                 <!-- students in selected class -->
                 <!-- select student.username, student.name, StudentsInClass.ClassID from student join studentsInClass where (selected ClassID) == StudentsInClass.ClassID -->
-                
+                <asp:SqlDataSource ID="ViewAllStudentsInClass" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT StudentID, ClassID FROM StudentsInClass WHERE ClassID = @ClassID"></asp:SqlDataSource>
+
                 <!-- students not in selected class -->
                 <!-- select student.username, student.name, StudentsInClass.ClassID from student join studentsInClass where StudentsInClass.ClassID != (selected ClassID) -->
-                <asp:GridView ID="allStudents" runat="server" DataSourceID="ViewAllStudents" DataKeyNames="StudentID" AutoGenerateColumns="false">
+                <asp:SqlDataSource ID="ViewAllStudentsNotInClass" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand=""></asp:SqlDataSource>
+
+                <asp:GridView ID="allOtherStudents" runat="server" DataSourceID="                     " DataKeyNames="StudentID" AutoGenerateColumns="false">
                     <Columns>
                         <asp:BoundField DataField="StudentUsername" HeaderText="StudentUsername" ReadOnly="true" SortExpression="StudentUsername"/>
                         <asp:BoundField DataField="StudentFirstName" HeaderText="StudentFirstName" ReadOnly="true" SortExpression="StudentFirstName"/>
                         <asp:BoundField DataField="StudentLastName" HeaderText="StudentLastName" ReadOnly="true" SortExpression="StudentLastName"/>
                         <asp:BoundField DataField="StudentDOB" HeaderText="StudentDOB" ReadOnly="true" SortExpression="StudentDOB"/>
-                        <asp:CheckBoxField/>
+                        <asp:ButtonField HeaderText="Add Student to class" Text="Add" />
+                    </Columns>
+                </asp:GridView>
+                
+                
+                <asp:GridView ID="allStudentsInClass" runat="server" DataSourceID="ViewAllStudentsInClass" DataKeyNames="StudentID" AutoGenerateColumns="false">
+                    <Columns>
+                        <asp:BoundField DataField="StudentUsername" HeaderText="StudentUsername" ReadOnly="true" SortExpression="StudentUsername"/>
+                        <asp:BoundField DataField="StudentFirstName" HeaderText="StudentFirstName" ReadOnly="true" SortExpression="StudentFirstName"/>
+                        <asp:BoundField DataField="StudentLastName" HeaderText="StudentLastName" ReadOnly="true" SortExpression="StudentLastName"/>
+                        <asp:BoundField DataField="StudentDOB" HeaderText="StudentDOB" ReadOnly="true" SortExpression="StudentDOB"/>
+                        <asp:ButtonField HeaderText="Remove Student from class" Text="Remove" />
                     </Columns>
                 </asp:GridView>
 
 
+                
 
 
             </form>
