@@ -42,31 +42,22 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.WebControls.SqlDataSource ViewAllClasses;
 
         /// <summary>
-        /// drpSelectTeacher control.
+        /// drpSelectClass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpSelectTeacher;
+        protected global::System.Web.UI.WebControls.DropDownList drpSelectClass;
 
         /// <summary>
-        /// ViewAllStudentsInClass control.
+        /// btnSelectClass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ViewAllStudentsInClass;
-
-        /// <summary>
-        /// ViewAllStudentsNotInClass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ViewAllStudentsNotInClass;
+        protected global::System.Web.UI.WebControls.Button btnSelectClass;
 
         /// <summary>
         /// allOtherStudents control.
@@ -85,5 +76,23 @@ namespace FPY_Homework_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView allStudentsInClass;
+
+        /// <summary>
+        /// ViewAllStudentsNotInClass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource ViewAllStudentsNotInClass;
+
+        /// <summary>
+        /// ViewAllStudentsInClass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource ViewAllStudentsInClass;
     }
 }

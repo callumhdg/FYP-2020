@@ -24,6 +24,12 @@ namespace FPY_Homework_Management.Classes
             studentID = stuID;
         }
 
+        public StudentsInClass(string clsID, string stuID)
+        {
+            classID = clsID;
+            studentID = stuID;
+        }
+
         public StudentsInClass()
         { }
 
@@ -63,7 +69,16 @@ namespace FPY_Homework_Management.Classes
             conn.Close();
         }
 
+        public void removeStudentFromClass(string id)
+        {
+            string query = "DELETE FROM StudentsInClass WHERE StudentID = @StudentID";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
 
+            cmd.Parameters.AddWithValue("@StudentID", id);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
 
 
     

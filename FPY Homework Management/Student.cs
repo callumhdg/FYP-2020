@@ -47,6 +47,12 @@ namespace FPY_Homework_Management.Classes
             studentUsername = sUsername;
         }
 
+        //public Student(string sID)
+        //{
+        //    studentID = sID;
+
+        //}
+
         public Student()
         {
         }
@@ -66,6 +72,24 @@ namespace FPY_Homework_Management.Classes
             }
             conn.Close();
             return allStudents;
+        }
+
+
+        public ArrayList readAllStudentIDs()
+        {
+            ArrayList allStudentsID = new ArrayList();
+            string query = "SELECT StudentID from Students";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader re = cmd.ExecuteReader();
+
+            while (re.Read())
+            {
+                //Student student = new Student(re["StudentID"].ToString());
+                allStudentsID.Add(re["StudentID"].ToString());
+            }
+            conn.Close();
+            return allStudentsID;
         }
 
 

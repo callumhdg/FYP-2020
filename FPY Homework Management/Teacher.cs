@@ -87,7 +87,7 @@ namespace FPY_Homework_Management.Classes
 
         public Teacher readSingleTeacher(string id)
         {
-            string query = "SELECT * from Teacher where TeacherID = @id";
+            string query = "SELECT * from Teachers where TeacherID = @id";
             Teacher seclectedTeacher = new Teacher();
             conn.Open();
 

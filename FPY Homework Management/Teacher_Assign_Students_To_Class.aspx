@@ -16,48 +16,72 @@
         <div>
             <form id="frmAssignToClass" runat="server">
                 <%--<asp:SqlDataSource ID="ViewAllClasses" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT [ClassID], [ClassTeacherID], [ClassSubject], [ClassYearGroup], [ClassName] FROM [Class] ORDER BY [ClassName] DESC"></asp:SqlDataSource>--%>
-                <asp:SqlDataSource ID="ViewAllStudents" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT [StudentID], [StudentFirstName], [StudentLastName], [StudentUsername] FROM [Students] ORDER BY [StudentFirstName] DESC, [StudentLastName] DESC"></asp:SqlDataSource>
+                <%--<asp:SqlDataSource ID="ViewAllStudents" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT [StudentID], [StudentFirstName], [StudentLastName], [StudentUsername] FROM [Students] ORDER BY [StudentFirstName] DESC, [StudentLastName] DESC"></asp:SqlDataSource>--%>
+                <asp:SqlDataSource ID="ViewAllStudents" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT StudentID, StudentFirstName, StudentLastName, StudentUsername FROM Students ORDER BY StudentFirstName DESC, StudentLastName DESC"></asp:SqlDataSource>
 
             
 
-                <asp:SqlDataSource ID="ViewAllClasses" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT [ClassID], [ClassTeacherID], [ClassSubject], [ClassYearGroup], [ClassName] FROM [Class] ORDER BY [ClassName] DESC"></asp:SqlDataSource>
+                <%--<asp:SqlDataSource ID="ViewAllClasses" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT [ClassID], [ClassTeacherID], [ClassSubject], [ClassYearGroup], [ClassName] FROM [Class] ORDER BY [ClassName] DESC"></asp:SqlDataSource>--%>
+                <asp:SqlDataSource ID="ViewAllClasses" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT * FROM Class ORDER BY ClassName DESC"></asp:SqlDataSource>
 
-                <div class="row" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">                
+                <div class="row" style="width:20%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">                
                     <span style="font-weight:bold">Class*</span><br/>
-                    <asp:DropDownList ID="drpSelectTeacher" runat="server" DataSourceID="ViewAllClasses" DataTextField="ClassName" DataValueField="ClassID" class="custom-select"></asp:DropDownList>
-                </div><br/>
+                    <asp:DropDownList ID="drpSelectClass" runat="server" DataSourceID="ViewAllClasses" DataTextField="ClassName" DataValueField="ClassID" class="custom-select"></asp:DropDownList>
+                    <asp:Button ID="btnSelectClass" runat="server" Text="Select" OnClick="btnSelectClass_Click"/>
+                </div>
+                
+                <br/>
 
                 <!-- students in selected class -->
                 <!-- select student.username, student.name, StudentsInClass.ClassID from student join studentsInClass where (selected ClassID) == StudentsInClass.ClassID -->
-                <asp:SqlDataSource ID="ViewAllStudentsInClass" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT StudentID, ClassID FROM StudentsInClass WHERE ClassID = @ClassID"></asp:SqlDataSource>
-
+                
                 <!-- students not in selected class -->
                 <!-- select student.username, student.name, StudentsInClass.ClassID from student join studentsInClass where StudentsInClass.ClassID != (selected ClassID) -->
-                <asp:SqlDataSource ID="ViewAllStudentsNotInClass" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand=""></asp:SqlDataSource>
+                
 
-                <asp:GridView ID="allOtherStudents" runat="server" DataSourceID="                     " DataKeyNames="StudentID" AutoGenerateColumns="false">
+                <div id="gridViews">
+
+                <span style="font-weight:bold">Students Not In Selected Class</span><br/>
+                <asp:GridView ID="allOtherStudents" DataSourceID="ViewAllStudentsNotInClass" runat="server" DataKeyNames="StudentID" AutoGenerateColumns="False">
                     <Columns>
-                        <asp:BoundField DataField="StudentUsername" HeaderText="StudentUsername" ReadOnly="true" SortExpression="StudentUsername"/>
-                        <asp:BoundField DataField="StudentFirstName" HeaderText="StudentFirstName" ReadOnly="true" SortExpression="StudentFirstName"/>
-                        <asp:BoundField DataField="StudentLastName" HeaderText="StudentLastName" ReadOnly="true" SortExpression="StudentLastName"/>
-                        <asp:BoundField DataField="StudentDOB" HeaderText="StudentDOB" ReadOnly="true" SortExpression="StudentDOB"/>
-                        <asp:ButtonField HeaderText="Add Student to class" Text="Add" />
+                        <asp:BoundField DataField="StudentID" ReadOnly="true"/>
+                        <asp:BoundField DataField="StudentUsername" HeaderText="Student Username" ReadOnly="true" SortExpression="StudentUsername"/>
+                        <asp:BoundField DataField="StudentFirstName" HeaderText="Student First Name" ReadOnly="true" SortExpression="StudentFirstName"/>
+                        <asp:BoundField DataField="StudentLastName" HeaderText="Student Last Name" ReadOnly="true" SortExpression="StudentLastName"/>
+                        <asp:BoundField DataField="StudentDOB" HeaderText="Student DOB" ReadOnly="true" SortExpression="StudentDOB"/>
+                        <%--<asp:ButtonField HeaderText="Add Student to class" Text="Add" />--%>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <%--<asp:ButtonField ButtonType="Button" CommandName="Select" HeaderText="Add Student To Class" ShowHeader="True" Text="Add" ItemStyle-HorizontalAlign="Center" />--%>
+                                <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" HeaderText="Add Student To Class" ShowHeader="True" Text="Add" ItemStyle-HorizontalAlign="Center" CommandArgument="Container.DataItemIndex" />  <%--CommandArgument="Container.DataItemIndex"--%>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView><br/><br/>
+                
+                <span style="font-weight:bold">Students In Selected Class</span><br/>
+                <asp:GridView ID="allStudentsInClass" DataSourceID="ViewAllStudentsInClass" runat="server" DataKeyNames="StudentID" AutoGenerateColumns="false">
+                    <Columns>
+                        <asp:BoundField DataField="StudentID" ReadOnly="true"/>
+                        <asp:BoundField DataField="StudentUsername" HeaderText="Student Username" ReadOnly="true" SortExpression="StudentUsername"/>
+                        <asp:BoundField DataField="StudentFirstName" HeaderText="Student First Name" ReadOnly="true" SortExpression="StudentFirstName"/>
+                        <asp:BoundField DataField="StudentLastName" HeaderText="Student Last Name" ReadOnly="true" SortExpression="StudentLastName"/>
+                        <asp:BoundField DataField="StudentDOB" HeaderText="Student DOB" ReadOnly="true" SortExpression="StudentDOB"/>
+                        <%--<asp:ButtonField HeaderText="Remove Student from class" Text="Remove" />--%>
+                        <%--<asp:ButtonField ButtonType="Button" CommandName="Select" HeaderText="Remove Student From Class" ShowHeader="True" Text="Remove" ItemStyle-HorizontalAlign="Center" />--%>
+                        <asp:TemplateField>
+                            <ItemTemplate>                                
+                                <asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click" CommandName="Select" HeaderText="Remove Student From Class" ShowHeader="True" Text="Remove" ItemStyle-HorizontalAlign="Center" /> <%--CommandArgument="Container.DataItemIndex"--%>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-                
-                
-                <asp:GridView ID="allStudentsInClass" runat="server" DataSourceID="ViewAllStudentsInClass" DataKeyNames="StudentID" AutoGenerateColumns="false">
-                    <Columns>
-                        <asp:BoundField DataField="StudentUsername" HeaderText="StudentUsername" ReadOnly="true" SortExpression="StudentUsername"/>
-                        <asp:BoundField DataField="StudentFirstName" HeaderText="StudentFirstName" ReadOnly="true" SortExpression="StudentFirstName"/>
-                        <asp:BoundField DataField="StudentLastName" HeaderText="StudentLastName" ReadOnly="true" SortExpression="StudentLastName"/>
-                        <asp:BoundField DataField="StudentDOB" HeaderText="StudentDOB" ReadOnly="true" SortExpression="StudentDOB"/>
-                        <asp:ButtonField HeaderText="Remove Student from class" Text="Remove" />
-                    </Columns>
-                </asp:GridView>
 
+                </div>
 
-                
+                <asp:SqlDataSource ID="ViewAllStudentsNotInClass" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT StudentID, ClassID FROM StudentsInClass"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="ViewAllStudentsInClass" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT StudentID, ClassID FROM StudentsInClass"></asp:SqlDataSource>
+
 
 
             </form>
