@@ -65,7 +65,8 @@ namespace FPY_Homework_Management
 
         public void populateInClassTable()
         {
-            ArrayList arrStudentsInClass = selectStudentsInClass();
+            //ArrayList arrStudentsInClass = selectStudentsInClass();
+            ArrayList arrStudentsInClass = SelectAllStudentsInAClass();
 
             //for (int i = 0; i < arrStudentsInClass.Count; i++)
             //{
@@ -74,13 +75,12 @@ namespace FPY_Homework_Management
             //    allStudentsInThisClass.Add(s.readSingleStudent(i.ToString()));
             //}
 
-            if (arrStudentsInClass.Count != 0)
-            {
+            if (arrStudentsInClass.Count != 0) {
                 string inClassQuery = "SELECT StudentID, StudentUsername, StudentFirstName, StudentLastName, StudentDOB FROM Students ";
                 for (int i = 0; i < arrStudentsInClass.Count; i++)
                 {
                     inClassQuery = inClassQuery + "WHERE StudentID = " + arrStudentsInClass[i].ToString();
-                    if (i != arrStudentsInClass.Count)
+                    if (i != (arrStudentsInClass.Count - 1))
                     {
                         inClassQuery = inClassQuery + " AND ";
                     }
@@ -118,40 +118,62 @@ namespace FPY_Homework_Management
 
 
 
-        public ArrayList selectStudentsInClass() //fix this
-        {
-            ArrayList arrAllInClass = new ArrayList();
-            //string query = "SELECT StudentsInClassID, StudentID, ClassID FROM StudentsInClass WHERE ClassID = @ClassID";
-            //string query = "SELECT StudentID FROM StudentsInClass WHERE ClassID = @ClassID";
-            //string query = "SELECT StudentID FROM StudentsInClass WHERE ClassID = 1";
-            string query = "SELECT StudentID FROM StudentsInClass WHERE ClassID = " + selectedClass;
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(query, conn);
+        //public ArrayList selectStudentsInClass() //fix this
+        //{
+        //    ArrayList arrAllInClass = new ArrayList();
+        //    //string query = "SELECT StudentsInClassID, StudentID, ClassID FROM StudentsInClass WHERE ClassID = @ClassID";
+        //    //string query = "SELECT StudentID FROM StudentsInClass WHERE ClassID = @ClassID";
+        //    //string query = "SELECT StudentID FROM StudentsInClass WHERE ClassID = 1";
+        //    //string query = "SELECT StudentID FROM StudentsInClass WHERE ClassID = " + selectedClass;
+        //    //conn.Open();
+        //    //SqlCommand cmd = new SqlCommand(query, conn);
 
-            //cmd.Parameters.AddWithValue("@ClassID", drpSelectClass.DataValueField);
+        //    //cmd.Parameters.AddWithValue("@ClassID", drpSelectClass.DataValueField);
 
-            SqlDataReader re = cmd.ExecuteReader();
+        //    //SqlDataReader re = cmd.ExecuteReader();
 
-            //if (arrAllInClass.Count != 0)
-            try
-            {
-                while (re.Read())
-                {
-                    StudentsInClass stu = new StudentsInClass(re["StudentsInClassID"].ToString(), re["StudentID"].ToString(), re["ClassID"].ToString());
-                    arrAllInClass.Add(stu);
-                    allOtherStudents.Visible = true;
-                }
-            }
-            catch
-            {
-                //no students in this class yet
-                allOtherStudents.Visible = false;
-            }
+        //    //if (arrAllInClass.Count != 0)
+        //    //    try
+        //    //    {
+        //    //        while (re.Read())
+        //    //        {
+        //    //            StudentsInClass stu = new StudentsInClass(re["StudentsInClassID"].ToString(), re["StudentID"].ToString(), re["ClassID"].ToString());
+        //    //            arrAllInClass.Add(stu);
+        //    //            allOtherStudents.Visible = true;
+        //    //        }
+        //    //    }
+        //    //    catch
+        //    //    {
+        //    //        //no students in this class yet
+        //    //        allOtherStudents.Visible = false;
+        //    //    }
 
-            //cmd.ExecuteNonQuery();                        
-            conn.Close();
-            return arrAllInClass;
-        }
+        //    //    //cmd.ExecuteNonQuery();                        
+        //    //    conn.Close();
+
+        //    Student student = new Student();
+        //    ArrayList allStu = student.readAllStudentIDs();
+        //    ArrayList allStuInClass = SelectAllStudentsInAClass();
+
+        //    for (int i = 0; i < allStu.Count; i++)
+        //    {
+        //        for (int s = 0; s < allStuInClass.Count; s++)
+        //        {
+        //            if (allStu[i].ToString() == allStuInClass[s].ToString())
+        //            {
+        //                allStu.RemoveAt(i);
+        //            }
+        //        }
+        //    }
+
+
+
+
+
+
+        //    return arrAllInClass;
+        //}
+
 
 
         public ArrayList selectStudentsNotInClass()
@@ -215,6 +237,7 @@ namespace FPY_Homework_Management
 
         public ArrayList SelectAllStudentsInAClass()
         {
+            selectedClass = drpSelectClass.SelectedValue.ToString();
             string query = "SELECT StudentID FROM StudentsInClass WHERE ClassID = " + selectedClass;
             ArrayList allStudentsInThisClass = new ArrayList();
             conn.Open();
@@ -229,9 +252,7 @@ namespace FPY_Homework_Management
                 }
             }
             catch
-            {
-
-            }
+            { }
 
             conn.Close();
             return allStudentsInThisClass;
