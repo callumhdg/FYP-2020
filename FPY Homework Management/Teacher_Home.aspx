@@ -15,8 +15,8 @@
 </head>
 <body>
         <div>
-            <form ID="Form" runat="server">
-                <h1 ID="tHomeHeadder">Welcome </h1>
+            <form id="Form" runat="server">
+                <h1 id="tHomeHeadder">Welcome </h1>
 
             
             </form>

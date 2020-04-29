@@ -23,7 +23,7 @@
 
             <div class="form-group">
                 <label for="examplePasswordInput">Password</label>
-                <asp:TextBox type="password" class="form-control" ID="txtPassword" runat="server" placeholder="Password"></asp:TextBox>
+                <asp:TextBox type="password" class="form-control" ID="txtPassword" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
             </div>
 
             <div class="row">
