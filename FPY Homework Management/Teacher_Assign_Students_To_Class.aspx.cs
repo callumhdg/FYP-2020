@@ -25,46 +25,52 @@ namespace FPY_Homework_Management
 
             //allOtherStudents.DataSourceID = "ViewAllStudentsNotInClass";
             //allStudentsInClass.DataSourceID = "ViewAllStudentsInClass";
+
+            allStudentsInClass.Visible = false;
+            allOtherStudents.Visible = false;
         }
 
 
-        protected void allOtherStudents_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "Select")
-            {
-                int studentToAdd = Convert.ToInt32(e.CommandArgument);
-                //GridViewRow selectedRow = allOtherStudents.Rows[studentToAdd];
-                string studentIDVal = allOtherStudents.DataKeys[studentToAdd].ToString();
+        //protected void allOtherStudents_RowCommand(object sender, GridViewCommandEventArgs e)
+        //{
+        //    if (e.CommandName == "Select")
+        //    {
+        //        int studentToAdd = Convert.ToInt32(e.CommandArgument);
+        //        //GridViewRow selectedRow = allOtherStudents.Rows[studentToAdd];
+        //        string studentIDVal = allOtherStudents.DataKeys[studentToAdd].ToString();
 
-                StudentsInClass newListing = new StudentsInClass(studentIDVal, drpSelectClass.Text);
-                newListing.createStudentClassListing();
-            }
+        //        StudentsInClass newListing = new StudentsInClass(studentIDVal, drpSelectClass.Text);
+        //        newListing.createStudentClassListing();
+        //    }
 
-            //populateInClassTable();
-            //populateNotInClassTable();
-        }
+        //    //populateInClassTable();
+        //    //populateNotInClassTable();
+        //}
 
 
-        protected void allStudentsInClass_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "Select")
-            {
-                int studentToAdd = Convert.ToInt32(e.CommandArgument);
-                //GridViewRow selectedRow = allOtherStudents.Rows[studentToAdd];
-                string studentIDVal = allStudentsInClass.DataKeys[studentToAdd].ToString();
+        //protected void allStudentsInClass_RowCommand(object sender, GridViewCommandEventArgs e)
+        //{
+        //    if (e.CommandName == "Select")
+        //    {
+        //        int studentToAdd = Convert.ToInt32(e.CommandArgument);
+        //        //GridViewRow selectedRow = allOtherStudents.Rows[studentToAdd];
+        //        string studentIDVal = allStudentsInClass.DataKeys[studentToAdd].ToString();
 
-                StudentsInClass newListing = new StudentsInClass(studentIDVal, drpSelectClass.Text);
-                newListing.createStudentClassListing();
-            }
+        //        StudentsInClass newListing = new StudentsInClass(studentIDVal, drpSelectClass.Text);
+        //        newListing.createStudentClassListing();
+        //    }
 
-            //populateInClassTable();
-            //populateNotInClassTable();
-        }
+        //    //populateInClassTable();
+        //    //populateNotInClassTable();
+        //}
 
 
 
         public void populateInClassTable()
         {
+            allStudentsInClass.DataBind();
+
+
             //ArrayList arrStudentsInClass = selectStudentsInClass();
             ArrayList arrStudentsInClass = SelectAllStudentsInAClass();
 
@@ -87,12 +93,19 @@ namespace FPY_Homework_Management
                 }
                 inClassQuery = inClassQuery + ";";
                 ViewAllStudentsInClass.SelectCommand = inClassQuery;
+                allStudentsInClass.Visible = true;
+            }
+            else
+            {
+                allStudentsInClass.Visible = false;
             }
         }
 
 
         public void populateNotInClassTable()
         {
+            allOtherStudents.DataBind();
+
             ArrayList arrStudentsNotInClass = selectStudentsNotInClass();
 
             if (arrStudentsNotInClass.Count != 0) {
@@ -113,7 +126,13 @@ namespace FPY_Homework_Management
                 //inClassQuery = inClassQuery + ")" + '"';
                 inClassQuery = inClassQuery + ";";
                 ViewAllStudentsNotInClass.SelectCommand = inClassQuery;
+                allOtherStudents.Visible = true;
             }
+            else
+            {
+                allOtherStudents.Visible = false;
+            }
+
         }
 
 

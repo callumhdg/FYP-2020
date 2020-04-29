@@ -79,8 +79,8 @@
 
                 </div>
 
-                <asp:SqlDataSource ID="ViewAllStudentsNotInClass" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT StudentID, ClassID FROM StudentsInClass"></asp:SqlDataSource>
-                <asp:SqlDataSource ID="ViewAllStudentsInClass" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT StudentID, ClassID FROM StudentsInClass"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="ViewAllStudentsNotInClass" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT StudentID, StudentUsername, StudentFirstName, StudentLastName, StudentDOB FROM Students"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="ViewAllStudentsInClass" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT StudentID, StudentUsername, StudentFirstName, StudentLastName, StudentDOB FROM Students"></asp:SqlDataSource>
 
 
 
