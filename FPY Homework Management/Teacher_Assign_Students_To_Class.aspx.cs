@@ -68,7 +68,7 @@ namespace FPY_Homework_Management
 
         public void populateInClassTable()
         {
-            allStudentsInClass.DataBind();
+            //allStudentsInClass.DataBind();
 
 
             //ArrayList arrStudentsInClass = selectStudentsInClass();
@@ -82,13 +82,14 @@ namespace FPY_Homework_Management
             //}
 
             if (arrStudentsInClass.Count != 0) {
-                string inClassQuery = "SELECT StudentID, StudentUsername, StudentFirstName, StudentLastName, StudentDOB FROM Students ";
+                string inClassQuery = "SELECT StudentID, StudentUsername, StudentFirstName, StudentLastName, StudentDOB FROM Students WHERE ";
                 for (int i = 0; i < arrStudentsInClass.Count; i++)
                 {
-                    inClassQuery = inClassQuery + "WHERE StudentID = " + arrStudentsInClass[i].ToString();
+                    //inClassQuery = inClassQuery + "WHERE StudentID = " + arrStudentsInClass[i].ToString();
+                    inClassQuery = inClassQuery + "StudentID = " + arrStudentsInClass[i].ToString();
                     if (i != (arrStudentsInClass.Count - 1))
                     {
-                        inClassQuery = inClassQuery + " AND ";
+                        inClassQuery = inClassQuery + " OR ";
                     }
                 }
                 inClassQuery = inClassQuery + ";";
@@ -104,18 +105,19 @@ namespace FPY_Homework_Management
 
         public void populateNotInClassTable()
         {
-            allOtherStudents.DataBind();
+            //allOtherStudents.DataBind();
 
             ArrayList arrStudentsNotInClass = selectStudentsNotInClass();
 
             if (arrStudentsNotInClass.Count != 0) {
-                string inClassQuery = "SELECT StudentID, StudentUsername, StudentFirstName, StudentLastName, StudentDOB FROM Students ";
+                string inClassQuery = "SELECT StudentID, StudentUsername, StudentFirstName, StudentLastName, StudentDOB FROM Students WHERE ";
                 for (int i = 0; i < arrStudentsNotInClass.Count; i++)
                 {
-                    inClassQuery = inClassQuery + "WHERE StudentID = " + arrStudentsNotInClass[i].ToString();
+                    //inClassQuery = inClassQuery + "WHERE StudentID = '" + arrStudentsNotInClass[i].ToString() + "'";
+                    inClassQuery = inClassQuery + "StudentID = '" + arrStudentsNotInClass[i].ToString() + "'";
                     if (i != (arrStudentsNotInClass.Count - 1))
                     {
-                        inClassQuery = inClassQuery + " AND ";
+                        inClassQuery = inClassQuery + " OR ";
                     }
                 }
                 //string inClassQuery = "SELECT StudentID, StudentFirstName, StudentLastName, StudentDOB FROM Students WHERE StudentID IN (";

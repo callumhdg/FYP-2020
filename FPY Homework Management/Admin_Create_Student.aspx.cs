@@ -120,6 +120,11 @@ namespace FPY_Homework_Management
             StudentLastNameIn.Text = "";
             StudentPasswordIn.Text = "";
             StudentParEmailIn.Text = "";
+
+            StudentDateOfBirthDay.Text = "";
+            StudentDateOfBirthMonth.Text = "";
+            StudentDateOfBirthYear.Text = "";
+
             lblErrorMessage.Visible = false;
         }
 
