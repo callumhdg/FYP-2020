@@ -70,12 +70,12 @@
                 <span style="font-weight:bold">Student Password*</span><br/>
                 <asp:TextBox ID="StudentPasswordIn" runat="server" class="form-control" TextMode="Password" placeholder="Password"></asp:TextBox>
             </div><br/>
-
-            <%--<div class="row" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">
-                <span style="font-weight:bold">Student Date of Birth* (DD/MM/YYYY)</span><br/>
-                <asp:TextBox ID="StudentDateOfBirth" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
-            </div><br/>--%>
             
+            <%--<div class="row" style="width:20%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">                
+                <span style="font-weight:bold">Due Date*</span><br/>
+                <asp:TextBox ID="StudentDateOfBirth" runat="server" placeholder="From" type="date"></asp:TextBox>
+            </div>--%>
+
             <div class="container" style="background-color:white">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">
                     <span style="font-weight:bold">Student Date of Birth* (DD/MM/YYYY)</span><br/>

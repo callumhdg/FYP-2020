@@ -41,9 +41,15 @@
             <asp:SqlDataSource ID="ViewAllHomework" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT * FROM CoreHomework ORDER BY HomeworkTitle DESC"></asp:SqlDataSource>
 
             <div class="row" style="width:20%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">                
-                <span style="font-weight:bold">Class*</span><br/>
+                <span style="font-weight:bold">Homework*</span><br/>
                 <asp:DropDownList ID="dropSelectHomework" runat="server" DataSourceID="ViewAllHomework" DataTextField="HomeworkTitle" DataValueField="CoreHomeworkID" class="custom-select"></asp:DropDownList>
                 <%--<asp:Button ID="btnSelectHomework" runat="server" Text="Select" OnClick="btnSelectHomework_Click"/>--%>
+            </div> <br/>
+
+
+            <div class="row" style="width:20%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">                
+                <span style="font-weight:bold">Due Date*</span><br/>
+                <asp:TextBox ID="dueDateIn" runat="server" placeholder="From" type="date"></asp:TextBox>
             </div> <br/>
 
 

@@ -31,6 +31,30 @@ namespace FPY_Homework_Management.Classes
             SubmissionDate = subDate;
         }
 
+        public IssuedHomework(string issHWID, string coreHWID, string stuID, string issuingTeacherID, string timeToFin, DateTime dDate)
+        {
+            IssuedHomeworkID = issHWID;
+            CoreHomeworkID = coreHWID;
+            StudentID = stuID;
+            SetByTeacherID = issuingTeacherID;
+            TimeToComplete = timeToFin;
+            DueDate = dDate;
+        }
+
+
+        public IssuedHomework(string coreHWID, string stuID, string issuingTeacherID, string timeToFin, DateTime dDate)
+        {
+            CoreHomeworkID = coreHWID;
+            StudentID = stuID;
+            SetByTeacherID = issuingTeacherID;
+            TimeToComplete = timeToFin;
+            DueDate = dDate;
+        }
+
+        public IssuedHomework(string issHWID)
+        {
+            IssuedHomeworkID = issHWID;
+        }
 
         public IssuedHomework()
         { }
@@ -55,8 +79,26 @@ namespace FPY_Homework_Management.Classes
         }
 
 
+        public ArrayList readAllNewIssuedHomework()
+        {
+            ArrayList allIssuedHomework = new ArrayList();
+            string query = "SELECT IssuedHomeworkID from IssuedHomework";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader re = cmd.ExecuteReader();
 
-        public IssuedHomework readSelectedIssuedHomework(string id)
+            while (re.Read())
+            {
+                //IssuedHomework issuedHomework = new IssuedHomework(re["IssuedHomeworkID"].ToString());
+                //allIssuedHomework.Add(issuedHomework);
+                allIssuedHomework.Add((re["IssuedHomeworkID"].ToString()));
+            }
+            conn.Close();
+            return allIssuedHomework;
+        }
+
+
+        public IssuedHomework readSelectedIssuedHomework(string id)//if submission date is null this cant be read
         {
             string query = "SELECT * from IssuedHomework WHERE IssuedHomeworkID = @id";
             IssuedHomework seclectedIssuedHomework = new IssuedHomework();
@@ -77,12 +119,12 @@ namespace FPY_Homework_Management.Classes
 
 
         public void createIssuedHomework()
-        {
-            string query = "INSERT into IssuedHomework (IssuedHomeworkID, CoreHomeworkID, StudentID, SetByTeacherID, TimeToComplete, DueDate) VALUES (@IssuedHomeworkID, @CoreHomeworkID, @StudentID, @SetByTeacherID, @TimeToComplete, @DueDate)";
+        {            
+            string query = "INSERT into IssuedHomework (CoreHomeworkID, StudentID, SetByTeacherID, TimeToComplete, DueDate) VALUES (@CoreHomeworkID, @StudentID, @SetByTeacherID, @TimeToComplete, @DueDate)";
             conn.Open();
             SqlCommand cmd = new SqlCommand(query, conn);
 
-            cmd.Parameters.AddWithValue("@IssuedHomeworkID", this.IssuedHomeworkID);
+            //cmd.Parameters.AddWithValue("@IssuedHomeworkID", this.IssuedHomeworkID);
             cmd.Parameters.AddWithValue("@CoreHomeworkID", this.CoreHomeworkID);
             cmd.Parameters.AddWithValue("@StudentID", this.StudentID);
             cmd.Parameters.AddWithValue("@SetByTeacherID", this.SetByTeacherID);
