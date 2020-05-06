@@ -66,15 +66,58 @@ namespace FPY_Homework_Management.Classes
             while (re.Read())
             {
                 QuestionToAnswer qta = new QuestionToAnswer(re["QuestionToAnswerID"].ToString(), re["IssuedHomeworkID"].ToString(), re["QuestionText"].ToString(), re["QuestionNumber"].ToString(), re["MarksForQuestion"].ToString(), re["Results"].ToString(), re["Feedback"].ToString());
+                allQTA.Add(qta);
             }
             conn.Close();
             return allQTA;
         }
 
 
+        public ArrayList readSelectedQuestionInHomework(string id)
+        {
+            string query = "SELECT * FROM QuestionsToAnswer WHERE IssuedHomeworkID = @id";
+            ArrayList selectedQuestionToAnswer = new ArrayList();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader re = cmd.ExecuteReader();
+
+            while (re.Read())
+            {
+                QuestionToAnswer thisQuestion = new QuestionToAnswer(re["QuestionToAnswerID"].ToString(), re["IssuedHomeworkID"].ToString(), re["QuestionText"].ToString(), re["QuestionNumber"].ToString(), re["MarksForQuestion"].ToString());
+                selectedQuestionToAnswer.Add(thisQuestion);
+            }
+
+            conn.Close();
+            return selectedQuestionToAnswer;
+        }
+
+
+        public QuestionToAnswer readQuestionsInOrder(string id, string num)
+        {
+            string query = "SELECT * FROM QuestionsToAnswer WHERE IssuedHomeworkID = @id AND QuestionNumber = @num";
+            QuestionToAnswer selectedQuestionToAnswer = new QuestionToAnswer();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@num", num);
+            SqlDataReader re = cmd.ExecuteReader();
+
+            while (re.Read())
+            {
+                selectedQuestionToAnswer = new QuestionToAnswer(re["QuestionToAnswerID"].ToString(), re["IssuedHomeworkID"].ToString(), re["QuestionText"].ToString(), re["QuestionNumber"].ToString(), re["MarksForQuestion"].ToString());
+            }
+
+            conn.Close();
+            return selectedQuestionToAnswer;
+        }
+
+
         public QuestionToAnswer readSelectedQuestionToAnswer(string id)
         {
-            string query = "SELECT * FROM QuestionToAnswer WHERE QuestionToAnswerID = @id";
+            string query = "SELECT * FROM QuestionsToAnswer WHERE QuestionToAnswerID = @id";
             QuestionToAnswer selectedQuestionToAnswer = new QuestionToAnswer();
             conn.Open();
 

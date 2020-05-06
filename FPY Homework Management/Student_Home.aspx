@@ -29,13 +29,13 @@
                 <span style="font-weight:bold">Current Homework</span><br/>
                 <asp:GridView ID="selectActiveHomework" DataSourceID="listCurrentHomework" runat="server" DataKeyNames="IssuedHomeworkID" AutoGenerateColumns="false">
                     <Columns>
-                        <asp:BoundField DataField="IssuedHomeworkID" ReadOnly="true" Visible="false"/>
+                        <asp:BoundField DataField="IssuedHomeworkID" ReadOnly="true"/>
                         <asp:BoundField DataField="StudentID" ReadOnly="true" Visible="false"/>
                         <asp:BoundField DataField="DueDate" HeaderText="Due Date" ReadOnly="true"/>
                         <asp:BoundField DataField="TimeToComplete" HeaderText="Estemated Homework Duration" ReadOnly="true"/>
                         <asp:TemplateField>
                             <ItemTemplate>                                
-                                <asp:Button ID="btnSelectDueHomework" runat="server" OnClick="btnSelectDueHomework_Click" CommandName="Select" HeaderText="Select Homework" ShowHeader="True" Text="Select" ItemStyle-HorizontalAlign="Center" /> <%--CommandArgument="Container.DataItemIndex"--%>
+                                <asp:Button ID="btnSelectDueHomework" runat="server" OnClick="btnSelectDueHomework_Click" HeaderText="Select Homework" ShowHeader="True" Text="Select" ItemStyle-HorizontalAlign="Center" CommandArgument="Container.DataItemIndex"/> <%--CommandName="Select"--%>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
