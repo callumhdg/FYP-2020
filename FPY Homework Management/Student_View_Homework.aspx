@@ -24,7 +24,7 @@
 
         <div class="row" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px">
                 <!-- homework title -->
-            <span id="homeworkTitle" runat="server" style="font-weight:bold"></span><br/>
+            <span id="homeworkTitle" runat="server" style="font-weight:bold">Homework</span><br/>
         </div>
 
         <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
@@ -38,13 +38,13 @@
             
             <div id="q1Conainer" runat="server" class="container" style="background-color:lightgray; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle1">Question 1</span><br/>
+                    <span id="qNumTitle1">Question 1: </span><br/>
                     <span id="q1Text" runat="server"></span><br/>
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span>Answer here</span><br/>
-                    <asp:TextBox ID="txtQ1Answer" runat="server" class="form-control" placeholder="..."></asp:TextBox>
+                    <%--<span>Answer here</span><br/>--%>
+                    <asp:TextBox ID="txtQ1Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
@@ -55,13 +55,13 @@
 
             <div id="q2Conainer" runat="server" class="container" style="background-color:darkgray; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle2">Question 2</span><br/>
+                    <span id="qNumTitle2">Question 2: </span><br/>
                     <span id="q2Text" runat="server"></span><br/>
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span>Answer here</span><br/>
-                    <asp:TextBox ID="txtQ2Answer" runat="server" class="form-control" placeholder="..."></asp:TextBox>
+                    <%--<span>Answer here</span><br/>--%>
+                    <asp:TextBox ID="txtQ2Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
@@ -72,13 +72,13 @@
 
             <div id="q3Conainer" runat="server" class="container" style="background-color:lightgray; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle3">Question 3</span><br/>
+                    <span id="qNumTitle3">Question 3: </span><br/>
                     <span id="q3Text" runat="server"></span><br/>
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span>Answer here</span><br/>
-                    <asp:TextBox ID="txtQ3Answer" runat="server" class="form-control" placeholder="..."></asp:TextBox>
+                    <%--<span>Answer here</span><br/>--%>
+                    <asp:TextBox ID="txtQ3Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
@@ -89,13 +89,13 @@
 
             <div id="q4Conainer" runat="server" class="container" style="background-color:darkgray; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle4">Question 4</span><br/>
+                    <span id="qNumTitle4">Question 4: </span><br/>
                     <span id="q4Text" runat="server"></span><br/>
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span>Answer here</span><br/>
-                    <asp:TextBox ID="txtQ4Answer" runat="server" class="form-control" placeholder="..."></asp:TextBox>
+                    <%--<span>Answer here</span><br/>--%>
+                    <asp:TextBox ID="txtQ4Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
@@ -105,13 +105,13 @@
 
             <div id="q5Conainer" runat="server" class="container" style="background-color:lightgray; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle5">Question 5</span><br/>
+                    <span id="qNumTitle5">Question 5: </span><br/>
                     <span id="q5Text" runat="server"></span><br/>
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span>Answer here</span><br/>
-                    <asp:TextBox ID="txtQ5Answer" runat="server" class="form-control" placeholder="..."></asp:TextBox>
+                    <%--<span>Answer here</span><br/>--%>
+                    <asp:TextBox ID="txtQ5Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
@@ -122,13 +122,13 @@
 
             <div id="q6Conainer" runat="server" class="container" style="background-color:darkgray; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle6">Question 6</span><br/>
+                    <span id="qNumTitle6">Question 6: </span><br/>
                     <span id="q6Text" runat="server"></span><br/>
                 </div>
 
                 <div class="row" style="width: 100%; padding-left: 5%; padding-right: 5%">
-                    <span>Answer here</span><br/>
-                    <asp:TextBox ID="txtQ6Answer" runat="server" class="form-control" placeholder="..."></asp:TextBox>
+                    <%--<span>Answer here</span><br/>--%>
+                    <asp:TextBox ID="txtQ6Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
@@ -138,13 +138,13 @@
 
             <div id="q7Conainer" runat="server" class="container" style="background-color:lightgray; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle7">Question 7</span><br/>
+                    <span id="qNumTitle7">Question 7: </span><br/>
                     <span id="q7Text" runat="server"></span><br/>
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span>Answer here</span><br/>
-                    <asp:TextBox ID="txtQ7Answer" runat="server" class="form-control" placeholder="..."></asp:TextBox>
+                    <%--<span>Answer here</span><br/>--%>
+                    <asp:TextBox ID="txtQ7Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
@@ -155,13 +155,13 @@
 
             <div id="q8Conainer" runat="server" class="container" style="background-color:darkgray; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle8">Question 8</span><br/>
+                    <span id="qNumTitle8">Question 8: </span><br/>
                     <span id="q8Text" runat="server"></span><br/>
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span>Answer here</span><br/>
-                    <asp:TextBox ID="txtQ8Answer" runat="server" class="form-control" placeholder="..."></asp:TextBox>
+                    <%--<span>Answer here</span><br/>--%>
+                    <asp:TextBox ID="txtQ8Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
@@ -171,13 +171,13 @@
 
             <div id="q9Conainer" runat="server" class="container" style="background-color:lightgray; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle9">Question 9</span><br/>
+                    <span id="qNumTitle9">Question 9: </span><br/>
                     <span id="q9Text" runat="server"></span><br/>
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span>Answer here</span><br/>
-                    <asp:TextBox ID="txtQ9Answer" runat="server" class="form-control" placeholder="..."></asp:TextBox>
+                    <%--<span>Answer here</span><br/>--%>
+                    <asp:TextBox ID="txtQ9Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
@@ -188,13 +188,13 @@
 
             <div id="q10Conainer" runat="server" class="container" style="background-color:darkgray; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle10">Question 10</span><br/>
+                    <span id="qNumTitle10">Question 10: </span><br/>
                     <span id="q10Text" runat="server"></span><br/>
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span>Answer here</span><br/>
-                    <asp:TextBox ID="txtQ10Answer" runat="server" class="form-control" placeholder="..."></asp:TextBox>
+                    <%--<span>Answer here</span><br/>--%>
+                    <asp:TextBox ID="txtQ10Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">

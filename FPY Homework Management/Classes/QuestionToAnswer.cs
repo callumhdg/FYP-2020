@@ -18,19 +18,31 @@ namespace FPY_Homework_Management.Classes
         public string QuestionText { get; set; }
         public string QuestionNumber { get; set; }
         public string MarksForQuestion { get; set; }
+        public string Answer { get; set; }
         public string Results { get; set; }
         public string Feedback { get; set; }
 
 
-        public QuestionToAnswer(string qID, string parentHWID, string qText, string qNum, string qMarks, string res, string qFeedback)
+        public QuestionToAnswer(string qID, string parentHWID, string qText, string qNum, string qMarks, string ans, string res, string qFeedback)
         {
             QuestionToAnswerID = qID;
             IssuedHomeworkID = parentHWID;
             QuestionText = qText;
             QuestionNumber = qNum;
             MarksForQuestion = qMarks;
+            Answer = ans;
             Results = res;
             Feedback = qFeedback;
+        }
+
+        public QuestionToAnswer(string qID, string parentHWID, string qText,  string qNum, string qMarks, string ans)
+        {
+            QuestionToAnswerID = qID;
+            IssuedHomeworkID = parentHWID;
+            QuestionText = qText;
+            QuestionNumber = qNum;
+            MarksForQuestion = qMarks;
+            Answer = ans;
         }
 
         public QuestionToAnswer(string qID, string parentHWID, string qText, string qNum, string qMarks)
@@ -65,7 +77,7 @@ namespace FPY_Homework_Management.Classes
 
             while (re.Read())
             {
-                QuestionToAnswer qta = new QuestionToAnswer(re["QuestionToAnswerID"].ToString(), re["IssuedHomeworkID"].ToString(), re["QuestionText"].ToString(), re["QuestionNumber"].ToString(), re["MarksForQuestion"].ToString(), re["Results"].ToString(), re["Feedback"].ToString());
+                QuestionToAnswer qta = new QuestionToAnswer(re["QuestionToAnswerID"].ToString(), re["IssuedHomeworkID"].ToString(), re["QuestionText"].ToString(), re["QuestionNumber"].ToString(), re["MarksForQuestion"].ToString(), re["Answer"].ToString(), re["Results"].ToString(), re["Feedback"].ToString());
                 allQTA.Add(qta);
             }
             conn.Close();
@@ -127,7 +139,7 @@ namespace FPY_Homework_Management.Classes
 
             while (re.Read())
             {
-                selectedQuestionToAnswer = new QuestionToAnswer(re["QuestionToAnswerID"].ToString(), re["IssuedHomeworkID"].ToString(), re["QuestionText"].ToString(), re["QuestionNumber"].ToString(), re["MarksForQuestion"].ToString(), re["Results"].ToString(), re["Feedback"].ToString());
+                selectedQuestionToAnswer = new QuestionToAnswer(re["QuestionToAnswerID"].ToString(), re["IssuedHomeworkID"].ToString(), re["QuestionText"].ToString(), re["QuestionNumber"].ToString(), re["MarksForQuestion"].ToString(), re["Answer"].ToString(), re["Results"].ToString(), re["Feedback"].ToString());
             }
 
             conn.Close();
@@ -150,7 +162,16 @@ namespace FPY_Homework_Management.Classes
             conn.Close();
         }
 
+        public void updateAnsweredQuestion(string newAnswer, string parentID, string qNum)
+        {
+            string query = "UPDATE QuestionsToAnswer SET Answer = '" + newAnswer + "' WHERE IssuedHomeworkID = '" + parentID + "' AND QuestionNumber = '" + qNum + "'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
 
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+        }
 
 
 

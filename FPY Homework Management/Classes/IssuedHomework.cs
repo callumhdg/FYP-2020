@@ -156,7 +156,19 @@ namespace FPY_Homework_Management.Classes
         }
 
 
+        public void updateSubmittedHomework(string id)
+        {
+            //string query = "UPDATE IssuedHomework SET SubmissionDate = 'CURRENT_TIMESTAMP' WHERE IssuedHomeworkID = '" + id + "'";
+            string curentTime = DateTime.Now.ToString("yyyy-MM-dd");
+            string query = "UPDATE IssuedHomework SET SubmissionDate = '" + curentTime +"' WHERE IssuedHomeworkID = '" + id + "'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
 
+            //cmd.Parameters.AddWithValue("@time", DateTime.Now.ToString("yyyy-MM-dd"));
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
 
 
 

@@ -36,8 +36,8 @@ namespace FPY_Homework_Management
             Homework originalHomework = new Homework();
             originalHomework.readSingleCoreHomework(thisHomework.CoreHomeworkID);
 
-            homeworkTitle.InnerText = originalHomework.hwTitle;
-            timeEstemate.InnerText = thisHomework.TimeToComplete;
+            homeworkTitle.InnerText = originalHomework.hwTitle;//not sure if this is displaying
+            timeEstemate.InnerText = "This homework should take " + thisHomework.TimeToComplete + " minutes to complete";
 
 
             ArrayList allSelectedQuestions = new ArrayList();
@@ -144,30 +144,108 @@ namespace FPY_Homework_Management
         {
             currentIssuedHomeworkID = Session["SelectedHomework"].ToString();
 
+            ArrayList allSelectedQuestions = new ArrayList();
+            QuestionToAnswer question = new QuestionToAnswer();
+            allSelectedQuestions = question.readSelectedQuestionInHomework(currentIssuedHomeworkID);
+
+            //bool allQsAnswered = false;// answerQuestion(){ if (txtAnswer == null) { allQAnsw = false } else { allQAnsw = true } }
 
 
+            if (allSelectedQuestions.Count == 1)
+            {
+                answerQuestion1();
+            }
+            else if (allSelectedQuestions.Count == 2)
+            {
+                answerQuestion1();
+                answerQuestion2();
+            }
+            else if (allSelectedQuestions.Count == 3)
+            {
+                answerQuestion1();
+                answerQuestion2();
+                answerQuestion3();
+            }
+            else if (allSelectedQuestions.Count == 4)
+            {
+                answerQuestion1();
+                answerQuestion2();
+                answerQuestion3();
+                answerQuestion4();
+            }
+            else if (allSelectedQuestions.Count == 5)
+            {
+                answerQuestion1();
+                answerQuestion2();
+                answerQuestion3();
+                answerQuestion4();
+                answerQuestion5();
+            }
+            else if (allSelectedQuestions.Count == 6)
+            {
+                answerQuestion1();
+                answerQuestion2();
+                answerQuestion3();
+                answerQuestion4();
+                answerQuestion5();
+                answerQuestion6();
+            }
+            else if (allSelectedQuestions.Count == 7)
+            {
+                answerQuestion1();
+                answerQuestion2();
+                answerQuestion3();
+                answerQuestion4();
+                answerQuestion5();
+                answerQuestion6();
+                answerQuestion7();
+            }
+            else if (allSelectedQuestions.Count == 8)
+            {
+                answerQuestion1();
+                answerQuestion2();
+                answerQuestion3();
+                answerQuestion4();
+                answerQuestion5();
+                answerQuestion6();
+                answerQuestion7();
+                answerQuestion8();
+            }
+            else if (allSelectedQuestions.Count == 9)
+            {
+                answerQuestion1();
+                answerQuestion2();
+                answerQuestion3();
+                answerQuestion4();
+                answerQuestion5();
+                answerQuestion6();
+                answerQuestion7();
+                answerQuestion8();
+                answerQuestion9();
+            }
+            else if (allSelectedQuestions.Count == 10)
+            {
+                answerQuestion1();
+                answerQuestion2();
+                answerQuestion3();
+                answerQuestion4();
+                answerQuestion5();
+                answerQuestion6();
+                answerQuestion7();
+                answerQuestion8();
+                answerQuestion9();
+                answerQuestion10();
+            }
+            else { }
 
-
-
-
+            IssuedHomework thisHomework = new IssuedHomework();
+            thisHomework.updateSubmittedHomework(currentIssuedHomeworkID);
 
             Session["SelectedHomework"] = null;
             Response.Redirect("Student_Home.aspx");
         }
 
 
-
-        //public void readThisIssuedHomework()
-        //{
-        //    IssuedHomework thisHomework = new IssuedHomework();
-        //    thisHomework = thisHomework.readSelectedIssuedHomework(currentIssuedHomeworkID);
-
-        //    Homework originalHomework = new Homework();
-        //    originalHomework.readSingleCoreHomework(thisHomework.CoreHomeworkID);
-
-        //    homeworkTitle.InnerText = originalHomework.hwTitle;
-        //    timeEstemate.InnerText = thisHomework.TimeToComplete;
-        //}
 
         public void hideAllQuestions()
         {
@@ -192,7 +270,7 @@ namespace FPY_Homework_Management
             thisQuestion = thisQuestion.readQuestionsInOrder(currentIssuedHomeworkID, "1");
 
             q1Text.InnerText = thisQuestion.QuestionText;
-            QMaxMarks1.InnerText = thisQuestion.MarksForQuestion;
+            QMaxMarks1.InnerText = "Question 1 Marks: " + thisQuestion.MarksForQuestion;
         }
 
         public void fillQuestion2()
@@ -203,7 +281,7 @@ namespace FPY_Homework_Management
             thisQuestion = thisQuestion.readQuestionsInOrder(currentIssuedHomeworkID, "2");
 
             q2Text.InnerText = thisQuestion.QuestionText;
-            QMaxMarks2.InnerText = thisQuestion.MarksForQuestion;
+            QMaxMarks2.InnerText = "Question 2 Marks: " + thisQuestion.MarksForQuestion;
         }
 
         public void fillQuestion3()
@@ -214,7 +292,7 @@ namespace FPY_Homework_Management
             thisQuestion = thisQuestion.readQuestionsInOrder(currentIssuedHomeworkID, "3");
 
             q3Text.InnerText = thisQuestion.QuestionText;
-            QMaxMarks3.InnerText = thisQuestion.MarksForQuestion;
+            QMaxMarks3.InnerText = "Question 3 Marks: " + thisQuestion.MarksForQuestion;
         }
 
         public void fillQuestion4()
@@ -225,7 +303,7 @@ namespace FPY_Homework_Management
             thisQuestion = thisQuestion.readQuestionsInOrder(currentIssuedHomeworkID, "4");
 
             q4Text.InnerText = thisQuestion.QuestionText;
-            QMaxMarks4.InnerText = thisQuestion.MarksForQuestion;
+            QMaxMarks4.InnerText = "Question 4 Marks: " + thisQuestion.MarksForQuestion;
         }
 
         public void fillQuestion5()
@@ -236,7 +314,7 @@ namespace FPY_Homework_Management
             thisQuestion = thisQuestion.readQuestionsInOrder(currentIssuedHomeworkID, "5");
 
             q5Text.InnerText = thisQuestion.QuestionText;
-            QMaxMarks5.InnerText = thisQuestion.MarksForQuestion;
+            QMaxMarks5.InnerText = "Question 5 Marks: " + thisQuestion.MarksForQuestion;
         }
 
         public void fillQuestion6()
@@ -247,7 +325,7 @@ namespace FPY_Homework_Management
             thisQuestion = thisQuestion.readQuestionsInOrder(currentIssuedHomeworkID, "6");
 
             q6Text.InnerText = thisQuestion.QuestionText;
-            QMaxMarks6.InnerText = thisQuestion.MarksForQuestion;
+            QMaxMarks6.InnerText = "Question 6 Marks: " + thisQuestion.MarksForQuestion;
         }
 
         public void fillQuestion7()
@@ -258,7 +336,7 @@ namespace FPY_Homework_Management
             thisQuestion = thisQuestion.readQuestionsInOrder(currentIssuedHomeworkID, "7");
 
             q7Text.InnerText = thisQuestion.QuestionText;
-            QMaxMarks7.InnerText = thisQuestion.MarksForQuestion;
+            QMaxMarks7.InnerText = "Question 7 Marks: " + thisQuestion.MarksForQuestion;
         }
 
         public void fillQuestion8()
@@ -269,7 +347,7 @@ namespace FPY_Homework_Management
             thisQuestion = thisQuestion.readQuestionsInOrder(currentIssuedHomeworkID, "8");
 
             q8Text.InnerText = thisQuestion.QuestionText;
-            QMaxMarks8.InnerText = thisQuestion.MarksForQuestion;
+            QMaxMarks8.InnerText = "Question 8 Marks: " + thisQuestion.MarksForQuestion;
         }
 
         public void fillQuestion9()
@@ -280,7 +358,7 @@ namespace FPY_Homework_Management
             thisQuestion = thisQuestion.readQuestionsInOrder(currentIssuedHomeworkID, "9");
 
             q9Text.InnerText = thisQuestion.QuestionText;
-            QMaxMarks9.InnerText = thisQuestion.MarksForQuestion;
+            QMaxMarks9.InnerText = "Question 9 Marks: " + thisQuestion.MarksForQuestion;
         }
 
         public void fillQuestion10()
@@ -291,7 +369,81 @@ namespace FPY_Homework_Management
             thisQuestion = thisQuestion.readQuestionsInOrder(currentIssuedHomeworkID, "10");
 
             q10Text.InnerText = thisQuestion.QuestionText;
-            QMaxMarks10.InnerText = thisQuestion.MarksForQuestion;
+            QMaxMarks10.InnerText = "Question 10 Marks: " + thisQuestion.MarksForQuestion;
+        }
+
+
+
+
+
+        public void answerQuestion1()
+        {
+            currentIssuedHomeworkID = Session["SelectedHomework"].ToString();
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion.updateAnsweredQuestion(txtQ1Answer.Text, currentIssuedHomeworkID, "1");
+        }
+
+        public void answerQuestion2()
+        {
+            currentIssuedHomeworkID = Session["SelectedHomework"].ToString();
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion.updateAnsweredQuestion(txtQ2Answer.Text, currentIssuedHomeworkID, "2");
+        }
+
+        public void answerQuestion3()
+        {
+            currentIssuedHomeworkID = Session["SelectedHomework"].ToString();
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion.updateAnsweredQuestion(txtQ3Answer.Text, currentIssuedHomeworkID, "3");
+        }
+
+        public void answerQuestion4()
+        {
+            currentIssuedHomeworkID = Session["SelectedHomework"].ToString();
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion.updateAnsweredQuestion(txtQ4Answer.Text, currentIssuedHomeworkID, "4");
+        }
+
+        public void answerQuestion5()
+        {
+            currentIssuedHomeworkID = Session["SelectedHomework"].ToString();
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion.updateAnsweredQuestion(txtQ5Answer.Text, currentIssuedHomeworkID, "5");
+        }
+
+        public void answerQuestion6()
+        {
+            currentIssuedHomeworkID = Session["SelectedHomework"].ToString();
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion.updateAnsweredQuestion(txtQ6Answer.Text, currentIssuedHomeworkID, "6");
+        }
+
+        public void answerQuestion7()
+        {
+            currentIssuedHomeworkID = Session["SelectedHomework"].ToString();
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion.updateAnsweredQuestion(txtQ7Answer.Text, currentIssuedHomeworkID, "7");
+        }
+
+        public void answerQuestion8()
+        {
+            currentIssuedHomeworkID = Session["SelectedHomework"].ToString();
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion.updateAnsweredQuestion(txtQ8Answer.Text, currentIssuedHomeworkID, "8");
+        }
+
+        public void answerQuestion9()
+        {
+            currentIssuedHomeworkID = Session["SelectedHomework"].ToString();
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion.updateAnsweredQuestion(txtQ9Answer.Text, currentIssuedHomeworkID, "9");
+        }
+
+        public void answerQuestion10()
+        {
+            currentIssuedHomeworkID = Session["SelectedHomework"].ToString();
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion.updateAnsweredQuestion(txtQ10Answer.Text, currentIssuedHomeworkID, "10");
         }
 
 
