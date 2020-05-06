@@ -88,7 +88,7 @@ namespace FPY_Homework_Management
                 //string dob = StudentDateOfBirthDay.Text + "/" + StudentDateOfBirthMonth.Text + "/" + StudentDateOfBirthYear.Text;
                 DateTime dob = Convert.ToDateTime(StudentDateOfBirthDay.Text + "/" + StudentDateOfBirthMonth.Text + "/" + StudentDateOfBirthYear.Text);
 
-                Student student = new Student(finFirstName, finLastName, username, StudentPasswordIn.Text, parEmail, dob);
+                Student student = new Student(finFirstName, finLastName, ("s" + username), StudentPasswordIn.Text, parEmail, dob);
                 //Student student = new Student(finFirstName, finLastName, username, StudentPasswordIn.Text, parEmail, StudentDateOfBirth.Text);
                 student.createStudent();
 

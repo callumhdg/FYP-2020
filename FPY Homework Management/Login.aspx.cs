@@ -38,12 +38,15 @@ namespace FPY_Homework_Management
 
                     string input = txtUsername.Text;//.ToLower();
                     //if (input.Equals(s.studentUsername) && txtPassword.Text.Equals(s.studentPassword))
-                    if (txtUsername.Text.Equals(s.studentUsername) && txtPassword.Text.Equals(s.studentPassword))
+                    //if (txtUsername.Text.Equals(s.studentUsername) && txtPassword.Text.Equals(s.studentPassword))
+                    if (txtUsername.Text.ToLower().Equals(s.studentUsername.ToLower()) && txtPassword.Text.Equals(s.studentPassword))
                     {
                         s.studentPassword = null; //clears password 
+                        Session["user"] = s.studentUsername;
                         Response.Redirect("Student_Home.aspx"); //login sucsessul, redirecting to Student landing page
                         //txtNotify.Text = "login succsessfull"; //testing
-                        Session["user"] = s.studentUsername;
+                        
+                        //Session["username"] = ;
                     }
                     else
                     {
@@ -65,12 +68,14 @@ namespace FPY_Homework_Management
 
                     string input = txtUsername.Text;//.ToLower();
                     //if (input.Equals(t.teacherUsername) && txtPassword.Text.Equals(t.teacherPassword))
-                    if (txtUsername.Text.Equals(t.teacherUsername) && txtPassword.Text.Equals(t.teacherPassword))
+                    //if (txtUsername.Text.Equals(t.teacherUsername) && txtPassword.Text.Equals(t.teacherPassword))
+                    if (txtUsername.Text.ToLower().Equals(t.teacherUsername.ToLower()) && txtPassword.Text.Equals(t.teacherPassword))
                     {
                         t.teacherPassword = null; //clears password 
+                        Session["user"] = t.teacherUsername;
                         Response.Redirect("Teacher_Home.aspx"); //login sucsessul, redirecting to Teacher landing page
                         //txtNotify.Text = "login succsessfull"; //testing
-                        Session["user"] = t.teacherUsername;
+                        
                     }
                     else
                     {
@@ -90,9 +95,10 @@ namespace FPY_Homework_Management
                     if (txtUsername.Text.Equals(a.adminUsername) && txtPassword.Text.Equals(a.adminPassword))
                     {
                         a.adminPassword = null; //clears password 
+                        Session["user"] = a.adminUsername;
                         Response.Redirect("Admin_Home.aspx"); //login sucsessul, redirecting to Teacher landing page
                         //txtNotify.Text = "login succsessfull"; //testing
-                        Session["user"] = a.adminUsername;
+                        
                     }
                     else
                     {
