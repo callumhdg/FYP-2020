@@ -17,7 +17,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   
 </head>
-<body>
+<body style="background-color:#F8F8F8;">
     <form id="frmCompleteHomework" runat="server">
 
         <div id="studentHomeworkView" class="container">
@@ -36,9 +36,10 @@
         <div id="viewQuestions" class="container">
 
             
-            <div id="q1Conainer" runat="server" class="container" style="background-color:lightgray; padding:8px;">
+            <div id="q1Conainer" runat="server" class="container" style="background-color:white; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle1">Question 1: </span><br/>
+                    <%--<span id="qNumTitle1">Question 1: </span><br/>--%>
+                    <span id="qNumTitle1"><b>Q1:</b> </span><br/>
                     <span id="q1Text" runat="server"></span><br/>
                 </div>
 
@@ -53,9 +54,9 @@
             </div>
             
 
-            <div id="q2Conainer" runat="server" class="container" style="background-color:darkgray; padding:8px;">
+            <div id="q2Conainer" runat="server" class="container" style="background-color:#e6ffff; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle2">Question 2: </span><br/>
+                    <span id="qNumTitle2"><b>Q2:</b> </span><br/>
                     <span id="q2Text" runat="server"></span><br/>
                 </div>
 
@@ -64,15 +65,15 @@
                     <asp:TextBox ID="txtQ2Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
-                <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
+                <div class="row" style="width: 100%; padding-left: 5%; padding-right: 5%">
                     <span id="QMaxMarks2" runat="server">Question 2 Marks: </span><br/>
                 </div><br/>
             </div>
 
 
-            <div id="q3Conainer" runat="server" class="container" style="background-color:lightgray; padding:8px;">
+            <div id="q3Conainer" runat="server" class="container" style="background-color:white; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle3">Question 3: </span><br/>
+                    <span id="qNumTitle3"><b>Q3:</b> </span><br/>
                     <span id="q3Text" runat="server"></span><br/>
                 </div>
 
@@ -87,9 +88,9 @@
             </div>
             
 
-            <div id="q4Conainer" runat="server" class="container" style="background-color:darkgray; padding:8px;">
+            <div id="q4Conainer" runat="server" class="container" style="background-color:#e6ffff; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle4">Question 4: </span><br/>
+                    <span id="qNumTitle4"><b>Q4:</b> </span><br/>
                     <span id="q4Text" runat="server"></span><br/>
                 </div>
 
@@ -103,9 +104,9 @@
                 </div><br/>
             </div>
 
-            <div id="q5Conainer" runat="server" class="container" style="background-color:lightgray; padding:8px;">
+            <div id="q5Conainer" runat="server" class="container" style="background-color:white; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle5">Question 5: </span><br/>
+                    <span id="qNumTitle5">Q<b>Q5:</b> </span><br/>
                     <span id="q5Text" runat="server"></span><br/>
                 </div>
 
@@ -120,9 +121,9 @@
             </div>
             
 
-            <div id="q6Conainer" runat="server" class="container" style="background-color:darkgray; padding:8px;">
+            <div id="q6Conainer" runat="server" class="container" style="background-color:#e6ffff; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle6">Question 6: </span><br/>
+                    <span id="qNumTitle6"><b>Q6:</b> </span><br/>
                     <span id="q6Text" runat="server"></span><br/>
                 </div>
 
@@ -136,9 +137,9 @@
                 </div><br/>
             </div>
 
-            <div id="q7Conainer" runat="server" class="container" style="background-color:lightgray; padding:8px;">
+            <div id="q7Conainer" runat="server" class="container" style="background-color:white; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle7">Question 7: </span><br/>
+                    <span id="qNumTitle7"><b>Q7:</b> </span><br/>
                     <span id="q7Text" runat="server"></span><br/>
                 </div>
 
@@ -153,9 +154,9 @@
             </div>
             
 
-            <div id="q8Conainer" runat="server" class="container" style="background-color:darkgray; padding:8px;">
+            <div id="q8Conainer" runat="server" class="container" style="background-color:#e6ffff; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle8">Question 8: </span><br/>
+                    <span id="qNumTitle8"><b>Q8:</b> </span><br/>
                     <span id="q8Text" runat="server"></span><br/>
                 </div>
 
@@ -169,9 +170,9 @@
                 </div><br/>
             </div>
 
-            <div id="q9Conainer" runat="server" class="container" style="background-color:lightgray; padding:8px;">
+            <div id="q9Conainer" runat="server" class="container" style="background-color:white; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle9">Question 9: </span><br/>
+                    <span id="qNumTitle9"><b>Q9:</b> </span><br/>
                     <span id="q9Text" runat="server"></span><br/>
                 </div>
 
@@ -186,9 +187,9 @@
             </div>
             
 
-            <div id="q10Conainer" runat="server" class="container" style="background-color:darkgray; padding:8px;">
+            <div id="q10Conainer" runat="server" class="container" style="background-color:#e6ffff; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle10">Question 10: </span><br/>
+                    <span id="qNumTitle10"><b>Q10:</b> </span><br/>
                     <span id="q10Text" runat="server"></span><br/>
                 </div>
 
@@ -202,7 +203,9 @@
                 </div><br/>
             </div>
 
-            <asp:Button ID="btnSubmitHomework" runat="server" Text="Submit" OnClick="btnSubmitHomework_Click" />
+            <%--<div style="margin-top:8px; margin-left:0px; margin-right:0px;">--%>
+                <asp:Button ID="btnSubmitHomework" runat="server" Text="Submit" OnClick="btnSubmitHomework_Click" CssClass="btn btn-success btn-block" Style="margin-top:8px; margin-left:0px; margin-right:0px;"/>
+            <%--</div>--%>
 
         </div>
     </form>

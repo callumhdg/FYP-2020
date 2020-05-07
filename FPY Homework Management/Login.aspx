@@ -17,8 +17,17 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   
 </head>
-<body>
-        <div>
+<body style="background-color:#F8F8F8;">
+
+    <div id="NavBarDiv"><!-- NavBar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <a class="navbar-brand">
+                <img src="Media/SCHOOLMATE-01.jpg" height="60" width="60" alt=""/>
+            </a>  
+        </nav>
+    </div>
+
+        <div style="width:50%; margin-left:25%; margin-right:25%; margin-top:3%;">
 
             <form id="loginForm" runat="server">
             <div class="form-group">

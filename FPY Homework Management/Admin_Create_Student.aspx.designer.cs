@@ -87,31 +87,13 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.WebControls.TextBox StudentPasswordIn;
 
         /// <summary>
-        /// StudentDateOfBirthDay control.
+        /// dobIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox StudentDateOfBirthDay;
-
-        /// <summary>
-        /// StudentDateOfBirthMonth control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox StudentDateOfBirthMonth;
-
-        /// <summary>
-        /// StudentDateOfBirthYear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox StudentDateOfBirthYear;
+        protected global::System.Web.UI.WebControls.TextBox dobIn;
 
         /// <summary>
         /// StudentParEmailIn control.

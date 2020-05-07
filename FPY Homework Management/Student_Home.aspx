@@ -17,25 +17,39 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
      
 </head>
-<body>
+<body style="background-color:#F8F8F8;">
+
+    <div id="NavBarDiv"><!-- NavBar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <a class="navbar-brand">
+                    <img src="Media/SCHOOLMATE-01.jpg" height="60" width="60" alt=""/>
+                </a>
+                <%--<a class="navbar-brand" href="Student_Home.aspx">Home</a>--%>
+                <%--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>  --%>  
+            </nav>
+        </div>
+       
+
         <div id="displayHomework">
-            <form id="frmStudentHome" runat="server">
+            <form id="frmStudentHome" runat="server" class="container" style="margin-left:3%; margin-bottom:5%; margin-top:3%; margin-right:3%; width:70%;">
                 
 
                 <%--<asp:SqlDataSource ID="listCurrentHomework" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT * FROM IssuedHomework WHERE StudentID = (logged in student) AND DueDate > (CURDATE(), INTERVAL 1 DAY)"></asp:SqlDataSource>--%>
                 <asp:SqlDataSource ID="listCurrentHomework" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT * FROM IssuedHomework WHERE DueDate > (CURDATE(), INTERVAL 1 DAY)"></asp:SqlDataSource>
                 <%-- SELECT * FROM IssuedHomework WHERE DueDate >= CURRENT_TIMESTAMP; --%>
-
-                <span style="font-weight:bold">Current Homework</span><br/>
-                <asp:GridView ID="selectActiveHomework" DataSourceID="listCurrentHomework" runat="server" DataKeyNames="IssuedHomeworkID" AutoGenerateColumns="false">
+                <%--<span style="font-weight:bold; text-decoration: underline; background-color:white">Current Homework</span><br/>--%>
+                <span style="font-weight:bold; text-decoration: underline;">Current Homework</span><br/>
+                <asp:GridView ID="selectActiveHomework" DataSourceID="listCurrentHomework" runat="server" DataKeyNames="IssuedHomeworkID" AutoGenerateColumns="false"  RowStyle-BackColor="White" HeaderStyle-BackColor="White">
                     <Columns>
                         <asp:BoundField DataField="IssuedHomeworkID" ReadOnly="true"/>
-                        <asp:BoundField DataField="StudentID" ReadOnly="true" Visible="false"/>
+                        <%--<asp:BoundField- DataField="StudentID" ReadOnly="true" Visible="false"/>--%>
                         <asp:BoundField DataField="DueDate" HeaderText="Due Date" ReadOnly="true"/>
                         <asp:BoundField DataField="TimeToComplete" HeaderText="Estemated Homework Duration" ReadOnly="true"/>
                         <asp:TemplateField>
                             <ItemTemplate>                                
-                                <asp:Button ID="btnSelectDueHomework" runat="server" OnClick="btnSelectDueHomework_Click" HeaderText="Select Homework" ShowHeader="True" Text="Select" ItemStyle-HorizontalAlign="Center" CommandArgument="Container.DataItemIndex"/> <%--CommandName="Select"--%>
+                                <asp:Button ID="btnSelectDueHomework" runat="server" CssClass="btn-primary" OnClick="btnSelectDueHomework_Click" HeaderText="Select Homework" ShowHeader="True" Text="Select" ItemStyle-HorizontalAlign="Center" CommandArgument="Container.DataItemIndex"/> <%--CommandName="Select"--%>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
@@ -45,17 +59,17 @@
 
                 <asp:SqlDataSource ID="listPreviousHomework" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT * FROM IssuedHomework WHERE StudentID = (logged in student) AND DueDate is before today"></asp:SqlDataSource>
                 <!-- (graded homework) - SELECT UNIQUE IssuedHomeworkID FROM QuestionsToAnswer WHERE Results != NULL -->
-
-                <span style="font-weight:bold">Previous Homework</span><br/>
-                <asp:GridView ID="selectPastHomework" DataSourceID="listPreviousHomework" runat="server" DataKeyNames="IssuedHomeworkID" AutoGenerateColumns="false">
+                <%--<span style="font-weight:bold; text-decoration: underline; background-color:white">Previous Homework</span><br/>--%>
+                <span style="font-weight:bold; text-decoration: underline;">Previous Homework</span><br/>
+                <asp:GridView ID="selectPastHomework" DataSourceID="listPreviousHomework" runat="server" DataKeyNames="IssuedHomeworkID" AutoGenerateColumns="false" RowStyle-BackColor="White" HeaderStyle-BackColor="White">
                     <Columns>
-                        <asp:BoundField DataField="IssuedHomeworkID" ReadOnly="true" Visible="false"/>
-                        <asp:BoundField DataField="StudentID" ReadOnly="true" Visible="false"/>
+                        <asp:BoundField DataField="IssuedHomeworkID" ReadOnly="true"/>
+                        <%--<asp:BoundField DataField="StudentID" ReadOnly="true" Visible="false"/>--%>
                         <asp:BoundField DataField="DueDate" HeaderText="Due Date" ReadOnly="true"/>
                         <asp:BoundField DataField="TimeToComplete" HeaderText="Estemated Homework Duration" ReadOnly="true"/>
                         <asp:TemplateField>
                             <ItemTemplate>                                
-                                <asp:Button ID="btnSelectOldHomework" runat="server" OnClick="btnSelectOldHomework_Click" CommandName="Select" HeaderText="Select Homework" ShowHeader="True" Text="Select" ItemStyle-HorizontalAlign="Center" /> <%--CommandArgument="Container.DataItemIndex"--%>
+                                <asp:Button ID="btnSelectOldHomework" runat="server" CssClass="btn-primary" OnClick="btnSelectOldHomework_Click" CommandName="Select" HeaderText="Select Homework" ShowHeader="True" Text="Select" ItemStyle-HorizontalAlign="Center" /> <%--CommandArgument="Container.DataItemIndex"--%>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

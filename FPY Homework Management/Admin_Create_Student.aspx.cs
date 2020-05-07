@@ -86,7 +86,8 @@ namespace FPY_Homework_Management
                 else { }
 
                 //string dob = StudentDateOfBirthDay.Text + "/" + StudentDateOfBirthMonth.Text + "/" + StudentDateOfBirthYear.Text;
-                DateTime dob = Convert.ToDateTime(StudentDateOfBirthDay.Text + "/" + StudentDateOfBirthMonth.Text + "/" + StudentDateOfBirthYear.Text);
+                //DateTime dob = Convert.ToDateTime(StudentDateOfBirthDay.Text + "/" + StudentDateOfBirthMonth.Text + "/" + StudentDateOfBirthYear.Text);
+                DateTime dob = Convert.ToDateTime(dobIn.Text);
 
                 Student student = new Student(finFirstName, finLastName, ("s" + username), StudentPasswordIn.Text, parEmail, dob);
                 //Student student = new Student(finFirstName, finLastName, username, StudentPasswordIn.Text, parEmail, StudentDateOfBirth.Text);
@@ -121,9 +122,11 @@ namespace FPY_Homework_Management
             StudentPasswordIn.Text = "";
             StudentParEmailIn.Text = "";
 
-            StudentDateOfBirthDay.Text = "";
-            StudentDateOfBirthMonth.Text = "";
-            StudentDateOfBirthYear.Text = "";
+            dobIn.Text = "";
+
+            //StudentDateOfBirthDay.Text = "";
+            //StudentDateOfBirthMonth.Text = "";
+            //StudentDateOfBirthYear.Text = "";
 
             lblErrorMessage.Visible = false;
         }
@@ -133,17 +136,27 @@ namespace FPY_Homework_Management
         {
             //bool validate = false;
 
-            if (StudentDateOfBirthDay.Text.Length != 2 || StudentDateOfBirthMonth.Text.Length != 2 || StudentDateOfBirthYear.Text.Length != 4)
-            {
-                validate = false;
-                //lblErrorMessage.Visible = true;
-            }
-            else if (StudentDateOfBirthDay.Text.Length == 2 || StudentDateOfBirthMonth.Text.Length == 2 || StudentDateOfBirthYear.Text.Length == 4)
+            //if (StudentDateOfBirthDay.Text.Length != 2 || StudentDateOfBirthMonth.Text.Length != 2 || StudentDateOfBirthYear.Text.Length != 4)
+            //{
+            //    validate = false;
+            //    //lblErrorMessage.Visible = true;
+            //}
+            //else if (StudentDateOfBirthDay.Text.Length == 2 || StudentDateOfBirthMonth.Text.Length == 2 || StudentDateOfBirthYear.Text.Length == 4)
+            //{
+            //    validate = true;
+            //    //lblErrorMessage.Visible = false;
+            //}
+            if (dobIn.Text != null && dobIn.Text != "")
             {
                 validate = true;
-                //lblErrorMessage.Visible = false;
             }
-                return validate;
+            else
+            {
+                validate = false;
+            }
+
+
+            return validate;
         }
 
 
