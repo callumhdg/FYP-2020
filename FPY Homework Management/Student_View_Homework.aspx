@@ -23,12 +23,10 @@
         <div id="studentHomeworkView" class="container">
 
         <div class="row" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px">
-                <!-- homework title -->
             <span id="homeworkTitle" runat="server" style="font-weight:bold">Homework</span><br/>
         </div>
 
         <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                <!-- minutes to complete -->
             <span id="timeEstemate" runat="server" style="font-weight:bold">This homework should take  minutes to complete</span><br/>
         </div><br/><br/>        
 
@@ -38,13 +36,11 @@
             
             <div id="q1Conainer" runat="server" class="container" style="background-color:white; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <%--<span id="qNumTitle1">Question 1: </span><br/>--%>
                     <span id="qNumTitle1"><b>Q1:</b> </span><br/>
                     <span id="q1Text" runat="server"></span><br/>
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <%--<span>Answer here</span><br/>--%>
                     <asp:TextBox ID="txtQ1Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
@@ -61,7 +57,6 @@
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <%--<span>Answer here</span><br/>--%>
                     <asp:TextBox ID="txtQ2Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
@@ -78,7 +73,6 @@
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <%--<span>Answer here</span><br/>--%>
                     <asp:TextBox ID="txtQ3Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
@@ -95,7 +89,6 @@
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <%--<span>Answer here</span><br/>--%>
                     <asp:TextBox ID="txtQ4Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
@@ -111,7 +104,6 @@
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <%--<span>Answer here</span><br/>--%>
                     <asp:TextBox ID="txtQ5Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
@@ -128,7 +120,6 @@
                 </div>
 
                 <div class="row" style="width: 100%; padding-left: 5%; padding-right: 5%">
-                    <%--<span>Answer here</span><br/>--%>
                     <asp:TextBox ID="txtQ6Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
@@ -144,7 +135,6 @@
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <%--<span>Answer here</span><br/>--%>
                     <asp:TextBox ID="txtQ7Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
@@ -161,7 +151,6 @@
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <%--<span>Answer here</span><br/>--%>
                     <asp:TextBox ID="txtQ8Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
@@ -177,7 +166,6 @@
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <%--<span>Answer here</span><br/>--%>
                     <asp:TextBox ID="txtQ9Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
@@ -194,7 +182,6 @@
                 </div>
 
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <%--<span>Answer here</span><br/>--%>
                     <asp:TextBox ID="txtQ10Answer" runat="server" class="form-control" placeholder="Answer here"></asp:TextBox>
                 </div><br/>
             
@@ -203,9 +190,7 @@
                 </div><br/>
             </div>
 
-            <%--<div style="margin-top:8px; margin-left:0px; margin-right:0px;">--%>
-                <asp:Button ID="btnSubmitHomework" runat="server" Text="Submit" OnClick="btnSubmitHomework_Click" CssClass="btn btn-success btn-block" Style="margin-top:8px; margin-left:0px; margin-right:0px;"/>
-            <%--</div>--%>
+            <asp:Button ID="btnSubmitHomework" runat="server" Text="Submit" OnClick="btnSubmitHomework_Click" CssClass="btn btn-success btn-block" Style="margin-top:8px; margin-left:0px; margin-right:0px;"/>
 
         </div>
     </form>
