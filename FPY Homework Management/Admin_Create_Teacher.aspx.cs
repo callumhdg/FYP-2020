@@ -71,7 +71,7 @@ namespace FPY_Homework_Management
             string fn2 = TeacherLastNameIn.Text;
             string finLastName = fn2.Substring(0,1).ToUpper() + fn2.Substring(1, fn2.Length - 1).ToLower(); 
 
-            Teacher teacher = new Teacher(finFirstName, finLastName, username, TeacherPasswordIn.Text);
+            Teacher teacher = new Teacher(finFirstName, finLastName, ("t" + username), TeacherPasswordIn.Text);
             teacher.createTeacher();
 
             clearInputs();

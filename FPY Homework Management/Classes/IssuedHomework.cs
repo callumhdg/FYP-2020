@@ -98,7 +98,27 @@ namespace FPY_Homework_Management.Classes
         }
 
 
-        public IssuedHomework readSelectedIssuedHomework(string id)//if submission date is null this cant be read
+        public IssuedHomework readSelectedIssuedHomework(string id)
+        {
+            string query = "SELECT * from IssuedHomework WHERE IssuedHomeworkID = @id";
+            IssuedHomework seclectedIssuedHomework = new IssuedHomework();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader re = cmd.ExecuteReader();
+
+            while (re.Read())
+            {
+                seclectedIssuedHomework = new IssuedHomework(re["IssuedHomeworkID"].ToString(), re["CoreHomeworkID"].ToString(), re["StudentID"].ToString(), re["SetByTeacherID"].ToString(), re["TimeToComplete"].ToString(), Convert.ToDateTime(re["DueDate"]));
+            }
+
+            conn.Close();
+            return seclectedIssuedHomework;
+        }
+
+
+        public IssuedHomework readSelectedIssuedHomeworkForMarking(string id)//if submission date is null this cant be read
         {
             string query = "SELECT * from IssuedHomework WHERE IssuedHomeworkID = @id";
             IssuedHomework seclectedIssuedHomework = new IssuedHomework();
@@ -136,7 +156,19 @@ namespace FPY_Homework_Management.Classes
         }
 
 
+        public void updateSubmittedHomework(string id)
+        {
+            //string query = "UPDATE IssuedHomework SET SubmissionDate = 'CURRENT_TIMESTAMP' WHERE IssuedHomeworkID = '" + id + "'";
+            string curentTime = DateTime.Now.ToString("yyyy-MM-dd");
+            string query = "UPDATE IssuedHomework SET SubmissionDate = '" + curentTime +"' WHERE IssuedHomeworkID = '" + id + "'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
 
+            //cmd.Parameters.AddWithValue("@time", DateTime.Now.ToString("yyyy-MM-dd"));
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
 
 
 
