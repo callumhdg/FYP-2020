@@ -271,6 +271,14 @@ namespace FPY_Homework_Management
 
             q1Text.InnerText = thisQuestion.QuestionText;
             QMaxMarks1.InnerText = "Question 1 Marks: " + thisQuestion.MarksForQuestion;
+
+
+            try
+            {
+                txtQ1Answer.Text = thisQuestion.getAnswer(thisQuestion.QuestionToAnswerID);
+            }
+            catch { }
+            
         }
 
         public void fillQuestion2()
@@ -282,6 +290,12 @@ namespace FPY_Homework_Management
 
             q2Text.InnerText = thisQuestion.QuestionText;
             QMaxMarks2.InnerText = "Question 2 Marks: " + thisQuestion.MarksForQuestion;
+
+            try
+            {
+                txtQ2Answer.Text = thisQuestion.getAnswer(thisQuestion.QuestionToAnswerID);
+            }
+            catch { }
         }
 
         public void fillQuestion3()
@@ -293,6 +307,12 @@ namespace FPY_Homework_Management
 
             q3Text.InnerText = thisQuestion.QuestionText;
             QMaxMarks3.InnerText = "Question 3 Marks: " + thisQuestion.MarksForQuestion;
+
+            try
+            {
+                txtQ3Answer.Text = thisQuestion.getAnswer(thisQuestion.QuestionToAnswerID);
+            }
+            catch { }
         }
 
         public void fillQuestion4()
@@ -304,6 +324,12 @@ namespace FPY_Homework_Management
 
             q4Text.InnerText = thisQuestion.QuestionText;
             QMaxMarks4.InnerText = "Question 4 Marks: " + thisQuestion.MarksForQuestion;
+
+            try
+            {
+                txtQ4Answer.Text = thisQuestion.getAnswer(thisQuestion.QuestionToAnswerID);
+            }
+            catch { }
         }
 
         public void fillQuestion5()
@@ -315,6 +341,12 @@ namespace FPY_Homework_Management
 
             q5Text.InnerText = thisQuestion.QuestionText;
             QMaxMarks5.InnerText = "Question 5 Marks: " + thisQuestion.MarksForQuestion;
+
+            try
+            {
+                txtQ5Answer.Text = thisQuestion.getAnswer(thisQuestion.QuestionToAnswerID);
+            }
+            catch { }
         }
 
         public void fillQuestion6()
@@ -326,6 +358,12 @@ namespace FPY_Homework_Management
 
             q6Text.InnerText = thisQuestion.QuestionText;
             QMaxMarks6.InnerText = "Question 6 Marks: " + thisQuestion.MarksForQuestion;
+
+            try
+            {
+                txtQ6Answer.Text = thisQuestion.getAnswer(thisQuestion.QuestionToAnswerID);
+            }
+            catch { }
         }
 
         public void fillQuestion7()
@@ -337,6 +375,12 @@ namespace FPY_Homework_Management
 
             q7Text.InnerText = thisQuestion.QuestionText;
             QMaxMarks7.InnerText = "Question 7 Marks: " + thisQuestion.MarksForQuestion;
+
+            try
+            {
+                txtQ7Answer.Text = thisQuestion.getAnswer(thisQuestion.QuestionToAnswerID);
+            }
+            catch { }
         }
 
         public void fillQuestion8()
@@ -348,6 +392,12 @@ namespace FPY_Homework_Management
 
             q8Text.InnerText = thisQuestion.QuestionText;
             QMaxMarks8.InnerText = "Question 8 Marks: " + thisQuestion.MarksForQuestion;
+
+            try
+            {
+                txtQ8Answer.Text = thisQuestion.getAnswer(thisQuestion.QuestionToAnswerID);
+            }
+            catch { }
         }
 
         public void fillQuestion9()
@@ -359,6 +409,12 @@ namespace FPY_Homework_Management
 
             q9Text.InnerText = thisQuestion.QuestionText;
             QMaxMarks9.InnerText = "Question 9 Marks: " + thisQuestion.MarksForQuestion;
+
+            try
+            {
+                txtQ9Answer.Text = thisQuestion.getAnswer(thisQuestion.QuestionToAnswerID);
+            }
+            catch { }
         }
 
         public void fillQuestion10()
@@ -370,6 +426,12 @@ namespace FPY_Homework_Management
 
             q10Text.InnerText = thisQuestion.QuestionText;
             QMaxMarks10.InnerText = "Question 10 Marks: " + thisQuestion.MarksForQuestion;
+
+            try
+            {
+                txtQ10Answer.Text = thisQuestion.getAnswer(thisQuestion.QuestionToAnswerID);
+            }
+            catch { }
         }
 
 

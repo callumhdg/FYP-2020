@@ -26,6 +26,9 @@ namespace FPY_Homework_Management
             //listCurrentHomework.SelectCommand = "SELECT * FROM IssuedHomework WHERE StudentID = " + username + " AND DueDate > (CURDATE(), INTERVAL 1 DAY)";
             //listPreviousHomework.SelectCommand = "SELECT * FROM IssuedHomework WHERE StudentID = " + username + " AND DueDate < (CURDATE(), INTERVAL 1 DAY)";
             listPreviousHomework.SelectCommand = "SELECT * FROM IssuedHomework WHERE StudentID = " + userID + " AND DueDate < CURRENT_TIMESTAMP";
+            
+            
+            //listPreviousHomework.SelectCommand = "SELECT * FROM IssuedHomework WHERE StudentID = " + userID + " AND Marked = 1";
         }
 
 

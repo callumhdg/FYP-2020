@@ -15,12 +15,30 @@ namespace FPY_Homework_Management
     {
 
         /// <summary>
-        /// Form control.
+        /// frmViewIssuedHomework control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Form;
+        protected global::System.Web.UI.HtmlControls.HtmlForm frmViewIssuedHomework;
+
+        /// <summary>
+        /// listDueHomework control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource listDueHomework;
+
+        /// <summary>
+        /// viewIssuedHomework control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView viewIssuedHomework;
     }
 }
