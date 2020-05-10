@@ -171,6 +171,18 @@ namespace FPY_Homework_Management.Classes
         }
 
 
+        public void updateMarkHomework(string id)
+        {
+            //string query = "UPDATE IssuedHomework SET Results = '" + results + "', Feedback = '" + feedback + "', Marked = '1' WHERE IssuedHomeworkID = '" + id + "'";
+            string query = "UPDATE IssuedHomework SET Marked = '1' WHERE IssuedHomeworkID = '" + id + "'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+
 
 
     }

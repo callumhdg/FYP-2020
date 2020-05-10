@@ -126,6 +126,43 @@ namespace FPY_Homework_Management.Classes
             return selectedQuestionToAnswer;
         }
 
+        public string getAnswer(string id)
+        {
+            string query = "SELECT Answer From QuestionsToAnswer WHERE QuestionToAnswerID = " + id;
+            string answer = "";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            SqlDataReader re = cmd.ExecuteReader();
+
+            while (re.Read())
+            {
+                answer = re["Answer"].ToString();
+            }
+
+            conn.Close();
+            return answer;
+        }
+
+
+        public QuestionToAnswer readQuestionToMark(string id)
+        {
+            string query = "SELECT * FROM QuestionsToAnswer WHERE QuestionToAnswerID = " + id;
+            QuestionToAnswer selectedQuestionToAnswer = new QuestionToAnswer();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader re = cmd.ExecuteReader();
+
+            while (re.Read())
+            {
+                selectedQuestionToAnswer = new QuestionToAnswer(re["QuestionToAnswerID"].ToString(), re["IssuedHomeworkID"].ToString(), re["QuestionText"].ToString(), re["QuestionNumber"].ToString(), re["MarksForQuestion"].ToString(), re["Answer"].ToString());
+            }
+
+            conn.Close();
+            return selectedQuestionToAnswer;
+        }
+
 
         public QuestionToAnswer readSelectedQuestionToAnswer(string id)
         {
@@ -174,7 +211,15 @@ namespace FPY_Homework_Management.Classes
         }
 
 
+        public void updateGradedQuestion(string results, string feedback, string parentID, string qNum)
+        {
+            string query = "UPDATE QuestionsToAnswer SET Results = '" + results + "', Feedback = '" + feedback + "' WHERE IssuedHomeworkID = '" + parentID + "' AND QuestionNumber = '" + qNum + "'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
 
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
 
 
 

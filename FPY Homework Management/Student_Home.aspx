@@ -41,12 +41,16 @@
                 <%-- SELECT * FROM IssuedHomework WHERE DueDate >= CURRENT_TIMESTAMP; --%>
                 <%--<span style="font-weight:bold; text-decoration: underline; background-color:white">Current Homework</span><br/>--%>
                 <span style="font-weight:bold; text-decoration: underline;">Current Homework</span><br/>
+                
+                
+                <!-- submited yes/no -->
                 <asp:GridView ID="selectActiveHomework" DataSourceID="listCurrentHomework" runat="server" DataKeyNames="IssuedHomeworkID" AutoGenerateColumns="false"  RowStyle-BackColor="White" HeaderStyle-BackColor="White">
                     <Columns>
                         <asp:BoundField DataField="IssuedHomeworkID" ReadOnly="true"/>
                         <%--<asp:BoundField- DataField="StudentID" ReadOnly="true" Visible="false"/>--%>
                         <asp:BoundField DataField="DueDate" HeaderText="Due Date" ReadOnly="true"/>
                         <asp:BoundField DataField="TimeToComplete" HeaderText="Estemated Homework Duration" ReadOnly="true"/>
+                        
                         <asp:TemplateField>
                             <ItemTemplate>                                
                                 <asp:Button ID="btnSelectDueHomework" runat="server" CssClass="btn-primary" OnClick="btnSelectDueHomework_Click" HeaderText="Select Homework" ShowHeader="True" Text="Select" ItemStyle-HorizontalAlign="Center" CommandArgument="Container.DataItemIndex"/> <%--CommandName="Select"--%>

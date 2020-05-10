@@ -34,6 +34,7 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="TeacherCreateHW.aspx">Create Homework</a>
                             <a class="dropdown-item" href="Teacher_Homework_Assign.aspx">Allocate Homework</a>
+                            <a class="dropdown-item" href="Teacher_Home.aspx">View Homework</a>
                         </div>
                     </li>
                 </ul>
