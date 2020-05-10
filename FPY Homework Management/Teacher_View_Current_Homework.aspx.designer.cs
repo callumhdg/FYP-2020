@@ -42,15 +42,6 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl q1Text;
 
         /// <summary>
-        /// QMaxMarks1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks1;
-
-        /// <summary>
         /// txtQ1StudentAnswer control.
         /// </summary>
         /// <remarks>
@@ -58,6 +49,15 @@ namespace FPY_Homework_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtQ1StudentAnswer;
+
+        /// <summary>
+        /// QMaxMarks1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks1;
 
         /// <summary>
         /// txtQ1Marks control.
@@ -96,15 +96,6 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl q2Text;
 
         /// <summary>
-        /// QMaxMarks2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks2;
-
-        /// <summary>
         /// txtQ2StudentAnswer control.
         /// </summary>
         /// <remarks>
@@ -112,6 +103,15 @@ namespace FPY_Homework_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtQ2StudentAnswer;
+
+        /// <summary>
+        /// QMaxMarks2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks2;
 
         /// <summary>
         /// txtQ2Marks control.
@@ -150,15 +150,6 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl q3Text;
 
         /// <summary>
-        /// QMaxMarks3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks3;
-
-        /// <summary>
         /// txtQ3StudentAnswer control.
         /// </summary>
         /// <remarks>
@@ -166,6 +157,15 @@ namespace FPY_Homework_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtQ3StudentAnswer;
+
+        /// <summary>
+        /// QMaxMarks3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks3;
 
         /// <summary>
         /// txtQ3Marks control.
@@ -204,15 +204,6 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl q4Text;
 
         /// <summary>
-        /// QMaxMarks4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks4;
-
-        /// <summary>
         /// txtQ4StudentAnswer control.
         /// </summary>
         /// <remarks>
@@ -220,6 +211,15 @@ namespace FPY_Homework_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtQ4StudentAnswer;
+
+        /// <summary>
+        /// QMaxMarks4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks4;
 
         /// <summary>
         /// txtQ4Marks control.
@@ -258,15 +258,6 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl q5Text;
 
         /// <summary>
-        /// QMaxMarks5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks5;
-
-        /// <summary>
         /// txtQ5StudentAnswer control.
         /// </summary>
         /// <remarks>
@@ -274,6 +265,15 @@ namespace FPY_Homework_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtQ5StudentAnswer;
+
+        /// <summary>
+        /// QMaxMarks5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks5;
 
         /// <summary>
         /// txtQ5Marks control.
@@ -312,15 +312,6 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl q6Text;
 
         /// <summary>
-        /// QMaxMarks6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks6;
-
-        /// <summary>
         /// txtQ6StudentAnswer control.
         /// </summary>
         /// <remarks>
@@ -328,6 +319,15 @@ namespace FPY_Homework_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtQ6StudentAnswer;
+
+        /// <summary>
+        /// QMaxMarks6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks6;
 
         /// <summary>
         /// txtQ6Marks control.
@@ -366,15 +366,6 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl q7Text;
 
         /// <summary>
-        /// QMaxMarks7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks7;
-
-        /// <summary>
         /// txtQ7StudentAnswer control.
         /// </summary>
         /// <remarks>
@@ -382,6 +373,15 @@ namespace FPY_Homework_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtQ7StudentAnswer;
+
+        /// <summary>
+        /// QMaxMarks7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks7;
 
         /// <summary>
         /// txtQ7Marks control.
@@ -420,15 +420,6 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl q8Text;
 
         /// <summary>
-        /// QMaxMarks8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks8;
-
-        /// <summary>
         /// txtQ8StudentAnswer control.
         /// </summary>
         /// <remarks>
@@ -436,6 +427,15 @@ namespace FPY_Homework_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtQ8StudentAnswer;
+
+        /// <summary>
+        /// QMaxMarks8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks8;
 
         /// <summary>
         /// txtQ8Marks control.
@@ -474,15 +474,6 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl q9Text;
 
         /// <summary>
-        /// QMaxMarks9 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks9;
-
-        /// <summary>
         /// txtQ9StudentAnswer control.
         /// </summary>
         /// <remarks>
@@ -490,6 +481,15 @@ namespace FPY_Homework_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtQ9StudentAnswer;
+
+        /// <summary>
+        /// QMaxMarks9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks9;
 
         /// <summary>
         /// txtQ9Marks control.
@@ -528,15 +528,6 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl q10Text;
 
         /// <summary>
-        /// QMaxMarks10 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks10;
-
-        /// <summary>
         /// txtQ10StudentAnswer control.
         /// </summary>
         /// <remarks>
@@ -544,6 +535,15 @@ namespace FPY_Homework_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtQ10StudentAnswer;
+
+        /// <summary>
+        /// QMaxMarks10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QMaxMarks10;
 
         /// <summary>
         /// txtQ10Marks control.
