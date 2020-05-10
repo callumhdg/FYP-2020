@@ -43,6 +43,7 @@
                 <span style="font-weight:bold; text-decoration: underline;">Current Homework</span><br/>
                 
                 
+                <div id="activeHomework" runat="server">
                 <!-- submited yes/no -->
                 <asp:GridView ID="selectActiveHomework" DataSourceID="listCurrentHomework" runat="server" DataKeyNames="IssuedHomeworkID" AutoGenerateColumns="false"  RowStyle-BackColor="White" HeaderStyle-BackColor="White">
                     <Columns>
@@ -58,14 +59,36 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView> <br/>
+                </div>
 
 
-
-                <asp:SqlDataSource ID="listPreviousHomework" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT * FROM IssuedHomework WHERE StudentID = (logged in student) AND DueDate is before today"></asp:SqlDataSource>
+                <div id="overdueHomework" runat="server">
+                <asp:SqlDataSource ID="listOverdueHomework" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT * FROM IssuedHomework"></asp:SqlDataSource>
                 <!-- (graded homework) - SELECT UNIQUE IssuedHomeworkID FROM QuestionsToAnswer WHERE Results != NULL -->
                 <%--<span style="font-weight:bold; text-decoration: underline; background-color:white">Previous Homework</span><br/>--%>
-                <span style="font-weight:bold; text-decoration: underline;">Previous Homework</span><br/>
-                <asp:GridView ID="selectPastHomework" DataSourceID="listPreviousHomework" runat="server" DataKeyNames="IssuedHomeworkID" AutoGenerateColumns="false" RowStyle-BackColor="White" HeaderStyle-BackColor="White">
+                <span style="font-weight:bold; text-decoration: underline;">Overdue Homework</span><br/>
+                <asp:GridView ID="selectPastHomework" DataSourceID="listOverdueHomework" runat="server" DataKeyNames="IssuedHomeworkID" AutoGenerateColumns="false" RowStyle-BackColor="White" HeaderStyle-BackColor="White">
+                    <Columns>
+                        <asp:BoundField DataField="IssuedHomeworkID" ReadOnly="true"/>
+                        <%--<asp:BoundField DataField="StudentID" ReadOnly="true" Visible="false"/>--%>
+                        <%--<asp:BoundField DataField="DueDate" HeaderText="Due Date" ReadOnly="true"/>--%>
+                        <%--<asp:BoundField DataField="TimeToComplete" HeaderText="Estemated Homework Duration" ReadOnly="true"/>--%>
+                        <asp:TemplateField>
+                            <ItemTemplate>                                
+                                <asp:Button ID="btnViewMarkedHomework" runat="server" CssClass="btn-primary" CommandName="Select" OnClick="btnSelectDueHomework_Click" HeaderText="Select Homework" ShowHeader="True" Text="Select" ItemStyle-HorizontalAlign="Center" /> <%--CommandArgument="Container.DataItemIndex"--%>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+                    </div>
+
+
+                <div id="markedHomework" runat="server">
+                <asp:SqlDataSource ID="listMarkedHomework" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT * FROM IssuedHomework"></asp:SqlDataSource>
+                <!-- (graded homework) - SELECT UNIQUE IssuedHomeworkID FROM QuestionsToAnswer WHERE Results != NULL -->
+                <%--<span style="font-weight:bold; text-decoration: underline; background-color:white">Previous Homework</span><br/>--%>
+                <span style="font-weight:bold; text-decoration: underline;">Marked Homework</span><br/>
+                <asp:GridView ID="selectMarkedHomework" DataSourceID="listMarkedHomework" runat="server" DataKeyNames="IssuedHomeworkID" AutoGenerateColumns="false" RowStyle-BackColor="White" HeaderStyle-BackColor="White">
                     <Columns>
                         <asp:BoundField DataField="IssuedHomeworkID" ReadOnly="true"/>
                         <%--<asp:BoundField DataField="StudentID" ReadOnly="true" Visible="false"/>--%>
@@ -73,13 +96,12 @@
                         <asp:BoundField DataField="TimeToComplete" HeaderText="Estemated Homework Duration" ReadOnly="true"/>
                         <asp:TemplateField>
                             <ItemTemplate>                                
-                                <asp:Button ID="btnSelectOldHomework" runat="server" CssClass="btn-primary" OnClick="btnSelectOldHomework_Click" CommandName="Select" HeaderText="Select Homework" ShowHeader="True" Text="Select" ItemStyle-HorizontalAlign="Center" /> <%--CommandArgument="Container.DataItemIndex"--%>
+                                <asp:Button ID="btnSelectOldHomework" runat="server" CssClass="btn-primary" OnClick="btnViewMarkedHomework_Click" CommandName="Select" HeaderText="Select Homework" ShowHeader="True" Text="Select" ItemStyle-HorizontalAlign="Center" /> <%--CommandArgument="Container.DataItemIndex"--%>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-
-
+                    </div>
 
             
             </form>

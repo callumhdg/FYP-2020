@@ -33,6 +33,15 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.WebControls.SqlDataSource listCurrentHomework;
 
         /// <summary>
+        /// activeHomework control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl activeHomework;
+
+        /// <summary>
         /// selectActiveHomework control.
         /// </summary>
         /// <remarks>
@@ -42,13 +51,22 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.WebControls.GridView selectActiveHomework;
 
         /// <summary>
-        /// listPreviousHomework control.
+        /// overdueHomework control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource listPreviousHomework;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl overdueHomework;
+
+        /// <summary>
+        /// listOverdueHomework control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource listOverdueHomework;
 
         /// <summary>
         /// selectPastHomework control.
@@ -58,5 +76,32 @@ namespace FPY_Homework_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView selectPastHomework;
+
+        /// <summary>
+        /// markedHomework control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl markedHomework;
+
+        /// <summary>
+        /// listMarkedHomework control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource listMarkedHomework;
+
+        /// <summary>
+        /// selectMarkedHomework control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView selectMarkedHomework;
     }
 }

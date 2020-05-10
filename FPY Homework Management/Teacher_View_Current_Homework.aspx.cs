@@ -15,6 +15,7 @@ namespace FPY_Homework_Management
     {
         SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["PRCO304_CHarding"].ToString());
         string username, userID, hwID;
+        bool validateInputs;
         protected void Page_Load(object sender, EventArgs e)
         {
             username = Session["user"].ToString();
@@ -47,106 +48,211 @@ namespace FPY_Homework_Management
 
         protected void btnSubmitMarkedHomework_Click(object sender, EventArgs e)
         {
-            //hwID = Session["SelectedHomework"].ToString();
-
             ArrayList allSelectedQuestions = new ArrayList();
             QuestionToAnswer question = new QuestionToAnswer();
             allSelectedQuestions = question.readSelectedQuestionInHomework(hwID);
+            validateInputs = false;
+
 
 
             if (allSelectedQuestions.Count == 1)
             {
-                feedbackAnswer1();
+                checkInput1();
             }
             else if (allSelectedQuestions.Count == 2)
             {
-                feedbackAnswer1();
-                feedbackAnswer2();
+                checkInput1();
+                checkInput2();
             }
             else if (allSelectedQuestions.Count == 3)
             {
-                feedbackAnswer1();
-                feedbackAnswer2();
-                feedbackAnswer3();
+                checkInput1();
+                checkInput2();
+                checkInput3();
             }
             else if (allSelectedQuestions.Count == 4)
             {
-                feedbackAnswer1();
-                feedbackAnswer2();
-                feedbackAnswer3();
-                feedbackAnswer4();
+                checkInput1();
+                checkInput2();
+                checkInput3();
+                checkInput4();
             }
             else if (allSelectedQuestions.Count == 5)
             {
-                feedbackAnswer1();
-                feedbackAnswer2();
-                feedbackAnswer3();
-                feedbackAnswer4();
-                feedbackAnswer5();
+                checkInput1();
+                checkInput2();
+                checkInput3();
+                checkInput4();
+                checkInput5();
             }
             else if (allSelectedQuestions.Count == 6)
             {
-                feedbackAnswer1();
-                feedbackAnswer2();
-                feedbackAnswer3();
-                feedbackAnswer4();
-                feedbackAnswer5();
-                feedbackAnswer6();
+                checkInput1();
+                checkInput2();
+                checkInput3();
+                checkInput4();
+                checkInput5();
+                checkInput6();
             }
             else if (allSelectedQuestions.Count == 7)
             {
-                feedbackAnswer1();
-                feedbackAnswer2();
-                feedbackAnswer3();
-                feedbackAnswer4();
-                feedbackAnswer5();
-                feedbackAnswer6();
-                feedbackAnswer7();
+                checkInput1();
+                checkInput2();
+                checkInput3();
+                checkInput4();
+                checkInput5();
+                checkInput6();
+                checkInput7();
             }
             else if (allSelectedQuestions.Count == 8)
             {
-                feedbackAnswer1();
-                feedbackAnswer2();
-                feedbackAnswer3();
-                feedbackAnswer4();
-                feedbackAnswer5();
-                feedbackAnswer6();
-                feedbackAnswer7();
-                feedbackAnswer8();
+                checkInput1();
+                checkInput2();
+                checkInput3();
+                checkInput4();
+                checkInput5();
+                checkInput6();
+                checkInput7();
+                checkInput8();
             }
             else if (allSelectedQuestions.Count == 9)
             {
-                feedbackAnswer1();
-                feedbackAnswer2();
-                feedbackAnswer3();
-                feedbackAnswer4();
-                feedbackAnswer5();
-                feedbackAnswer6();
-                feedbackAnswer7();
-                feedbackAnswer8();
-                feedbackAnswer9();
+                checkInput1();
+                checkInput2();
+                checkInput3();
+                checkInput4();
+                checkInput5();
+                checkInput6();
+                checkInput7();
+                checkInput8();
+                checkInput9();
             }
             else if (allSelectedQuestions.Count == 10)
             {
-                feedbackAnswer1();
-                feedbackAnswer2();
-                feedbackAnswer3();
-                feedbackAnswer4();
-                feedbackAnswer5();
-                feedbackAnswer6();
-                feedbackAnswer7();
-                feedbackAnswer8();
-                feedbackAnswer9();
-                feedbackAnswer10();
+                checkInput1();
+                checkInput2();
+                checkInput3();
+                checkInput4();
+                checkInput5();
+                checkInput6();
+                checkInput7();
+                checkInput8();
+                checkInput9();
+                checkInput10();
             }
             else { }
 
 
-            IssuedHomework thisHomework = new IssuedHomework();
-            thisHomework.updateMarkHomework(hwID);
 
-            Session["SelectedHomework"] = null;
-            Response.Redirect("Teacher_Home.aspx");
+
+            if (validateInputs == false)
+            {
+
+                if (allSelectedQuestions.Count == 1)
+                {
+                    feedbackAnswer1();
+                }
+                else if (allSelectedQuestions.Count == 2)
+                {
+                    feedbackAnswer1();
+                    feedbackAnswer2();
+                }
+                else if (allSelectedQuestions.Count == 3)
+                {
+                    feedbackAnswer1();
+                    feedbackAnswer2();
+                    feedbackAnswer3();
+                }
+                else if (allSelectedQuestions.Count == 4)
+                {
+                    feedbackAnswer1();
+                    feedbackAnswer2();
+                    feedbackAnswer3();
+                    feedbackAnswer4();
+                }
+                else if (allSelectedQuestions.Count == 5)
+                {
+                    feedbackAnswer1();
+                    feedbackAnswer2();
+                    feedbackAnswer3();
+                    feedbackAnswer4();
+                    feedbackAnswer5();
+                }
+                else if (allSelectedQuestions.Count == 6)
+                {
+                    feedbackAnswer1();
+                    feedbackAnswer2();
+                    feedbackAnswer3();
+                    feedbackAnswer4();
+                    feedbackAnswer5();
+                    feedbackAnswer6();
+                }
+                else if (allSelectedQuestions.Count == 7)
+                {
+                    feedbackAnswer1();
+                    feedbackAnswer2();
+                    feedbackAnswer3();
+                    feedbackAnswer4();
+                    feedbackAnswer5();
+                    feedbackAnswer6();
+                    feedbackAnswer7();
+                }
+                else if (allSelectedQuestions.Count == 8)
+                {
+                    feedbackAnswer1();
+                    feedbackAnswer2();
+                    feedbackAnswer3();
+                    feedbackAnswer4();
+                    feedbackAnswer5();
+                    feedbackAnswer6();
+                    feedbackAnswer7();
+                    feedbackAnswer8();
+                }
+                else if (allSelectedQuestions.Count == 9)
+                {
+                    feedbackAnswer1();
+                    feedbackAnswer2();
+                    feedbackAnswer3();
+                    feedbackAnswer4();
+                    feedbackAnswer5();
+                    feedbackAnswer6();
+                    feedbackAnswer7();
+                    feedbackAnswer8();
+                    feedbackAnswer9();
+                }
+                else if (allSelectedQuestions.Count == 10)
+                {
+                    feedbackAnswer1();
+                    feedbackAnswer2();
+                    feedbackAnswer3();
+                    feedbackAnswer4();
+                    feedbackAnswer5();
+                    feedbackAnswer6();
+                    feedbackAnswer7();
+                    feedbackAnswer8();
+                    feedbackAnswer9();
+                    feedbackAnswer10();
+                }
+                else { }
+
+
+
+                IssuedHomework thisHomework = new IssuedHomework();
+                thisHomework.updateMarkHomework(hwID);
+
+                Session["SelectedHomework"] = null;
+                Response.Redirect("Teacher_Home.aspx");
+
+            }
+            else
+            {
+                //incorrect input please try again with correct input
+                //problems could be; awarded marks are higher than maximum achivable
+
+
+            }
+
+
         }
 
         private void fillAnswers()
@@ -549,6 +655,166 @@ namespace FPY_Homework_Management
 
 
 
+
+
+        private void checkInput1()
+        {
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion = thisQuestion.readQuestionsInOrder(hwID, "1");
+
+            double maxMarks = Convert.ToDouble(thisQuestion.MarksForQuestion);
+            double inputMarks = Convert.ToDouble(txtQ1Marks.Text);
+
+            if (maxMarks >= inputMarks)
+            { }
+            else { validateInputs = true; }
+
+
+        }
+
+
+        private void checkInput2()
+        {
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion = thisQuestion.readQuestionsInOrder(hwID, "2");
+
+            double maxMarks = Convert.ToDouble(thisQuestion.MarksForQuestion);
+            double inputMarks = Convert.ToDouble(txtQ1Marks.Text);
+
+            if (maxMarks >= inputMarks)
+            { }
+            else { validateInputs = true; }
+
+
+        }
+
+
+        private void checkInput3()
+        {
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion = thisQuestion.readQuestionsInOrder(hwID, "3");
+
+            double maxMarks = Convert.ToDouble(thisQuestion.MarksForQuestion);
+            double inputMarks = Convert.ToDouble(txtQ1Marks.Text);
+
+            if (maxMarks >= inputMarks)
+            { }
+            else { validateInputs = true; }
+
+
+        }
+
+
+        private void checkInput4()
+        {
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion = thisQuestion.readQuestionsInOrder(hwID, "4");
+
+            double maxMarks = Convert.ToDouble(thisQuestion.MarksForQuestion);
+            double inputMarks = Convert.ToDouble(txtQ1Marks.Text);
+
+            if (maxMarks >= inputMarks)
+            { }
+            else { validateInputs = true; }
+
+
+        }
+
+
+        private void checkInput5()
+        {
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion = thisQuestion.readQuestionsInOrder(hwID, "5");
+
+            double maxMarks = Convert.ToDouble(thisQuestion.MarksForQuestion);
+            double inputMarks = Convert.ToDouble(txtQ1Marks.Text);
+
+            if (maxMarks >= inputMarks)
+            { }
+            else { validateInputs = true; }
+
+
+        }
+
+
+        private void checkInput6()
+        {
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion = thisQuestion.readQuestionsInOrder(hwID, "6");
+
+            double maxMarks = Convert.ToDouble(thisQuestion.MarksForQuestion);
+            double inputMarks = Convert.ToDouble(txtQ1Marks.Text);
+
+            if (maxMarks >= inputMarks)
+            { }
+            else { validateInputs = true; }
+
+
+        }
+
+
+        private void checkInput7()
+        {
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion = thisQuestion.readQuestionsInOrder(hwID, "7");
+
+            double maxMarks = Convert.ToDouble(thisQuestion.MarksForQuestion);
+            double inputMarks = Convert.ToDouble(txtQ1Marks.Text);
+
+            if (maxMarks >= inputMarks)
+            { }
+            else { validateInputs = true; }
+
+
+        }
+
+
+        private void checkInput8()
+        {
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion = thisQuestion.readQuestionsInOrder(hwID, "8");
+
+            double maxMarks = Convert.ToDouble(thisQuestion.MarksForQuestion);
+            double inputMarks = Convert.ToDouble(txtQ1Marks.Text);
+
+            if (maxMarks >= inputMarks)
+            { }
+            else { validateInputs = true; }
+
+
+        }
+
+
+        private void checkInput9()
+        {
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion = thisQuestion.readQuestionsInOrder(hwID, "9");
+
+            double maxMarks = Convert.ToDouble(thisQuestion.MarksForQuestion);
+            double inputMarks = Convert.ToDouble(txtQ1Marks.Text);
+
+            if (maxMarks >= inputMarks)
+            { }
+            else { validateInputs = true; }
+
+
+        }
+
+
+        private void checkInput10()
+        {
+            QuestionToAnswer thisQuestion = new QuestionToAnswer();
+            thisQuestion = thisQuestion.readQuestionsInOrder(hwID, "10");
+
+            double maxMarks = Convert.ToDouble(thisQuestion.MarksForQuestion);
+            double inputMarks = Convert.ToDouble(txtQ1Marks.Text);
+
+            if (maxMarks >= inputMarks)
+            { }
+            else { validateInputs = true; }
+
+
+        }
 
 
 

@@ -145,9 +145,9 @@ namespace FPY_Homework_Management.Classes
         }
 
 
-        public QuestionToAnswer readQuestionToMark(string id)
+        public QuestionToAnswer readMarkedQuestion(string id, string qNum)
         {
-            string query = "SELECT * FROM QuestionsToAnswer WHERE QuestionToAnswerID = " + id;
+            string query = "SELECT * FROM QuestionsToAnswer WHERE IssuedHomeworkID = " + id + " AND QuestionNumber = " + qNum;
             QuestionToAnswer selectedQuestionToAnswer = new QuestionToAnswer();
             conn.Open();
 
@@ -156,7 +156,7 @@ namespace FPY_Homework_Management.Classes
 
             while (re.Read())
             {
-                selectedQuestionToAnswer = new QuestionToAnswer(re["QuestionToAnswerID"].ToString(), re["IssuedHomeworkID"].ToString(), re["QuestionText"].ToString(), re["QuestionNumber"].ToString(), re["MarksForQuestion"].ToString(), re["Answer"].ToString());
+                selectedQuestionToAnswer = new QuestionToAnswer(re["QuestionToAnswerID"].ToString(), re["IssuedHomeworkID"].ToString(), re["QuestionText"].ToString(), re["QuestionNumber"].ToString(), re["MarksForQuestion"].ToString(), re["Answer"].ToString(), re["Results"].ToString(), re["Feedback"].ToString());
             }
 
             conn.Close();
