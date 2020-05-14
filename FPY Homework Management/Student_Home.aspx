@@ -54,7 +54,7 @@
                         <asp:BoundField DataField="IssuedHomeworkID" ReadOnly="true"/>
                         <%--<asp:BoundField- DataField="StudentID" ReadOnly="true" Visible="false"/>--%>
                         <asp:BoundField DataField="DueDate" HeaderText="Due Date" ReadOnly="true"/>
-                        <asp:BoundField DataField="TimeToComplete" HeaderText="Estemated Homework Duration" ReadOnly="true"/>
+                        <asp:BoundField DataField="TimeToComplete" HeaderText="Estemated Time" ReadOnly="true"/>
                         
                         <asp:TemplateField>
                             <ItemTemplate>                                
@@ -97,7 +97,8 @@
                         <asp:BoundField DataField="IssuedHomeworkID" ReadOnly="true"/>
                         <%--<asp:BoundField DataField="StudentID" ReadOnly="true" Visible="false"/>--%>
                         <asp:BoundField DataField="DueDate" HeaderText="Due Date" ReadOnly="true"/>
-                        <asp:BoundField DataField="TimeToComplete" HeaderText="Estemated Homework Duration" ReadOnly="true"/>
+                        <asp:BoundField DataField="TimeToComplete" HeaderText="Estemated Time" ReadOnly="true"/>
+                        <asp:BoundField DataField="TotalMarks" HeaderText="Total Marks" ReadOnly="true" />
                         <asp:TemplateField>
                             <ItemTemplate>                                
                                 <asp:Button ID="btnSelectOldHomework" runat="server" CssClass="btn-primary" OnClick="btnViewMarkedHomework_Click" CommandName="Select" HeaderText="Select Homework" ShowHeader="True" Text="Select" ItemStyle-HorizontalAlign="Center" /> <%--CommandArgument="Container.DataItemIndex"--%>
