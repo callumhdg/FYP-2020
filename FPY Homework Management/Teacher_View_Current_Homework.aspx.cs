@@ -53,6 +53,7 @@ namespace FPY_Homework_Management
             allSelectedQuestions = question.readSelectedQuestionInHomework(hwID);
             validateInputs = false;
 
+            string totalMarks = "";
 
 
             if (allSelectedQuestions.Count == 1)
@@ -151,17 +152,23 @@ namespace FPY_Homework_Management
                 if (allSelectedQuestions.Count == 1)
                 {
                     feedbackAnswer1();
+
+                    totalMarks = totalMarks1Qs();
                 }
                 else if (allSelectedQuestions.Count == 2)
                 {
                     feedbackAnswer1();
                     feedbackAnswer2();
+
+                    totalMarks = totalMarks2Qs();
                 }
                 else if (allSelectedQuestions.Count == 3)
                 {
                     feedbackAnswer1();
                     feedbackAnswer2();
                     feedbackAnswer3();
+
+                    totalMarks = totalMarks3Qs();
                 }
                 else if (allSelectedQuestions.Count == 4)
                 {
@@ -169,6 +176,8 @@ namespace FPY_Homework_Management
                     feedbackAnswer2();
                     feedbackAnswer3();
                     feedbackAnswer4();
+
+                    totalMarks = totalMarks4Qs();
                 }
                 else if (allSelectedQuestions.Count == 5)
                 {
@@ -177,6 +186,8 @@ namespace FPY_Homework_Management
                     feedbackAnswer3();
                     feedbackAnswer4();
                     feedbackAnswer5();
+
+                    totalMarks = totalMarks5Qs();
                 }
                 else if (allSelectedQuestions.Count == 6)
                 {
@@ -186,6 +197,8 @@ namespace FPY_Homework_Management
                     feedbackAnswer4();
                     feedbackAnswer5();
                     feedbackAnswer6();
+
+                    totalMarks = totalMarks6Qs();
                 }
                 else if (allSelectedQuestions.Count == 7)
                 {
@@ -196,6 +209,8 @@ namespace FPY_Homework_Management
                     feedbackAnswer5();
                     feedbackAnswer6();
                     feedbackAnswer7();
+
+                    totalMarks = totalMarks7Qs();
                 }
                 else if (allSelectedQuestions.Count == 8)
                 {
@@ -207,6 +222,8 @@ namespace FPY_Homework_Management
                     feedbackAnswer6();
                     feedbackAnswer7();
                     feedbackAnswer8();
+
+                    totalMarks = totalMarks8Qs();
                 }
                 else if (allSelectedQuestions.Count == 9)
                 {
@@ -219,6 +236,8 @@ namespace FPY_Homework_Management
                     feedbackAnswer7();
                     feedbackAnswer8();
                     feedbackAnswer9();
+
+                    totalMarks = totalMarks9Qs();
                 }
                 else if (allSelectedQuestions.Count == 10)
                 {
@@ -232,13 +251,16 @@ namespace FPY_Homework_Management
                     feedbackAnswer8();
                     feedbackAnswer9();
                     feedbackAnswer10();
+
+                    totalMarks = totalMarks10Qs();
                 }
                 else { }
 
 
-
                 IssuedHomework thisHomework = new IssuedHomework();
                 thisHomework.updateMarkHomework(hwID);
+                
+                thisHomework.updateHomeworkTotal(hwID, totalMarks);
 
                 Session["SelectedHomework"] = null;
                 Response.Redirect("Teacher_Home.aspx");
@@ -816,6 +838,311 @@ namespace FPY_Homework_Management
 
         }
 
+
+        private string totalMarks1Qs()
+        {
+            double q1In = Convert.ToDouble(txtQ1Marks.Text);
+
+
+            QuestionToAnswer question = new QuestionToAnswer();
+
+            double q1MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "1"));
+
+            string homeworkResults = q1In.ToString() + " / " + q1MaxMarks.ToString();
+            return homeworkResults;
+        }
+
+
+
+
+        private string totalMarks2Qs()
+        {
+            double q1In = Convert.ToDouble(txtQ1Marks.Text);
+            double q2In = Convert.ToDouble(txtQ2Marks.Text);
+
+
+            QuestionToAnswer question = new QuestionToAnswer();
+
+            double q1MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "1"));
+            double q2MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "2"));
+
+
+            double totalIn = q1In + q2In;
+            double totalAvalable = q1MaxMarks + q2MaxMarks;
+
+            //double totalOut = totalIn / 2;
+
+            string homeworkResults = totalIn.ToString() + " / " + totalAvalable.ToString();
+            return homeworkResults;
+        }
+
+
+
+
+        private string totalMarks3Qs()
+        {
+            double q1In = Convert.ToDouble(txtQ1Marks.Text);
+            double q2In = Convert.ToDouble(txtQ2Marks.Text);
+            double q3In = Convert.ToDouble(txtQ3Marks.Text);
+
+
+            QuestionToAnswer question = new QuestionToAnswer();
+
+            double q1MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "1"));
+            double q2MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "2"));
+            double q3MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "3"));
+
+
+            double totalIn = q1In + q2In + q3In;
+            double totalAvalable = q1MaxMarks + q2MaxMarks + q3MaxMarks;
+
+            //double totalOut = totalIn / 3;
+
+            string homeworkResults = totalIn.ToString() + " / " + totalAvalable.ToString();
+            return homeworkResults;
+        }
+
+
+
+
+        private string totalMarks4Qs()
+        {
+            double q1In = Convert.ToDouble(txtQ1Marks.Text);
+            double q2In = Convert.ToDouble(txtQ2Marks.Text);
+            double q3In = Convert.ToDouble(txtQ3Marks.Text);
+            double q4In = Convert.ToDouble(txtQ4Marks.Text);
+
+
+            QuestionToAnswer question = new QuestionToAnswer();
+
+            double q1MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "1"));
+            double q2MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "2"));
+            double q3MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "3"));
+            double q4MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "4"));
+
+
+            double totalIn = q1In + q2In + q3In + q4In;
+            double totalAvalable = q1MaxMarks + q2MaxMarks + q3MaxMarks + q4MaxMarks;
+
+            //double totalOut = totalIn / 4;
+
+            string homeworkResults = totalIn.ToString() + " / " + totalAvalable.ToString();
+            return homeworkResults;
+        }
+
+
+
+
+        private string totalMarks5Qs()
+        {
+            double q1In = Convert.ToDouble(txtQ1Marks.Text);
+            double q2In = Convert.ToDouble(txtQ2Marks.Text);
+            double q3In = Convert.ToDouble(txtQ3Marks.Text);
+            double q4In = Convert.ToDouble(txtQ4Marks.Text);
+            double q5In = Convert.ToDouble(txtQ5Marks.Text);
+
+
+            QuestionToAnswer question = new QuestionToAnswer();
+
+            double q1MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "1"));
+            double q2MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "2"));
+            double q3MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "3"));
+            double q4MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "4"));
+            double q5MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "5"));
+
+
+            double totalIn = q1In + q2In + q3In + q4In + q5In;
+            double totalAvalable = q1MaxMarks + q2MaxMarks + q3MaxMarks + q4MaxMarks + q5MaxMarks;
+
+            //double totalOut = totalIn / 5;
+
+            string homeworkResults = totalIn.ToString() + " / " + totalAvalable.ToString();
+            return homeworkResults;
+        }
+
+
+
+
+        private string totalMarks6Qs()
+        {
+            double q1In = Convert.ToDouble(txtQ1Marks.Text);
+            double q2In = Convert.ToDouble(txtQ2Marks.Text);
+            double q3In = Convert.ToDouble(txtQ3Marks.Text);
+            double q4In = Convert.ToDouble(txtQ4Marks.Text);
+            double q5In = Convert.ToDouble(txtQ5Marks.Text);
+            double q6In = Convert.ToDouble(txtQ6Marks.Text);
+
+
+            QuestionToAnswer question = new QuestionToAnswer();
+
+            double q1MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "1"));
+            double q2MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "2"));
+            double q3MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "3"));
+            double q4MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "4"));
+            double q5MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "5"));
+            double q6MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "6"));
+
+
+            double totalIn = q1In + q2In + q3In + q4In + q5In + q6In;
+            double totalAvalable = q1MaxMarks + q2MaxMarks + q3MaxMarks + q4MaxMarks + q5MaxMarks + q6MaxMarks;
+
+            //double totalOut = totalIn / 6;
+
+            string homeworkResults = totalIn.ToString() + " / " + totalAvalable.ToString();
+            return homeworkResults;
+        }
+
+
+
+
+        private string totalMarks7Qs()
+        {
+            double q1In = Convert.ToDouble(txtQ1Marks.Text);
+            double q2In = Convert.ToDouble(txtQ2Marks.Text);
+            double q3In = Convert.ToDouble(txtQ3Marks.Text);
+            double q4In = Convert.ToDouble(txtQ4Marks.Text);
+            double q5In = Convert.ToDouble(txtQ5Marks.Text);
+            double q6In = Convert.ToDouble(txtQ6Marks.Text);
+            double q7In = Convert.ToDouble(txtQ7Marks.Text);
+
+
+            QuestionToAnswer question = new QuestionToAnswer();
+
+            double q1MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "1"));
+            double q2MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "2"));
+            double q3MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "3"));
+            double q4MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "4"));
+            double q5MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "5"));
+            double q6MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "6"));
+            double q7MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "7"));
+
+
+            double totalIn = q1In + q2In + q3In + q4In + q5In + q6In + q7In;
+            double totalAvalable = q1MaxMarks + q2MaxMarks + q3MaxMarks + q4MaxMarks + q5MaxMarks + q6MaxMarks + q7MaxMarks;
+
+            //double totalOut = totalIn / 7;
+
+            string homeworkResults = totalIn.ToString() + " / " + totalAvalable.ToString();
+            return homeworkResults;
+        }
+
+
+
+
+        private string totalMarks8Qs()
+        {
+            double q1In = Convert.ToDouble(txtQ1Marks.Text);
+            double q2In = Convert.ToDouble(txtQ2Marks.Text);
+            double q3In = Convert.ToDouble(txtQ3Marks.Text);
+            double q4In = Convert.ToDouble(txtQ4Marks.Text);
+            double q5In = Convert.ToDouble(txtQ5Marks.Text);
+            double q6In = Convert.ToDouble(txtQ6Marks.Text);
+            double q7In = Convert.ToDouble(txtQ7Marks.Text);
+            double q8In = Convert.ToDouble(txtQ8Marks.Text);
+            ;
+
+            QuestionToAnswer question = new QuestionToAnswer();
+
+            double q1MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "1"));
+            double q2MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "2"));
+            double q3MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "3"));
+            double q4MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "4"));
+            double q5MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "5"));
+            double q6MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "6"));
+            double q7MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "7"));
+            double q8MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "8"));
+
+
+            double totalIn = q1In + q2In + q3In + q4In + q5In + q6In + q7In + q8In;
+            double totalAvalable = q1MaxMarks + q2MaxMarks + q3MaxMarks + q4MaxMarks + q5MaxMarks + q6MaxMarks + q7MaxMarks + q8MaxMarks;
+
+            //double totalOut = totalIn / 8;
+
+            string homeworkResults = totalIn.ToString() + " / " + totalAvalable.ToString();
+            return homeworkResults;
+        }
+
+
+
+
+        private string totalMarks9Qs()
+        {
+            double q1In = Convert.ToDouble(txtQ1Marks.Text);
+            double q2In = Convert.ToDouble(txtQ2Marks.Text);
+            double q3In = Convert.ToDouble(txtQ3Marks.Text);
+            double q4In = Convert.ToDouble(txtQ4Marks.Text);
+            double q5In = Convert.ToDouble(txtQ5Marks.Text);
+            double q6In = Convert.ToDouble(txtQ6Marks.Text);
+            double q7In = Convert.ToDouble(txtQ7Marks.Text);
+            double q8In = Convert.ToDouble(txtQ8Marks.Text);
+            double q9In = Convert.ToDouble(txtQ9Marks.Text);
+
+
+            QuestionToAnswer question = new QuestionToAnswer();
+
+            double q1MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "1"));
+            double q2MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "2"));
+            double q3MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "3"));
+            double q4MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "4"));
+            double q5MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "5"));
+            double q6MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "6"));
+            double q7MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "7"));
+            double q8MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "8"));
+            double q9MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "9"));
+
+
+            double totalIn = q1In + q2In + q3In + q4In + q5In + q6In + q7In + q8In + q9In;
+            double totalAvalable = q1MaxMarks + q2MaxMarks + q3MaxMarks + q4MaxMarks + q5MaxMarks + q6MaxMarks + q7MaxMarks + q8MaxMarks + q9MaxMarks;
+
+            //double totalOut = totalIn / 9;
+
+            string homeworkResults = totalIn.ToString() + " / " + totalAvalable.ToString();
+            return homeworkResults;
+        }
+
+
+
+
+
+
+        private string totalMarks10Qs()
+        {
+            double q1In = Convert.ToDouble(txtQ1Marks.Text);
+            double q2In = Convert.ToDouble(txtQ2Marks.Text);
+            double q3In = Convert.ToDouble(txtQ3Marks.Text);
+            double q4In = Convert.ToDouble(txtQ4Marks.Text);
+            double q5In = Convert.ToDouble(txtQ5Marks.Text);
+            double q6In = Convert.ToDouble(txtQ6Marks.Text);
+            double q7In = Convert.ToDouble(txtQ7Marks.Text);
+            double q8In = Convert.ToDouble(txtQ8Marks.Text);
+            double q9In = Convert.ToDouble(txtQ9Marks.Text);
+            double q10In = Convert.ToDouble(txtQ10Marks.Text);
+
+            QuestionToAnswer question = new QuestionToAnswer();
+
+            double q1MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "1"));
+            double q2MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "2"));
+            double q3MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "3"));
+            double q4MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "4"));
+            double q5MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "5"));
+            double q6MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "6"));
+            double q7MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "7"));
+            double q8MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "8"));
+            double q9MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "9"));
+            double q10MaxMarks = Convert.ToDouble(question.readAvailableMarks(hwID, "10"));
+
+
+            double totalIn = q1In + q2In + q3In + q4In + q5In + q6In + q7In + q8In + q9In + q10In;
+            double totalAvalable = q1MaxMarks + q2MaxMarks + q3MaxMarks + q4MaxMarks + q5MaxMarks + q6MaxMarks + q7MaxMarks + q8MaxMarks + q9MaxMarks + q10MaxMarks;
+
+            //double totalOut = totalIn / 10;
+
+            string homeworkResults = totalIn.ToString() + " / " + totalAvalable.ToString();
+            return homeworkResults;           
+        }
+
+
+                                   
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             Session["user"] = null;

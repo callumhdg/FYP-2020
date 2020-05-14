@@ -143,6 +143,23 @@ namespace FPY_Homework_Management.Classes
             conn.Close();
             return answer;
         }
+        
+        public string readAvailableMarks(string id, string qNum)
+        {
+            string query = "SELECT MarksForQuestion From QuestionsToAnswer WHERE IssuedHomeworkID = '" + id + "' AND QuestionNumber = '" + qNum +"'";
+            string marks = "";
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader re = cmd.ExecuteReader();
+            while (re.Read())
+            {
+                marks = re["MarksForQuestion"].ToString();
+            }
+
+            conn.Close();
+            return marks;
+        }
 
 
         public QuestionToAnswer readMarkedQuestion(string id, string qNum)
@@ -182,6 +199,7 @@ namespace FPY_Homework_Management.Classes
             conn.Close();
             return selectedQuestionToAnswer;
         }
+
 
 
         public void createQuestionToAnswer()
