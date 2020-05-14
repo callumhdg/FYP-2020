@@ -516,5 +516,13 @@ namespace FPY_Homework_Management
             Response.Redirect("Login.aspx");
         }
 
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Session["SelectedHomework"] = null;
+
+            Response.Redirect("Student_Home.aspx");
+        }
+
+
     }
 }

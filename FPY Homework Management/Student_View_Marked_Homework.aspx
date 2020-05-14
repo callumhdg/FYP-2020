@@ -21,12 +21,15 @@
 
 <form id="frmViewMarkedHomework" runat="server" style="margin:0px; border:0px;">
 
-            <div id="NavBarDiv"><!-- NavBar -->
+    <div id="NavBarDiv"><!-- NavBar -->
             <nav class="navbar navbar-expand-lg navbar-light bg-white">
                 <a class="navbar-brand">
                     <img src="Media/SCHOOLMATE-01.jpg" height="60" width="60" alt=""/>
                 </a>
-                <ul class="nav navbar-nav navbar-right" style="margin-left:90%">
+                <ul>
+                    <asp:button id="btnHome" runat="server" class="btn" OnClick="btnHome_Click" Text="Home"></asp:button>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" style="margin-left:80%">
                     <asp:button id="btnLogout" runat="server" class="btn btn-outline-danger " OnClick="btnLogout_Click" Text="Logout"></asp:button>
                 </ul>
             </nav>

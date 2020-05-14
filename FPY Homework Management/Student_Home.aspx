@@ -26,11 +26,10 @@
                 <a class="navbar-brand">
                     <img src="Media/SCHOOLMATE-01.jpg" height="60" width="60" alt=""/>
                 </a>
-                <%--<a class="navbar-brand" href="Student_Home.aspx">Home</a>--%>
-                <%--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>  --%>  
-                <ul class="nav navbar-nav navbar-right" style="margin-left:90%">
+                <ul>
+                    <asp:button id="btnHome" runat="server" class="btn" OnClick="btnHome_Click" Text="Home"></asp:button>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" style="margin-left:80%">
                     <asp:button id="btnLogout" runat="server" class="btn btn-outline-danger " OnClick="btnLogout_Click" Text="Logout"></asp:button>
                 </ul>
             </nav>
