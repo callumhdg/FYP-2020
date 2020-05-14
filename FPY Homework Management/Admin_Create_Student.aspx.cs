@@ -174,5 +174,13 @@ namespace FPY_Homework_Management
             return validate;
         }
 
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session["user"] = null;
+            Session["SelectedHomework"] = null;
+
+            Response.Redirect("Login.aspx");
+        }
+
     }
 }

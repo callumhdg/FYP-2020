@@ -18,7 +18,24 @@
   
 </head>
 <body style="background-color:#F8F8F8;">
-    <form id="frmCompleteHomework" runat="server">
+
+<form id="frmCompleteHomework" runat="server" style="margin:0px; border:0px;">
+
+    <div id="NavBarDiv"><!-- NavBar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <a class="navbar-brand">
+                    <img src="Media/SCHOOLMATE-01.jpg" height="60" width="60" alt=""/>
+                </a> 
+                <ul class="nav navbar-nav navbar-right" style="margin-left:90%">
+                    <asp:button id="btnLogout" runat="server" class="btn btn-outline-danger " OnClick="btnLogout_Click" Text="Logout"></asp:button>
+                </ul>
+            </nav>
+        </div>
+
+
+
+
+    
 
         <div id="studentHomeworkView" class="container">
 
@@ -31,7 +48,7 @@
         </div><br/><br/>        
 
         </div>
-        <div id="viewQuestions" class="container">
+        <div id="viewQuestions" class="container" style="margin-bottom:40px">
 
             
             <div id="q1Conainer" runat="server" class="container" style="background-color:white; padding:8px;">
@@ -99,7 +116,7 @@
 
             <div id="q5Conainer" runat="server" class="container" style="background-color:white; padding:8px;">
                 <div class="row" style="width:100%; padding-left:5%; padding-right:5%">
-                    <span id="qNumTitle5">Q<b>Q5:</b> </span><br/>
+                    <span id="qNumTitle5"><b>Q5:</b> </span><br/>
                     <span id="q5Text" runat="server"></span><br/>
                 </div>
 

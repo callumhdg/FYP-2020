@@ -14,36 +14,40 @@
 <body style="background-color:#F8F8F8;">
     <div>
 
-
+        <form id="frmCreateTeacher" runat="server" style="margin:0px; border:0px;">
 
         <div id="NavBarDiv"><!-- NavBar -->
             <nav class="navbar navbar-expand-lg navbar-light bg-white">
                 <a class="navbar-brand">
                     <img src="Media/SCHOOLMATE-01.jpg" height="60" width="60" alt=""/>
                 </a>
-                <a class="text-light navbar-brand" href="Admin_Home.aspx">Home</a>
-                <%--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="Admin_Home.aspx">Home</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>  --%>  
+                </button>    
                 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
                             <a class="nav-link" href="Admin_Create_Student.aspx">Create Student</a>
                         </li>
-                    
+                    </ul>
+                    <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
                             <a class="nav-link" href="Admin_Create_Teacher.aspx">Create Teacher</a>
                         </li>
                     </ul>
-
+                    <ul class="nav navbar-nav navbar-right" style="margin-left:80%">
+                        <asp:button id="btnLogout" runat="server" class="btn btn-outline-danger " OnClick="btnLogout_Click" Text="Logout"></asp:button>
+                    </ul>
                 </div>
 
             </nav>
         </div>
+
                                     
 
-    <form id="frmCreateTeacher" runat="server">
+    
         <div style="width:60%; margin-left:20%; margin-right:20%; margin-top:3%;">
 
             <div class="row" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:25px; padding-top:25px; background-color:#e6ffff; margin-left:0px; margin-right:0px;">                

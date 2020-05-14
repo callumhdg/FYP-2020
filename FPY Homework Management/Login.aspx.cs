@@ -95,7 +95,8 @@ namespace FPY_Homework_Management
                 {
 
                     //string input = txtUsername.Text;//.ToLower();
-                    if (txtUsername.Text.Equals(a.adminUsername) && txtPassword.Text.Equals(a.adminPassword))
+                    //if (txtUsername.Text.Equals(a.adminUsername) && txtPassword.Text.Equals(a.adminPassword))
+                    if (txtUsername.Text.ToLower().Equals(a.adminUsername.ToLower()) && txtPassword.Text.Equals(a.adminPassword))
                     {
                         a.adminPassword = null; //clears password 
                         Session["user"] = a.adminUsername;

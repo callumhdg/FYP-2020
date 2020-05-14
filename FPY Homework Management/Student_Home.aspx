@@ -15,9 +15,11 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-     
+    
 </head>
 <body style="background-color:#F8F8F8;">
+
+    <form id="frmStudentHome" runat="server" style="margin:0px; border:0px;">
 
     <div id="NavBarDiv"><!-- NavBar -->
             <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -28,12 +30,15 @@
                 <%--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>  --%>  
+                <ul class="nav navbar-nav navbar-right" style="margin-left:90%">
+                    <asp:button id="btnLogout" runat="server" class="btn btn-outline-danger " OnClick="btnLogout_Click" Text="Logout"></asp:button>
+                </ul>
             </nav>
         </div>
        
 
-        <div id="displayHomework">
-            <form id="frmStudentHome" runat="server" class="container" style="margin-left:3%; margin-bottom:5%; margin-top:3%; margin-right:3%; width:70%;">
+        <div id="displayHomework" runat="server" class="container" style="margin-left:3%; margin-bottom:5%; margin-top:3%; margin-right:3%; width:70%;">
+            <%--<form id="frmStudentHome" runat="server" class="container" style="margin-left:3%; margin-bottom:5%; margin-top:3%; margin-right:3%; width:70%;">--%>
                 
 
                 <%--<asp:SqlDataSource ID="listCurrentHomework" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT * FROM IssuedHomework WHERE StudentID = (logged in student) AND DueDate > (CURDATE(), INTERVAL 1 DAY)"></asp:SqlDataSource>--%>
@@ -103,8 +108,8 @@
                 </asp:GridView>
                     </div>
 
-            
+            </div>
             </form>
-        </div>
+        
 </body>
 </html>

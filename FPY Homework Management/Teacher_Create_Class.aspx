@@ -17,9 +17,40 @@
 
 
 
-
+<form id="frmCreateClass" runat="server" style="margin:0px; border:0px;">
         <div>
-            <form id="frmCreateClass" runat="server">
+            
+
+
+     <div id="NavBarDiv"><!-- NavBar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <a class="navbar-brand">
+                    <img src="Media/SCHOOLMATE-01.jpg" height="60" width="60" alt=""/>
+                </a> 
+                <ul class="navbar-nav">
+			        <li class="nav-item">
+				        <a class="navbar-brand" href="Teacher_Home.aspx">Home</a>
+			        </li>
+			        <li class="nav-item dropdown">
+                        <%--<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" id="navHWDropDown" role="button">Homework</a>--%>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Homework</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="TeacherCreateHW.aspx">Create Homework</a>
+                            <a class="dropdown-item" href="Teacher_Homework_Assign.aspx">Allocate Homework</a>
+                            <a class="dropdown-item" href="Teacher_Home.aspx">View Homework</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" style="margin-left:75%">
+                    <li >
+                        <asp:button id="btnLogout" runat="server" class="btn btn-outline-danger" OnClick="btnLogout_Click" Text="Logout"></asp:button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
+
                 <h1 id="tCreateClassHeadder">Create a Class</h1>
                 <asp:SqlDataSource ID="ViewAllTeachers" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT [TeacherID], [TeacherFirstName], [TeacherLastName], [TeacherUsername] FROM [Teachers] ORDER BY [TeacherFirstName] DESC, [TeacherLastName] DESC"></asp:SqlDataSource>
 
@@ -44,7 +75,8 @@
 
                 <asp:Button ID="btnCreateClass" class="btn btn-primary" Width="100%" runat="server" Text="Create" OnClick="btnCreateClass_Click"></asp:Button>
 
+ </div>
             </form>
-        </div>
+       
 </body>
 </html>
