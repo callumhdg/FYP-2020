@@ -35,8 +35,9 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Homework</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="TeacherCreateHW.aspx">Create Homework</a>
+                            <a class="dropdown-item" href="Teacher_View_All_Homework.aspx">View Homework Templates</a>
                             <a class="dropdown-item" href="Teacher_Homework_Assign.aspx">Allocate Homework</a>
-                            <a class="dropdown-item" href="Teacher_Home.aspx">View Homework</a>
+                            <a class="dropdown-item" href="Teacher_Home.aspx">View Completed Homework</a>
                         </div>
                     </li>
                 </ul>

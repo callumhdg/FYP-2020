@@ -96,7 +96,59 @@ namespace FPY_Homework_Management.Classes
 
 
 
-        //read all core questions for a given core homework (homework id)
+        public ArrayList readSelectedQuestionInHomework(string id)
+        {
+            string query = "SELECT * FROM CoreQuestions WHERE CoreHomeworkParent = '" + id + "'";
+            ArrayList selectedQuestionToAnswer = new ArrayList();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader re = cmd.ExecuteReader();
+
+            while (re.Read())
+            {
+                Question thisQuestion = new Question(re["CoreQuestionID"].ToString(), re["CoreHomeworkParent"].ToString(), re["QuestionNumber"].ToString(), re["QuestionToAnswer"].ToString(), re["MaximumMarksForQuestion"].ToString());
+                selectedQuestionToAnswer.Add(thisQuestion);
+            }
+
+            conn.Close();
+            return selectedQuestionToAnswer;
+        }
+
+        public Question readQuestionsInOrder(string id, string num)
+        {
+            string query = "SELECT * FROM CoreQuestions WHERE CoreHomeworkParent = '" + id + "' AND QuestionNumber = '" + num + "'";
+            Question selectedQuestionToAnswer = new Question();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            //cmd.Parameters.AddWithValue("@id", id);
+            //cmd.Parameters.AddWithValue("@num", num);
+            SqlDataReader re = cmd.ExecuteReader();
+
+            while (re.Read())
+            {
+                selectedQuestionToAnswer = new Question(re["CoreQuestionID"].ToString(), re["CoreHomeworkParent"].ToString(), re["QuestionNumber"].ToString(), re["QuestionToAnswer"].ToString(), re["MaximumMarksForQuestion"].ToString());
+            }
+
+            conn.Close();
+            return selectedQuestionToAnswer;
+        }
+
+        
+        public void updateQuestion(string parentID, string qNum, string answer, string maxMarks)
+        {
+            string query = "UPDATE CoreQuestions SET QuestionToAnswer = '" + answer + "', MaximumMarksForQuestion = '" + maxMarks + "' WHERE CoreHomeworkParent = '" + parentID + "' AND QuestionNumber = '" + qNum + "'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+        }
+
+
+
 
 
 

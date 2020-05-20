@@ -41,28 +41,6 @@ namespace FPY_Homework_Management
                 homework.createCoreHomework();
 
 
-                //Question question1 = new Question(idNum.ToString(), "1", Qtext1.Text, QMaxMarks1.Text);
-                //question1.createCoreQuestion();
-                //Question question2 = new Question(idNum.ToString(), "2", Qtext2.Text, QMaxMarks2.Text);
-                ////question2.createCoreQuestion();
-                //Question question3 = new Question(idNum.ToString(), "3", Qtext3.Text, QMaxMarks3.Text);
-                ////question3.createCoreQuestion();
-                //Question question4 = new Question(idNum.ToString(), "4", Qtext4.Text, QMaxMarks4.Text);
-                ////question4.createCoreQuestion();
-                //Question question5 = new Question(idNum.ToString(), "5", Qtext5.Text, QMaxMarks5.Text);
-                ////question5.createCoreQuestion();
-                //Question question6 = new Question(idNum.ToString(), "6", Qtext6.Text, QMaxMarks6.Text);
-                ////question6.createCoreQuestion();
-                //Question question7 = new Question(idNum.ToString(), "7", Qtext7.Text, QMaxMarks7.Text);
-                ////question7.createCoreQuestion();
-                //Question question8 = new Question(idNum.ToString(), "8", Qtext8.Text, QMaxMarks8.Text);
-                ////question8.createCoreQuestion();
-                //Question question9 = new Question(idNum.ToString(), "9", Qtext9.Text, QMaxMarks9.Text);
-                ////question9.createCoreQuestion();
-                //Question question10 = new Question(idNum.ToString(), "10", Qtext10.Text, QMaxMarks10.Text);
-                //question10.createCoreQuestion();
-
-
 
                 //check to see if questions are empty so they dont have to be created if they arent filled in, sets the number of questions to the next question
                 //e.g., if numbers: 1,2,3,5 were filled in the question numbers will be saved as: 1,2,3,4

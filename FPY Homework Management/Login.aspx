@@ -32,7 +32,7 @@
             <form id="loginForm" runat="server">
                 <div class="form-group">
                     <label for="exampleUsernameInput">Username</label>
-                    <asp:TextBox class="form-control" ID="txtUsername" runat="server" placeholder="Username" Text="stpepper"></asp:TextBox>
+                    <asp:TextBox class="form-control" ID="txtUsername" runat="server" placeholder="Username"></asp:TextBox>
                 </div>
 
                 <div class="form-group">
