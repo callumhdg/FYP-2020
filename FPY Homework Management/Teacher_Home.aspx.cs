@@ -17,6 +17,12 @@ namespace FPY_Homework_Management
         string username, userID;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else { }
+
             username = Session["user"].ToString();
             userID = findTeacherID();
 

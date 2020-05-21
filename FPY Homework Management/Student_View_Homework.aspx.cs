@@ -17,6 +17,16 @@ namespace FPY_Homework_Management
         string currentIssuedHomeworkID;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else if (Session["SelectedHomework"] == null)
+            {
+                Response.Redirect("Student_Home.aspx");
+            }
+            else { }
+
             hideAllQuestions();
             displayAllQuestions();
         }
