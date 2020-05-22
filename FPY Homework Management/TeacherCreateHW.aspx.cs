@@ -30,23 +30,25 @@ namespace FPY_Homework_Management
         protected void btnCreateHomework_Click(object sender, EventArgs e)
         {
 
-            ArrayList hwCount = new ArrayList();
-            Homework hw = new Homework();
-            hwCount = hw.readAllCoreHomework();
-            int idNum;
+            //ArrayList hwCount = new ArrayList();
+            //Homework hw = new Homework();
+            //hwCount = hw.readAllCoreHomework();
+            //int idNum;
 
 
-            if (hwCount.Count == 0)
-            {
-                idNum = 0;
-            }
-            else
-            {
-                idNum = hwCount.Count;
-            }
+            //if (hwCount.Count == 0)
+            //{
+            //    idNum = 0;
+            //}
+            //else
+            //{
+            //    idNum = hwCount.Count;
+            //}
+            Utility utility = new Utility();
+            string homeworkID = utility.readCurrentCoreHomeworkCount();
 
 
-            Homework homework = new Homework(idNum.ToString(), userID, minutesToCompleteInput.Text, CoreHomeworkTitleInput.Text);
+            Homework homework = new Homework(homeworkID, userID, minutesToCompleteInput.Text, CoreHomeworkTitleInput.Text);
             homework.createCoreHomework();
 
 
@@ -58,7 +60,7 @@ namespace FPY_Homework_Management
             if (Qtext1.Text == "" || QMaxMarks1.Text == "") { }
             else
             {
-                Question question1 = new Question(idNum.ToString(), qCount.ToString(), Qtext1.Text, QMaxMarks1.Text);
+                Question question1 = new Question(homeworkID, qCount.ToString(), Qtext1.Text, QMaxMarks1.Text);
                 question1.createCoreQuestion();
                 qCount++;
             }
@@ -66,7 +68,7 @@ namespace FPY_Homework_Management
             if (Qtext2.Text == "" || QMaxMarks2.Text == "") { }
             else
             {
-                Question question2 = new Question(idNum.ToString(), qCount.ToString(), Qtext2.Text, QMaxMarks2.Text);
+                Question question2 = new Question(homeworkID, qCount.ToString(), Qtext2.Text, QMaxMarks2.Text);
                 question2.createCoreQuestion();
                 qCount++;
             }
@@ -74,7 +76,7 @@ namespace FPY_Homework_Management
             if (Qtext3.Text == "" || QMaxMarks3.Text == "") { }
             else
             {
-                Question question3 = new Question(idNum.ToString(), qCount.ToString(), Qtext3.Text, QMaxMarks3.Text);
+                Question question3 = new Question(homeworkID, qCount.ToString(), Qtext3.Text, QMaxMarks3.Text);
                 question3.createCoreQuestion();
                 qCount++;
             }
@@ -82,7 +84,7 @@ namespace FPY_Homework_Management
             if (Qtext4.Text == "" || QMaxMarks4.Text == "") { }
             else
             {
-                Question question4 = new Question(idNum.ToString(), qCount.ToString(), Qtext4.Text, QMaxMarks4.Text);
+                Question question4 = new Question(homeworkID, qCount.ToString(), Qtext4.Text, QMaxMarks4.Text);
                 question4.createCoreQuestion();
                 qCount++;
             }
@@ -90,7 +92,7 @@ namespace FPY_Homework_Management
             if (Qtext5.Text == "" || QMaxMarks5.Text == "") { }
             else
             {
-                Question question5 = new Question(idNum.ToString(), qCount.ToString(), Qtext5.Text, QMaxMarks5.Text);
+                Question question5 = new Question(homeworkID, qCount.ToString(), Qtext5.Text, QMaxMarks5.Text);
                 question5.createCoreQuestion();
                 qCount++;
             }
@@ -98,7 +100,7 @@ namespace FPY_Homework_Management
             if (Qtext6.Text == "" || QMaxMarks6.Text == "") { }
             else
             {
-                Question question6 = new Question(idNum.ToString(), qCount.ToString(), Qtext6.Text, QMaxMarks6.Text);
+                Question question6 = new Question(homeworkID, qCount.ToString(), Qtext6.Text, QMaxMarks6.Text);
                 question6.createCoreQuestion();
                 qCount++;
             }
@@ -106,7 +108,7 @@ namespace FPY_Homework_Management
             if (Qtext7.Text == "" || QMaxMarks7.Text == "") { }
             else
             {
-                Question question7 = new Question(idNum.ToString(), qCount.ToString(), Qtext7.Text, QMaxMarks7.Text);
+                Question question7 = new Question(homeworkID, qCount.ToString(), Qtext7.Text, QMaxMarks7.Text);
                 question7.createCoreQuestion();
                 qCount++;
             }
@@ -114,7 +116,7 @@ namespace FPY_Homework_Management
             if (Qtext8.Text == "" || QMaxMarks8.Text == "") { }
             else
             {
-                Question question8 = new Question(idNum.ToString(), qCount.ToString(), Qtext8.Text, QMaxMarks8.Text);
+                Question question8 = new Question(homeworkID, qCount.ToString(), Qtext8.Text, QMaxMarks8.Text);
                 question8.createCoreQuestion();
                 qCount++;
             }
@@ -122,7 +124,7 @@ namespace FPY_Homework_Management
             if (Qtext9.Text == "" || QMaxMarks9.Text == "") { }
             else
             {
-                Question question9 = new Question(idNum.ToString(), qCount.ToString(), Qtext9.Text, QMaxMarks9.Text);
+                Question question9 = new Question(homeworkID, qCount.ToString(), Qtext9.Text, QMaxMarks9.Text);
                 question9.createCoreQuestion();
                 qCount++;
             }
@@ -130,13 +132,13 @@ namespace FPY_Homework_Management
             if (Qtext10.Text == "" || QMaxMarks10.Text == "") { }
             else
             {
-                Question question10 = new Question(idNum.ToString(), qCount.ToString(), Qtext10.Text, QMaxMarks10.Text);
+                Question question10 = new Question(homeworkID, qCount.ToString(), Qtext10.Text, QMaxMarks10.Text);
                 question10.createCoreQuestion();
                 qCount++;
             }
 
 
-
+            utility.addCoreHomework();
             submissionFeedback.Text = "Homework was sucsesfully created";
             clearInputs();
 
