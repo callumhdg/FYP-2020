@@ -240,7 +240,17 @@ namespace FPY_Homework_Management.Classes
         }
 
 
+        public void deleteIssuedQuestions(string id)
+        {
+            string query = "DELETE FROM QuestionsToAnswer WHERE IssuedHomeworkID = '" + id + "'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
 
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+
+        }
 
     }
 }

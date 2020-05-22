@@ -320,7 +320,15 @@
             <div class="container" style="padding:8px;">                
                 <asp:Button ID="btnUpdateHomework" runat="server" Text="Update" OnClick="btnUpdateHomework_Click" CssClass="btn btn-success btn-block" style="width:100%; padding-left:5%; padding-right:5%; margin-bottom:0px; margin-left:0px; margin-right:0px; margin-top:8px"/>
             </div>
-                        
+                    
+            
+            <div class="container alert-danger" style="padding:8px; margin-top:40px;">  
+                <span style="width:100%"><b>WARNING. Deleting this homework will delete any issued homework deriving from this original version.</b></span>
+                <div class="container alert-danger" style="padding-left:40%; padding-right:40%; margin-bottom:20px">
+                    <asp:Button ID="btnDeleteHomework" runat="server" Text="Delete" OnClick="btnDeleteHomework_Click" CssClass="btn btn-danger btn-block" style="text-align:center; width:100%; margin-bottom:0px; margin-top:8px;"/>
+                </div>
+            </div>
+
             
         </div>
                

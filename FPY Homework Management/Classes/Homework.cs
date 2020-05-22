@@ -97,8 +97,17 @@ namespace FPY_Homework_Management.Classes
         }
 
 
+        public void deleteCoreHomework(string id)
+        {
+            string query = "DELETE FROM CoreHomework WHERE CoreHomeworkID = '" + id + "'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
 
+            cmd.ExecuteNonQuery();
+            conn.Close();
 
+        }
+        
 
 
 

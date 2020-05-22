@@ -148,7 +148,17 @@ namespace FPY_Homework_Management.Classes
         }
 
 
+        public void deleteQuestions(string id)
+        {
+            string query = "DELETE FROM CoreQuestions WHERE CoreHomeworkParent = '" + id + "'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
 
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+
+        }
 
 
 

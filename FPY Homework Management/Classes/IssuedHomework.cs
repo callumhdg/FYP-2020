@@ -205,6 +205,37 @@ namespace FPY_Homework_Management.Classes
             conn.Close();
         }
 
+        public ArrayList selectAllIssuedHomeworkFromCore(string id)
+        {
+            ArrayList selectedIDs = new ArrayList();
+            string query = "SELECT IssuedHomeworkID FROM IssuedHomework WHERE CoreHomeworkID = '" + id + "'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader re = cmd.ExecuteReader();
+
+            while (re.Read())
+            {
+                IssuedHomework thisIssHw = new IssuedHomework(re["IssuedHomeworkID"].ToString());
+                selectedIDs.Add(thisIssHw.IssuedHomeworkID);
+            }
+
+            //cmd.ExecuteNonQuery();
+            conn.Close();
+            return selectedIDs;
+        }
+
+        public void deleteIssuedHomework(string id)
+        {
+            string query = "DELETE FROM IssuedHomework WHERE CoreHomeworkID = '" + id + "'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+
+        }
+
 
 
     }

@@ -490,8 +490,8 @@ namespace FPY_Homework_Management
             txtQ8Text.Text = thisQuestion.questionText;
             txtQ8Marks.Text = thisQuestion.maxMarksForQuestion;
         }
-
         
+
         private void fillAnswer9()
         {
             q9Conainer.Visible = true;
@@ -517,18 +517,35 @@ namespace FPY_Homework_Management
 
 
 
+        protected void btnDeleteHomework_Click(object sender, EventArgs e)
+        {
+            Homework homework = new Homework();
+            Question question = new Question();
+            IssuedHomework issuedHomework = new IssuedHomework();
+            QuestionToAnswer questionToAnswer = new QuestionToAnswer();
+            ArrayList issHwIds = new ArrayList();
+
+            issHwIds = issuedHomework.selectAllIssuedHomeworkFromCore(hwID);
+
+            for (int i = 0; i < issHwIds.Count; i++)
+            {
+                questionToAnswer.deleteIssuedQuestions(issHwIds[i].ToString());
+            }
+
+            issuedHomework.deleteIssuedHomework(hwID);
+
+            question.deleteQuestions(hwID);
+                                 
+            homework.deleteCoreHomework(hwID);
+
+            Session["SelectedHomework"] = null;
+
+            Response.Redirect("Teacher_View_All_Homework.aspx");
+
+        }
 
 
 
-
-
-
-
-
-
-
-
-
-
+         
     }
 }
