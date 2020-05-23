@@ -11,10 +11,12 @@ using System.Data;
 
 namespace FPY_Homework_Management
 {
-    public partial class Teacher_Home : System.Web.UI.Page
+    public partial class Teacher_View_All_Homework : System.Web.UI.Page
     {
         SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["PRCO304_CHarding"].ToString());
         string username, userID;
+               
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["user"] == null)
@@ -25,8 +27,6 @@ namespace FPY_Homework_Management
 
             username = Session["user"].ToString();
             userID = findTeacherID();
-
-            listDueHomework.SelectCommand = "SELECT * FROM IssuedHomework WHERE DueDate < CURRENT_TIMESTAMP AND SetByTeacherID = '" + userID + "'";
         }
 
         protected void btnSelectHomework_Click(object sender, EventArgs e)
@@ -37,8 +37,15 @@ namespace FPY_Homework_Management
             Session["SelectedHomework"] = selectedID;
 
 
-            Response.Redirect("Teacher_View_Current_Homework.aspx");
+            Response.Redirect("Teacher_Update_Homework.aspx");
+        }
 
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session["user"] = null;
+            Session["SelectedHomework"] = null;
+
+            Response.Redirect("Login.aspx");
         }
 
         protected string findTeacherID()
@@ -60,13 +67,9 @@ namespace FPY_Homework_Management
             return id;
         }
 
-        protected void btnLogout_Click(object sender, EventArgs e)
-        {
-            Session["user"] = null;
-            Session["SelectedHomework"] = null;
 
-            Response.Redirect("Login.aspx");
-        }
+
+
 
     }
 }

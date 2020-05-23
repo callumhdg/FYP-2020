@@ -11,7 +11,20 @@ namespace FPY_Homework_Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else { }
 
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session["user"] = null;
+            Session["SelectedHomework"] = null;
+
+            Response.Redirect("Login.aspx");
         }
     }
 }

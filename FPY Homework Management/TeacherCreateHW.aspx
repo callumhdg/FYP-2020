@@ -19,7 +19,10 @@
     
 </head>
 <body style="background-color:#F8F8F8;">
-        <div id="NavBarDiv"><!-- NavBar -->
+
+<form id="frmCreateHW" runat="server" style="margin:0px; border:0px;">
+
+     <div id="NavBarDiv"><!-- NavBar -->
             <nav class="navbar navbar-expand-lg navbar-light bg-white">
                 <a class="navbar-brand">
                     <img src="Media/SCHOOLMATE-01.jpg" height="60" width="60" alt=""/>
@@ -33,15 +36,21 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Homework</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="TeacherCreateHW.aspx">Create Homework</a>
+                            <a class="dropdown-item" href="Teacher_View_All_Homework.aspx">View Homework Templates</a>
                             <a class="dropdown-item" href="Teacher_Homework_Assign.aspx">Allocate Homework</a>
-                            <a class="dropdown-item" href="Teacher_Home.aspx">View Homework</a>
+                            <a class="dropdown-item" href="Teacher_Home.aspx">View Completed Homework</a>
                         </div>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" style="margin-left:75%">
+                    <li >
+                        <asp:button id="btnLogout" runat="server" class="btn btn-outline-danger" OnClick="btnLogout_Click" Text="Logout"></asp:button>
                     </li>
                 </ul>
             </nav>
         </div>
 
-    <form id="frmCreateHW" runat="server">
+    
         <div id="coreHWCreate" class="container">
 
             <div style="background-color:#e6ffff; padding:8px;">

@@ -11,17 +11,26 @@ namespace FPY_Homework_Management
 {
 
 
-    public partial class Teacher_View_Current_Homework
+    public partial class Student_View_Marked_Homework
     {
 
         /// <summary>
-        /// frmViewIssuedHomework control.
+        /// frmViewMarkedHomework control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm frmViewIssuedHomework;
+        protected global::System.Web.UI.HtmlControls.HtmlForm frmViewMarkedHomework;
+
+        /// <summary>
+        /// btnHome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnHome;
 
         /// <summary>
         /// btnLogout control.
@@ -75,7 +84,7 @@ namespace FPY_Homework_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQ1Marks;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtQ1Marks;
 
         /// <summary>
         /// txtQ1Feedback control.
@@ -129,7 +138,7 @@ namespace FPY_Homework_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQ2Marks;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtQ2Marks;
 
         /// <summary>
         /// txtQ2Feedback control.
@@ -183,7 +192,7 @@ namespace FPY_Homework_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQ3Marks;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtQ3Marks;
 
         /// <summary>
         /// txtQ3Feedback control.
@@ -237,7 +246,7 @@ namespace FPY_Homework_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQ4Marks;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtQ4Marks;
 
         /// <summary>
         /// txtQ4Feedback control.
@@ -291,7 +300,7 @@ namespace FPY_Homework_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQ5Marks;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtQ5Marks;
 
         /// <summary>
         /// txtQ5Feedback control.
@@ -345,7 +354,7 @@ namespace FPY_Homework_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQ6Marks;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtQ6Marks;
 
         /// <summary>
         /// txtQ6Feedback control.
@@ -399,7 +408,7 @@ namespace FPY_Homework_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQ7Marks;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtQ7Marks;
 
         /// <summary>
         /// txtQ7Feedback control.
@@ -453,7 +462,7 @@ namespace FPY_Homework_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQ8Marks;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtQ8Marks;
 
         /// <summary>
         /// txtQ8Feedback control.
@@ -507,7 +516,7 @@ namespace FPY_Homework_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQ9Marks;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtQ9Marks;
 
         /// <summary>
         /// txtQ9Feedback control.
@@ -561,7 +570,7 @@ namespace FPY_Homework_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQ10Marks;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtQ10Marks;
 
         /// <summary>
         /// txtQ10Feedback control.
@@ -573,12 +582,12 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.WebControls.TextBox txtQ10Feedback;
 
         /// <summary>
-        /// btnSubmitMarkedHomework control.
+        /// btnReturnHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmitMarkedHomework;
+        protected global::System.Web.UI.WebControls.Button btnReturnHome;
     }
 }

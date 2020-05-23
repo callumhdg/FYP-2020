@@ -30,21 +30,24 @@
         <div style="width:50%; margin-left:25%; margin-right:25%; margin-top:3%;">
 
             <form id="loginForm" runat="server">
-            <div class="form-group">
-                <label for="exampleUsernameInput">Username</label>
-                <asp:TextBox class="form-control" ID="txtUsername" runat="server" placeholder="Username" Text="stpepper"></asp:TextBox>
-            </div>
+                <div class="form-group">
+                    <label for="exampleUsernameInput">Username</label>
+                    <asp:TextBox class="form-control" ID="txtUsername" runat="server" placeholder="Username"></asp:TextBox>
+                </div>
 
-            <div class="form-group">
-                <label for="examplePasswordInput">Password</label>
-                <asp:TextBox type="password" class="form-control" ID="txtPassword" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
-            </div>
+                <div class="form-group">
+                    <label for="examplePasswordInput">Password</label>
+                    <asp:TextBox type="password" class="form-control" ID="txtPassword" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
+                </div>
 
-            <div class="row">
-                <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="btn btn-primary btn-block m-3" Style="background-color: #00b359" />
-            </div>
+                <div class="row">
+                    <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="btn btn-primary btn-block m-3" Style="background-color: #00b359" />
+                </div>
                         
-            <asp:Label ID="txtNotify" runat="server"></asp:Label>
+                <div id="notify" runat="server" class="row alert-danger" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:10px; margin:0px">
+                    <asp:Label ID="txtNotify" runat="server"></asp:Label>
+                </div>
+
             </form>
 
         </div>

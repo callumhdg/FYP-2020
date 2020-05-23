@@ -15,6 +15,7 @@ namespace FPY_Homework_Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            notify.Visible = false;
         }
 
 
@@ -50,6 +51,7 @@ namespace FPY_Homework_Management
                     }
                     else
                     {
+                        notify.Visible = true;
                         txtNotify.Text = "Username or Password is incorrect, please try again";
                     }
                     s.studentPassword = null; //clears password 
@@ -79,6 +81,7 @@ namespace FPY_Homework_Management
                     }
                     else
                     {
+                        notify.Visible = true;
                         txtNotify.Text = "Username or Password is incorrect, please try again";
                     }
                 }
@@ -92,7 +95,8 @@ namespace FPY_Homework_Management
                 {
 
                     //string input = txtUsername.Text;//.ToLower();
-                    if (txtUsername.Text.Equals(a.adminUsername) && txtPassword.Text.Equals(a.adminPassword))
+                    //if (txtUsername.Text.Equals(a.adminUsername) && txtPassword.Text.Equals(a.adminPassword))
+                    if (txtUsername.Text.ToLower().Equals(a.adminUsername.ToLower()) && txtPassword.Text.Equals(a.adminPassword))
                     {
                         a.adminPassword = null; //clears password 
                         Session["user"] = a.adminUsername;
@@ -102,12 +106,14 @@ namespace FPY_Homework_Management
                     }
                     else
                     {
+                        notify.Visible = true;
                         txtNotify.Text = "Username or Password is incorrect, please try again";
                     }
                 }
             }
             else
             {
+                notify.Visible = true;
                 txtNotify.Text = "Username or Password is incorrect, please try again";
             }
 

@@ -17,6 +17,12 @@ namespace FPY_Homework_Management
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else { }
+
             lblSuccessMessage.Visible = false;
         }
 
@@ -199,8 +205,14 @@ namespace FPY_Homework_Management
         }
 
 
-        
 
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session["user"] = null;
+            Session["SelectedHomework"] = null;
+
+            Response.Redirect("Login.aspx");
+        }
 
 
     }

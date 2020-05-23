@@ -18,74 +18,25 @@ namespace FPY_Homework_Management
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //drpSelectClass.SelectedIndex = 0;
-
-            //populateInClassTable();
-            //populateNotInClassTable();
-
-            //allOtherStudents.DataSourceID = "ViewAllStudentsNotInClass";
-            //allStudentsInClass.DataSourceID = "ViewAllStudentsInClass";
+            if (Session["user"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else { }
 
             allStudentsInClass.Visible = false;
             allOtherStudents.Visible = false;
         }
 
-
-        //protected void allOtherStudents_RowCommand(object sender, GridViewCommandEventArgs e)
-        //{
-        //    if (e.CommandName == "Select")
-        //    {
-        //        int studentToAdd = Convert.ToInt32(e.CommandArgument);
-        //        //GridViewRow selectedRow = allOtherStudents.Rows[studentToAdd];
-        //        string studentIDVal = allOtherStudents.DataKeys[studentToAdd].ToString();
-
-        //        StudentsInClass newListing = new StudentsInClass(studentIDVal, drpSelectClass.Text);
-        //        newListing.createStudentClassListing();
-        //    }
-
-        //    //populateInClassTable();
-        //    //populateNotInClassTable();
-        //}
-
-
-        //protected void allStudentsInClass_RowCommand(object sender, GridViewCommandEventArgs e)
-        //{
-        //    if (e.CommandName == "Select")
-        //    {
-        //        int studentToAdd = Convert.ToInt32(e.CommandArgument);
-        //        //GridViewRow selectedRow = allOtherStudents.Rows[studentToAdd];
-        //        string studentIDVal = allStudentsInClass.DataKeys[studentToAdd].ToString();
-
-        //        StudentsInClass newListing = new StudentsInClass(studentIDVal, drpSelectClass.Text);
-        //        newListing.createStudentClassListing();
-        //    }
-
-        //    //populateInClassTable();
-        //    //populateNotInClassTable();
-        //}
-
-
-
         public void populateInClassTable()
         {
-            //allStudentsInClass.DataBind();
 
-
-            //ArrayList arrStudentsInClass = selectStudentsInClass();
             ArrayList arrStudentsInClass = SelectAllStudentsInAClass();
-
-            //for (int i = 0; i < arrStudentsInClass.Count; i++)
-            //{
-            //    Student s = new Student();
-            //    ArrayList allStudentsInThisClass = new ArrayList();
-            //    allStudentsInThisClass.Add(s.readSingleStudent(i.ToString()));
-            //}
 
             if (arrStudentsInClass.Count != 0) {
                 string inClassQuery = "SELECT StudentID, StudentUsername, StudentFirstName, StudentLastName, StudentDOB FROM Students WHERE ";
                 for (int i = 0; i < arrStudentsInClass.Count; i++)
                 {
-                    //inClassQuery = inClassQuery + "WHERE StudentID = " + arrStudentsInClass[i].ToString();
                     inClassQuery = inClassQuery + "StudentID = " + arrStudentsInClass[i].ToString();
                     if (i != (arrStudentsInClass.Count - 1))
                     {
@@ -120,12 +71,6 @@ namespace FPY_Homework_Management
                         inClassQuery = inClassQuery + " OR ";
                     }
                 }
-                //string inClassQuery = "SELECT StudentID, StudentFirstName, StudentLastName, StudentDOB FROM Students WHERE StudentID IN (";
-                //for (int i = 0; i < arrStudentsInClass.Count; i++)
-                //{
-                //   inClassQuery = inClassQuery + "'" + arrStudentsInClass[i].ToString() + "', ";
-                //}
-                //inClassQuery = inClassQuery + ")" + '"';
                 inClassQuery = inClassQuery + ";";
                 ViewAllStudentsNotInClass.SelectCommand = inClassQuery;
                 allOtherStudents.Visible = true;
@@ -200,14 +145,9 @@ namespace FPY_Homework_Management
         public ArrayList selectStudentsNotInClass()
         {
             ArrayList arrAllNotInClass = new ArrayList();
-            //string query = "SELECT StudentID FROM StudentsInClass WHERE ClassID != 1";
-            //string query = "SELECT StudentID FROM StudentsInClass WHERE ClassID != " + drpSelectClass.SelectedItem.Value.ToString();
-            //string query = "SELECT StudentID FROM StudentsInClass WHERE ClassID != " + selectedClass;
             Student student = new Student();
             ArrayList allStu = student.readAllStudentIDs();
             ArrayList allStuInClass = SelectAllStudentsInAClass();
-
-            //string query = "SELECT StudentID, StudentUsername, StudentFirstName, StudentLastName, StudentUsername, StudentDOB FROM Students ";
 
             for (int i = 0; i < allStu.Count; i++)
             {
@@ -225,33 +165,6 @@ namespace FPY_Homework_Management
                 arrAllNotInClass.Add(allStu[a]);
             }
 
-            //conn.Open();
-            //SqlCommand cmd = new SqlCommand(query, conn);
-
-            ////cmd.Parameters.AddWithValue("@ClassID", drpSelectClass.SelectedItem.Value);
-            ////cmd.Parameters.AddWithValue("@ClassID", "1");
-
-            //SqlDataReader re = cmd.ExecuteReader();
-
-            ////if (arrAllNotInClass.Count != 0)
-            //try
-            //{
-
-            //    while (re.Read())
-            //    {
-            //        StudentsInClass stu = new StudentsInClass(re["StudentsInClassID"].ToString(), re["StudentID"].ToString(), re["ClassID"].ToString());
-            //        arrAllNotInClass.Add(stu);
-            //        allStudentsInClass.Visible = true;
-            //    }
-            //}
-            //catch
-            //{
-            //    //could not find any students not in this class
-            //    allStudentsInClass.Visible = false;
-            //}
-
-            ////cmd.ExecuteNonQuery();
-            //conn.Close();
             return arrAllNotInClass;
         }
 
@@ -279,8 +192,6 @@ namespace FPY_Homework_Management
             return allStudentsInThisClass;
         }
 
-        //protected void Unnamed_Click(object sender, EventArgs e)
-        //{ }
 
         protected void btnSelectClass_Click(object sender, EventArgs e)
         {
@@ -322,5 +233,15 @@ namespace FPY_Homework_Management
             populateInClassTable();
             populateNotInClassTable();
         }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session["user"] = null;
+            Session["SelectedHomework"] = null;
+
+            Response.Redirect("Login.aspx");
+        }
+
+
     }
 }

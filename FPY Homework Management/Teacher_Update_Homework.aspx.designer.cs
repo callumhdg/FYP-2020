@@ -11,17 +11,17 @@ namespace FPY_Homework_Management
 {
 
 
-    public partial class TeacherCreateHW
+    public partial class Teacher_Update_Homework
     {
 
         /// <summary>
-        /// frmCreateHW control.
+        /// frmUpdateHomework control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm frmCreateHW;
+        protected global::System.Web.UI.HtmlControls.HtmlForm frmUpdateHomework;
 
         /// <summary>
         /// btnLogout control.
@@ -33,219 +33,309 @@ namespace FPY_Homework_Management
         protected global::System.Web.UI.WebControls.Button btnLogout;
 
         /// <summary>
-        /// submissionFeedback control.
+        /// txtHomeworkTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label submissionFeedback;
+        protected global::System.Web.UI.WebControls.TextBox txtHomeworkTitle;
 
         /// <summary>
-        /// CoreHomeworkTitleInput control.
+        /// txtHomeworkDuration control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CoreHomeworkTitleInput;
+        protected global::System.Web.UI.WebControls.TextBox txtHomeworkDuration;
 
         /// <summary>
-        /// minutesToCompleteInput control.
+        /// q1Conainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox minutesToCompleteInput;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl q1Conainer;
 
         /// <summary>
-        /// Qtext1 control.
+        /// txtQ1Text control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Qtext1;
+        protected global::System.Web.UI.WebControls.TextBox txtQ1Text;
 
         /// <summary>
-        /// QMaxMarks1 control.
+        /// txtQ1Marks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QMaxMarks1;
+        protected global::System.Web.UI.WebControls.TextBox txtQ1Marks;
 
         /// <summary>
-        /// Qtext2 control.
+        /// q2Conainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Qtext2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl q2Conainer;
 
         /// <summary>
-        /// QMaxMarks2 control.
+        /// txtQ2Text control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QMaxMarks2;
+        protected global::System.Web.UI.WebControls.TextBox txtQ2Text;
 
         /// <summary>
-        /// Qtext3 control.
+        /// txtQ2Marks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Qtext3;
+        protected global::System.Web.UI.WebControls.TextBox txtQ2Marks;
 
         /// <summary>
-        /// QMaxMarks3 control.
+        /// q3Conainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QMaxMarks3;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl q3Conainer;
 
         /// <summary>
-        /// Qtext4 control.
+        /// txtQ3Text control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Qtext4;
+        protected global::System.Web.UI.WebControls.TextBox txtQ3Text;
 
         /// <summary>
-        /// QMaxMarks4 control.
+        /// txtQ3Marks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QMaxMarks4;
+        protected global::System.Web.UI.WebControls.TextBox txtQ3Marks;
 
         /// <summary>
-        /// Qtext5 control.
+        /// q4Conainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Qtext5;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl q4Conainer;
 
         /// <summary>
-        /// QMaxMarks5 control.
+        /// txtQ4Text control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QMaxMarks5;
+        protected global::System.Web.UI.WebControls.TextBox txtQ4Text;
 
         /// <summary>
-        /// Qtext6 control.
+        /// txtQ4Marks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Qtext6;
+        protected global::System.Web.UI.WebControls.TextBox txtQ4Marks;
 
         /// <summary>
-        /// QMaxMarks6 control.
+        /// q5Conainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QMaxMarks6;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl q5Conainer;
 
         /// <summary>
-        /// Qtext7 control.
+        /// txtQ5Text control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Qtext7;
+        protected global::System.Web.UI.WebControls.TextBox txtQ5Text;
 
         /// <summary>
-        /// QMaxMarks7 control.
+        /// txtQ5Marks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QMaxMarks7;
+        protected global::System.Web.UI.WebControls.TextBox txtQ5Marks;
 
         /// <summary>
-        /// Qtext8 control.
+        /// q6Conainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Qtext8;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl q6Conainer;
 
         /// <summary>
-        /// QMaxMarks8 control.
+        /// txtQ6Text control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QMaxMarks8;
+        protected global::System.Web.UI.WebControls.TextBox txtQ6Text;
 
         /// <summary>
-        /// Qtext9 control.
+        /// txtQ6Marks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Qtext9;
+        protected global::System.Web.UI.WebControls.TextBox txtQ6Marks;
 
         /// <summary>
-        /// QMaxMarks9 control.
+        /// q7Conainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QMaxMarks9;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl q7Conainer;
 
         /// <summary>
-        /// Qtext10 control.
+        /// txtQ7Text control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Qtext10;
+        protected global::System.Web.UI.WebControls.TextBox txtQ7Text;
 
         /// <summary>
-        /// QMaxMarks10 control.
+        /// txtQ7Marks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QMaxMarks10;
+        protected global::System.Web.UI.WebControls.TextBox txtQ7Marks;
 
         /// <summary>
-        /// btnCreateHomework control.
+        /// q8Conainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreateHomework;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl q8Conainer;
+
+        /// <summary>
+        /// txtQ8Text control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtQ8Text;
+
+        /// <summary>
+        /// txtQ8Marks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtQ8Marks;
+
+        /// <summary>
+        /// q9Conainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl q9Conainer;
+
+        /// <summary>
+        /// txtQ9Text control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtQ9Text;
+
+        /// <summary>
+        /// txtQ9Marks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtQ9Marks;
+
+        /// <summary>
+        /// q10Conainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl q10Conainer;
+
+        /// <summary>
+        /// txtQ10Text control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtQ10Text;
+
+        /// <summary>
+        /// txtQ10Marks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtQ10Marks;
+
+        /// <summary>
+        /// btnUpdateHomework control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateHomework;
+
+        /// <summary>
+        /// btnDeleteHomework control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDeleteHomework;
     }
 }

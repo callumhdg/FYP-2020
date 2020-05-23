@@ -19,6 +19,19 @@ namespace FPY_Homework_Management.Classes
         public string TimeToComplete { get; set; }
         public DateTime DueDate { get; set; }
         public DateTime SubmissionDate { get; set; }
+        public string TotalMarks { get; set; }
+
+        public IssuedHomework(string issHWID, string coreHWID, string stuID, string issuingTeacherID, string timeToFin, DateTime dDate, DateTime subDate, string totMarks)
+        {
+            IssuedHomeworkID = issHWID;
+            CoreHomeworkID = coreHWID;
+            StudentID = stuID;
+            SetByTeacherID = issuingTeacherID;
+            TimeToComplete = timeToFin;
+            DueDate = dDate;
+            SubmissionDate = subDate;
+            TotalMarks = totMarks;
+        }
 
         public IssuedHomework(string issHWID, string coreHWID, string stuID, string issuingTeacherID, string timeToFin, DateTime dDate, DateTime subDate)
         {
@@ -182,6 +195,46 @@ namespace FPY_Homework_Management.Classes
             conn.Close();
         }
 
+        public void updateHomeworkTotal(string id, string marks)
+        {
+            string query = "UPDATE IssuedHomework SET TotalMarks = '" + marks + "' WHERE IssuedHomeworkID = '" + id + "'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public ArrayList selectAllIssuedHomeworkFromCore(string id)
+        {
+            ArrayList selectedIDs = new ArrayList();
+            string query = "SELECT IssuedHomeworkID FROM IssuedHomework WHERE CoreHomeworkID = '" + id + "'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader re = cmd.ExecuteReader();
+
+            while (re.Read())
+            {
+                IssuedHomework thisIssHw = new IssuedHomework(re["IssuedHomeworkID"].ToString());
+                selectedIDs.Add(thisIssHw.IssuedHomeworkID);
+            }
+
+            //cmd.ExecuteNonQuery();
+            conn.Close();
+            return selectedIDs;
+        }
+
+        public void deleteIssuedHomework(string id)
+        {
+            string query = "DELETE FROM IssuedHomework WHERE CoreHomeworkID = '" + id + "'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+
+        }
 
 
 

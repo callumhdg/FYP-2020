@@ -18,17 +18,30 @@ namespace FPY_Homework_Management
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else { }
+
             username = Session["user"].ToString();
             userID = findStudentID();
 
 
             listCurrentHomework.SelectCommand = "SELECT * FROM IssuedHomework WHERE StudentID = " + userID + " AND DueDate > CURRENT_TIMESTAMP";
-            //listCurrentHomework.SelectCommand = "SELECT * FROM IssuedHomework WHERE StudentID = " + username + " AND DueDate > (CURDATE(), INTERVAL 1 DAY)";
-            //listPreviousHomework.SelectCommand = "SELECT * FROM IssuedHomework WHERE StudentID = " + username + " AND DueDate < (CURDATE(), INTERVAL 1 DAY)";
-            listPreviousHomework.SelectCommand = "SELECT * FROM IssuedHomework WHERE StudentID = " + userID + " AND DueDate < CURRENT_TIMESTAMP";
+            listOverdueHomework.SelectCommand = "SELECT * FROM IssuedHomework WHERE StudentID = " + userID + " AND DueDate < CURRENT_TIMESTAMP AND SubmissionDate = NULL";
+            listMarkedHomework.SelectCommand = "SELECT * FROM IssuedHomework WHERE StudentID = " + userID + " AND Marked = '1'";
+
+
+            activeHomework.Visible = false;
+            overdueHomework.Visible = false;
+            markedHomework.Visible = false;
+
+            //if grid != empty visible = true
+            displayActive();
+            displayOverdue();
+            displayMarked();
             
-            
-            //listPreviousHomework.SelectCommand = "SELECT * FROM IssuedHomework WHERE StudentID = " + userID + " AND Marked = 1";
         }
 
 
@@ -42,10 +55,6 @@ namespace FPY_Homework_Management
 
 
             Response.Redirect("Student_View_Homework.aspx");
-
-            //Button btnRemove = (Button)sender;
-            //GridViewRow selectedRow = (GridViewRow)btnRemove.NamingContainer;
-            //string selectedID = selectedRow.Cells[0].Text;
         }
 
 
@@ -57,15 +66,20 @@ namespace FPY_Homework_Management
             Session["SelectedHomework"] = selectedID;
 
             Response.Redirect("Student_View_Homework.aspx");
+                                                         
+        }
 
+        protected void btnViewMarkedHomework_Click(object sender, EventArgs e)
+        {
+            Button btnHomework = (Button)sender;
+            GridViewRow selectedRow = (GridViewRow)btnHomework.NamingContainer;
+            string selectedID = selectedRow.Cells[0].Text;
+            Session["SelectedHomework"] = selectedID;
 
-
-
-
+            Response.Redirect("Student_View_Marked_Homework.aspx");
 
 
         }
-
 
         protected string findStudentID()
         {
@@ -86,6 +100,113 @@ namespace FPY_Homework_Management
             return id;
         }
 
+        
+        private void displayActive()
+        {
+            string query = "SELECT * FROM IssuedHomework WHERE StudentID = " + userID + " AND DueDate > CURRENT_TIMESTAMP";
+
+            ArrayList queryCount = new ArrayList();
+            IssuedHomework homework = new IssuedHomework();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader re = cmd.ExecuteReader();
+
+            while (re.Read())
+            {
+                homework = new IssuedHomework(re["IssuedHomeworkID"].ToString());
+                queryCount.Add(homework);
+            }
+
+            if (queryCount.Count != 0)
+            {
+                activeHomework.Visible = true;
+            }
+            else
+            {
+                activeHomework.Visible = false;
+            }
+                        
+            conn.Close();
+
+        }
+
+        
+        private void displayOverdue()
+        {
+            string query = "SELECT * FROM IssuedHomework WHERE StudentID = " + userID + " AND DueDate < CURRENT_TIMESTAMP AND SubmissionDate = NULL";
+
+            ArrayList queryCount = new ArrayList();
+            IssuedHomework homework = new IssuedHomework();
+            conn.Open();
+            
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader re = cmd.ExecuteReader();
+
+            while (re.Read())
+            {
+                homework = new IssuedHomework(re["IssuedHomeworkID"].ToString());
+                queryCount.Add(homework);
+            }
+
+            if (queryCount.Count != 0)
+            {
+                overdueHomework.Visible = true;
+            }
+            else
+            {
+                overdueHomework.Visible = false;
+            }
+                        
+            conn.Close();
+            
+        }
+
+
+        private void displayMarked()
+        {
+            string query = "SELECT * FROM IssuedHomework WHERE StudentID = " + userID + " AND Marked = '1'";
+
+            ArrayList queryCount = new ArrayList();
+            IssuedHomework homework = new IssuedHomework();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader re = cmd.ExecuteReader();
+
+            while (re.Read())
+            {
+                homework = new IssuedHomework(re["IssuedHomeworkID"].ToString());
+                queryCount.Add(homework);
+            }
+
+            if (queryCount.Count != 0)
+            {
+                markedHomework.Visible = true;
+            }
+            else
+            {
+                markedHomework.Visible = false;
+            }
+
+            conn.Close();
+
+        }
+
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Session["SelectedHomework"] = null;
+
+            Response.Redirect("Student_Home.aspx");
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session["user"] = null;
+            Session["SelectedHomework"] = null;
+
+            Response.Redirect("Login.aspx");
+        }
 
 
     }

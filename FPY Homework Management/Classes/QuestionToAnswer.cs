@@ -143,11 +143,28 @@ namespace FPY_Homework_Management.Classes
             conn.Close();
             return answer;
         }
-
-
-        public QuestionToAnswer readQuestionToMark(string id)
+        
+        public string readAvailableMarks(string id, string qNum)
         {
-            string query = "SELECT * FROM QuestionsToAnswer WHERE QuestionToAnswerID = " + id;
+            string query = "SELECT MarksForQuestion From QuestionsToAnswer WHERE IssuedHomeworkID = '" + id + "' AND QuestionNumber = '" + qNum +"'";
+            string marks = "";
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader re = cmd.ExecuteReader();
+            while (re.Read())
+            {
+                marks = re["MarksForQuestion"].ToString();
+            }
+
+            conn.Close();
+            return marks;
+        }
+
+
+        public QuestionToAnswer readMarkedQuestion(string id, string qNum)
+        {
+            string query = "SELECT * FROM QuestionsToAnswer WHERE IssuedHomeworkID = " + id + " AND QuestionNumber = " + qNum;
             QuestionToAnswer selectedQuestionToAnswer = new QuestionToAnswer();
             conn.Open();
 
@@ -156,7 +173,7 @@ namespace FPY_Homework_Management.Classes
 
             while (re.Read())
             {
-                selectedQuestionToAnswer = new QuestionToAnswer(re["QuestionToAnswerID"].ToString(), re["IssuedHomeworkID"].ToString(), re["QuestionText"].ToString(), re["QuestionNumber"].ToString(), re["MarksForQuestion"].ToString(), re["Answer"].ToString());
+                selectedQuestionToAnswer = new QuestionToAnswer(re["QuestionToAnswerID"].ToString(), re["IssuedHomeworkID"].ToString(), re["QuestionText"].ToString(), re["QuestionNumber"].ToString(), re["MarksForQuestion"].ToString(), re["Answer"].ToString(), re["Results"].ToString(), re["Feedback"].ToString());
             }
 
             conn.Close();
@@ -182,6 +199,7 @@ namespace FPY_Homework_Management.Classes
             conn.Close();
             return selectedQuestionToAnswer;
         }
+
 
 
         public void createQuestionToAnswer()
@@ -222,7 +240,17 @@ namespace FPY_Homework_Management.Classes
         }
 
 
+        public void deleteIssuedQuestions(string id)
+        {
+            string query = "DELETE FROM QuestionsToAnswer WHERE IssuedHomeworkID = '" + id + "'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
 
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+
+        }
 
     }
 }

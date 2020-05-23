@@ -51,12 +51,12 @@ namespace FPY_Homework_Management.Classes
 
         public Homework readSingleCoreHomework(string id)
         {
-            string query = "SELECT * from CoreHomework where CoreHomeworkID = @id";
+            string query = "SELECT * from CoreHomework where CoreHomeworkID = '" + id + "'";
             Homework selectedCoreHomework = new Homework();
             conn.Open();
 
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@id", id);
+            //cmd.Parameters.AddWithValue("@id", id);
             SqlDataReader re = cmd.ExecuteReader();
 
             while (re.Read())
@@ -86,11 +86,28 @@ namespace FPY_Homework_Management.Classes
 
 
 
+        public void updateCoreHomework(string id, string teacherID, string timeToFin, string title)
+        {
+            string query = "UPDATE CoreHomework SET LastEditBy = '" + teacherID + "', MinutesToComplete = '" + timeToFin+ "', HomeworkTitle = '" + title + "' WHERE CoreHomeworkID = '" + id + "'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
 
 
+        public void deleteCoreHomework(string id)
+        {
+            string query = "DELETE FROM CoreHomework WHERE CoreHomeworkID = '" + id + "'";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
 
+            cmd.ExecuteNonQuery();
+            conn.Close();
 
-
+        }
+        
 
 
 
