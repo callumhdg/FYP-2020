@@ -20,6 +20,10 @@ namespace FPY_Homework_Management
             }
             else { }
 
+            lblErrorMessage.Visible = false;
+            divErrorMessage.Visible = false;
+            lblSuccessMessage.Visible = false;
+            divSuccessMessage.Visible = false;
         }
 
         protected void btnCreateTeacher_Click(object sender, EventArgs e)
@@ -33,53 +37,74 @@ namespace FPY_Homework_Management
 
             string username = fName + lName1 + lName2;
 
+            bool validate = false;
+            validate = inputChecker(validate);
 
             bool b = false;
             int c = 0;
             //if username already exists + 1
             //loop back to if
 
-            while (b == false)
+            if (validate == true)
             {
-                Teacher t = new Teacher();
-                ArrayList tList = t.readTeachersUsernames();
-                string selectedUsername = "";
 
-                for (int i = 0; i < tList.Count; i++)
+                while (b == false)
                 {
-                    selectedUsername = tList[i].ToString();
+                    Teacher t = new Teacher();
+                    ArrayList tList = t.readTeachersUsernames();
+                    string selectedUsername = "";
 
-                    if (selectedUsername.Contains(username))
+                    for (int i = 0; i < tList.Count; i++)
                     {
-                        c++;
-                    }
-                    else if (!selectedUsername.Contains(username))
-                    {
-                    }
+                        selectedUsername = tList[i].ToString();
 
+                        if (selectedUsername.Contains(username))
+                        {
+                            c++;
+                        }
+                        else if (!selectedUsername.Contains(username))
+                        {
+                        }
+
+                    }
+                    b = true;
                 }
-                b = true;
-            }
 
-            if (c == 0)
-            {
+                if (c == 0)
+                {
+                }
+                else
+                {
+                    username = username + c.ToString();
+                }
+
+
+                string fn1 = TeacherFirstNameIn.Text;
+                string finFirstName = fn1.Substring(0, 1).ToUpper() + fn1.Substring(1, fn1.Length - 1).ToLower();
+
+                string fn2 = TeacherLastNameIn.Text;
+                string finLastName = fn2.Substring(0, 1).ToUpper() + fn2.Substring(1, fn2.Length - 1).ToLower();
+
+                Teacher teacher = new Teacher(finFirstName, finLastName, ("t" + username), TeacherPasswordIn.Text);
+                teacher.createTeacher();
+
+                clearInputs();
+                lblErrorMessage.Visible = false;
+                divErrorMessage.Visible = false;
+                lblSuccessMessage.Visible = true;
+                divSuccessMessage.Visible = true;
             }
             else
             {
-                username = username + c.ToString();
+
+                lblErrorMessage.Visible = true;
+                divErrorMessage.Visible = true;
+                lblSuccessMessage.Visible = false;
+                divSuccessMessage.Visible = false;
+
             }
 
 
-            string fn1 = TeacherFirstNameIn.Text;
-            string finFirstName = fn1.Substring(0,1).ToUpper() + fn1.Substring(1, fn1.Length - 1).ToLower();
-
-            string fn2 = TeacherLastNameIn.Text;
-            string finLastName = fn2.Substring(0,1).ToUpper() + fn2.Substring(1, fn2.Length - 1).ToLower(); 
-
-            Teacher teacher = new Teacher(finFirstName, finLastName, ("t" + username), TeacherPasswordIn.Text);
-            teacher.createTeacher();
-
-            clearInputs();
         }
 
 
@@ -94,53 +119,20 @@ namespace FPY_Homework_Management
 
 
 
-        //public void createTeacherUsername()
-        //{
-        //    string firstName = TeacherFirstNameIn.Text;
-        //    string lastName = TeacherLastNameIn.Text;
-        //    string fName = firstName.Substring(0, 1).ToUpper();
-        //    string lName1 = lastName.Substring(0, 1).ToUpper();
-        //    string lName2 = lastName.Substring(1, 20).ToLower();
+        private bool inputChecker(bool validate)
+        {
+            if (TeacherFirstNameIn.Text != "" && TeacherLastNameIn.Text != "" && TeacherPasswordIn.Text != "")
+            {
+                validate = true;
+            }
+            else
+            {
+                validate = false;
+            }
 
-        //    string username = fName + lName1 + lName2;
+            return validate;
+        }
 
-
-        //    bool b = false;
-        //    int c = 0;
-        //    //if username already exists + 1
-        //    //loop back to if
-
-        //    while (b == false)
-        //    {
-        //        Teacher t = new Teacher();
-        //        ArrayList tList = t.readTeachersUsernames();
-        //        string selectedUsername = "";
-
-        //        for (int i = 0; i < tList.Count; i++)
-        //        {
-        //            selectedUsername = tList[i].ToString();
-
-        //            if (selectedUsername.Contains(username))
-        //            {
-        //                c++;
-        //            }
-        //            else if (!selectedUsername.Contains(username))
-        //            {
-        //            }                    
-
-        //        }
-        //        b = true;
-        //    }
-
-        //    if (c == 0)
-        //    {                
-        //    }
-        //    else
-        //    {
-        //        username = username + c.ToString();
-        //    }
-
-        //}
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {

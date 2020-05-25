@@ -140,18 +140,6 @@ namespace FPY_Homework_Management
 
         private bool checkDateInputs(bool validate)
         {
-            //bool validate = false;
-
-            //if (StudentDateOfBirthDay.Text.Length != 2 || StudentDateOfBirthMonth.Text.Length != 2 || StudentDateOfBirthYear.Text.Length != 4)
-            //{
-            //    validate = false;
-            //    //lblErrorMessage.Visible = true;
-            //}
-            //else if (StudentDateOfBirthDay.Text.Length == 2 || StudentDateOfBirthMonth.Text.Length == 2 || StudentDateOfBirthYear.Text.Length == 4)
-            //{
-            //    validate = true;
-            //    //lblErrorMessage.Visible = false;
-            //}
             if (dobIn.Text != null && dobIn.Text != "")
             {
                 validate = true;

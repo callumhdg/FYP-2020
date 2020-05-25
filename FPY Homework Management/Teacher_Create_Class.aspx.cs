@@ -20,6 +20,10 @@ namespace FPY_Homework_Management
             }
             else { }
 
+            lblErrorMessage.Visible = false;
+            divErrorMessage.Visible = false;
+            lblSuccessMessage.Visible = false;
+            divSuccessMessage.Visible = false;
         }
 
         protected void btnCreateClass_Click(object sender, EventArgs e)
@@ -28,25 +32,49 @@ namespace FPY_Homework_Management
             string clsSubj = classSubjectIn.Text;
             string clsYea = classYearGroupIn.Text;
             //string clsName = clsSubj.Substring(0, 3).ToUpper() + clsYea;
+            
+            bool validate = false;
+            validate = inputChecker(validate);
 
-            string clsSubject = clsSubj.Substring(0, 1).ToUpper() + clsSubj.Substring(1, clsSubj.Length - 1).ToLower();
 
-            //year will always be 2 chars
-            if (clsYea.Length == 1)
+            if (validate == true)
             {
-                clsYea = "0" + clsYea;
-            }
 
-            Teacher teach = new Teacher();
-            teach = teach.readSingleTeacher(teachID);
-            string tInitials = teach.teacherFirstname.Substring(0, 1).ToUpper() + teach.teacherLastname.Substring(0, 1).ToUpper();
-            string className = clsSubj.Substring(0, 3).ToUpper() + clsYea + tInitials;
+                string clsSubject = clsSubj.Substring(0, 1).ToUpper() + clsSubj.Substring(1, clsSubj.Length - 1).ToLower();
 
-            //if class name exists + 1
-            string cName = checkUniqueName(className);
+                //year will always be 2 chars
+                if (clsYea.Length == 1)
+                {
+                    clsYea = "0" + clsYea;
+                }
+
+                Teacher teach = new Teacher();
+                teach = teach.readSingleTeacher(teachID);
+                string tInitials = teach.teacherFirstname.Substring(0, 1).ToUpper() + teach.teacherLastname.Substring(0, 1).ToUpper();
+                string className = clsSubj.Substring(0, 3).ToUpper() + clsYea + tInitials;
+
+                //if class name exists + 1
+                string cName = checkUniqueName(className);
                                  
-            SchoolClass cls = new SchoolClass(teachID, clsSubject, clsYea, cName);
-            cls.createSchoolClass();                                              
+                SchoolClass cls = new SchoolClass(teachID, clsSubject, clsYea, cName);
+                cls.createSchoolClass();
+
+
+                clearInputs();
+                lblErrorMessage.Visible = false;
+                divErrorMessage.Visible = false;
+                lblSuccessMessage.Visible = true;
+                divSuccessMessage.Visible = true;
+            }
+            else
+            {
+
+                lblErrorMessage.Visible = true;
+                divErrorMessage.Visible = true;
+                lblSuccessMessage.Visible = false;
+                divSuccessMessage.Visible = false;
+
+            }
 
         }
 
@@ -78,6 +106,27 @@ namespace FPY_Homework_Management
             
             return nameOut;
         }//end of Check
+
+
+        protected void clearInputs()
+        {
+            classSubjectIn.Text = "";
+            classYearGroupIn.Text = "";
+        }
+        
+        private bool inputChecker(bool validate)
+        {
+            if (classSubjectIn.Text != "" && classYearGroupIn.Text != "")
+            {
+                validate = true;
+            }
+            else
+            {
+                validate = false;
+            }
+
+            return validate;
+        }
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {

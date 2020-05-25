@@ -46,8 +46,15 @@
         </div>
 
                                     
+            <div id="divSuccessMessage" runat="server" class="row alert-success" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px; margin:0px">                
+                <asp:label ID="lblSuccessMessage" runat="server" style="font-weight:bold">Teacher creation successful</asp:label>
+            </div>
 
+            <div id="divErrorMessage" runat="server" class="row alert-danger" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px; margin:0px">                
+                <asp:label ID="lblErrorMessage" runat="server" style="font-weight:bold">Invalid Input, please check all input fields</asp:label>
+            </div>
     
+
         <div style="width:60%; margin-left:20%; margin-right:20%; margin-top:3%;">
 
             <div class="row" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:25px; padding-top:25px; background-color:#e6ffff; margin-left:0px; margin-right:0px;">                

@@ -61,8 +61,18 @@
     </div>
 
 
-        <div class="container">
 
+
+            
+            <div id="divSuccessMessage" runat="server" class="row alert-success" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px; margin:0px">                
+                <asp:label ID="lblSuccessMessage" runat="server" style="font-weight:bold">Class creation successful</asp:label>
+            </div>
+
+            <div id="divErrorMessage" runat="server" class="row alert-danger" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px; margin:0px">                
+                <asp:label ID="lblErrorMessage" runat="server" style="font-weight:bold">Invalid Input, please check all input fields</asp:label>
+            </div>
+
+        <div class="container">
 
                 <%--<h1 id="tCreateClassHeadder">Create a Class</h1>--%>
                 <asp:SqlDataSource ID="ViewAllTeachers" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT [TeacherID], [TeacherFirstName], [TeacherLastName], [TeacherUsername] FROM [Teachers] ORDER BY [TeacherFirstName] DESC, [TeacherLastName] DESC"></asp:SqlDataSource>

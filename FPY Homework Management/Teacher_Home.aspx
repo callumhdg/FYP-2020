@@ -64,7 +64,7 @@
                 
                 <asp:SqlDataSource ID="listDueHomework" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT * FROM IssuedHomework WHERE DueDate < CURRENT_TIMESTAMP AND SetByTeacherID = 1"></asp:SqlDataSource>
 
-
+            <span>Ready for marking</span>
                 <!-- only shows homework after due date -->
                 <asp:GridView ID="viewIssuedHomework" runat="server" DataSourceID="listDueHomework" DataKeyNames="IssuedHomeworkID" AutoGenerateColumns="false" RowStyle-BackColor="White" HeaderStyle-BackColor="White">
                     <Columns>
