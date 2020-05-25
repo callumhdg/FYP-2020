@@ -22,7 +22,7 @@
 
 
 <form id="frmCreateClass" runat="server" style="margin:0px; border:0px;">
-    <div>
+    
             
 
     <!-- NavBar -->
@@ -95,14 +95,14 @@
                     <asp:TextBox ID="classYearGroupIn" runat="server" class="form-control" placeholder="Year Group" ></asp:TextBox>
                 </div>
 
-            <div class="row" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:20px; padding-top:25px">
-                <asp:Button ID="btnCreateClass" class="btn btn-success" Width="100%" runat="server" Text="Create" OnClick="btnCreateClass_Click"></asp:Button>
+            <div class="row" style="width:100%; padding-bottom:20px; padding-top:25px">
+                <asp:Button ID="btnCreateClass" class="btn btn-success btn-block" Width="100%" runat="server" Text="Create" OnClick="btnCreateClass_Click" style="padding-left:5%; padding-right:5%; margin-bottom:0px; margin-left:0px; margin-right:0px; margin-top:8px"></asp:Button>
             </div>
                 
 
             </div>
 
- </div>
+ 
             </form>
        
 </body>

@@ -205,7 +205,7 @@
 
         <%--</div>
         <div class="container">--%>
-            <div class="row" style="padding-bottom:50px">
+            <div class="row" style="padding-bottom:50px; margin-left:0px; margin-right:0px">
                 <asp:Button ID="btnCreateHomework" class="btn btn-success btn-block" runat="server" Text="Create" OnClick="btnCreateHomework_Click" Style="margin-top:8px;"></asp:Button>
             </div>         
         </div>

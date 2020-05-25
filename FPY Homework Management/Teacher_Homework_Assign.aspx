@@ -59,42 +59,47 @@
         </nav>
     </div>
 
-
-        <div>
-
+                    
             <div id="divSuccessMessage" runat="server" class="row alert-success" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px; margin:0px">                
-                <asp:label ID="lblSuccessMessage" runat="server" style="font-weight:bold">Homework was allocated successfully</asp:label>
-            </div><br/>
+                <asp:label ID="lblSuccessMessage" runat="server" style="font-weight:bold">Homework allocation was successful</asp:label>
+            </div>
+
+            <div id="divErrorMessage" runat="server" class="row alert-danger" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px; margin:0px">                
+                <asp:label ID="lblErrorMessage" runat="server" style="font-weight:bold">Invalid Input, please check all input fields</asp:label>
+            </div>
+
+
+        <div class="container">
 
             <%--<asp:SqlDataSource ID="ViewAllClasses" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT * FROM Class WHERE TeacherID = (loged in teacher) ORDER BY ClassName DESC"></asp:SqlDataSource>--%>
             <asp:SqlDataSource ID="ViewAllClasses" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT * FROM Class ORDER BY ClassName DESC"></asp:SqlDataSource>
 
             <!-- change datasource to only select classes for the logged in teacher -->
-            <div class="row" style="width:20%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">                
+            <div class="row" style="background-color:#e6ffff; padding-left:5%; padding-right:5%; padding-bottom:20px; padding-top:25px">                
                 <span style="font-weight:bold">Class*</span><br/>
                 <asp:DropDownList ID="drpSelectClass" runat="server" DataSourceID="ViewAllClasses" DataTextField="ClassName" DataValueField="ClassID" class="custom-select"></asp:DropDownList>
                 <%--<asp:Button ID="btnSelectClass" runat="server" Text="Select" OnClick="btnSelectClass_Click"/>--%>
-            </div> <br/>
+            </div>
 
             
 
             <asp:SqlDataSource ID="ViewAllHomework" runat="server" ConnectionString="<%$ ConnectionStrings:PRCO304_CHarding %>" SelectCommand="SELECT * FROM CoreHomework ORDER BY HomeworkTitle DESC"></asp:SqlDataSource>
 
-            <div class="row" style="width:20%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">                
+            <div class="row" style="background-color:white; padding-left:5%; padding-right:5%; padding-bottom:20px; padding-top:25px">                
                 <span style="font-weight:bold">Homework*</span><br/>
                 <asp:DropDownList ID="dropSelectHomework" runat="server" DataSourceID="ViewAllHomework" DataTextField="HomeworkTitle" DataValueField="CoreHomeworkID" class="custom-select"></asp:DropDownList>
                 <%--<asp:Button ID="btnSelectHomework" runat="server" Text="Select" OnClick="btnSelectHomework_Click"/>--%>
-            </div> <br/>
+            </div>
 
 
-            <div class="row" style="width:20%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px">                
+            <div class="row" style="background-color:#e6ffff; padding-left:5%; padding-right:5%; padding-bottom:20px; padding-top:25px">                
                 <span style="font-weight:bold">Due Date*</span><br/>
-                <asp:TextBox ID="dueDateIn" runat="server" placeholder="From" type="date"></asp:TextBox>
-            </div> <br/>
+                <asp:TextBox ID="dueDateIn" runat="server" type="date" class="custom-select"></asp:TextBox>
+            </div>
 
-
-            <asp:Button ID="btnAssignHomework" runat="server" Text="Assign Homework" OnClick="btnAssignHomework_Click" />
-
+            <div class="row" style="padding:0px;">  
+                <asp:Button ID="btnAssignHomework" runat="server" Text="Assign Homework" OnClick="btnAssignHomework_Click" CssClass="btn btn-success btn-block" style="width:100%; padding-left:5%; padding-right:5%; margin-bottom:0px; margin-left:0px; margin-right:0px; margin-top:8px"/>
+            </div>
 
         </div>
     </form>

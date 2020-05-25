@@ -326,7 +326,7 @@
 
 
 
-            <div class="container" style="padding:8px;">                
+            <div class="container" style="padding:0px; margin-top:20px">                
                 <asp:Button ID="btnUpdateHomework" runat="server" Text="Update" OnClick="btnUpdateHomework_Click" CssClass="btn btn-success btn-block" style="width:100%; padding-left:5%; padding-right:5%; margin-bottom:0px; margin-left:0px; margin-right:0px; margin-top:8px"/>
             </div>
                     
