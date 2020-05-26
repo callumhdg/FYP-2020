@@ -34,7 +34,16 @@ namespace FPY_Homework_Management
             hwID = Session["SelectedHomework"].ToString();
 
             hideAllQuestions();
-            fillAnswers();
+
+            if (!IsPostBack)
+            {
+
+                fillAnswers();
+
+            }
+            else
+            { }
+            
         }
 
         protected string findTeacherID()

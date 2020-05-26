@@ -28,7 +28,16 @@ namespace FPY_Homework_Management
             else { }
 
             hideAllQuestions();
-            displayAllQuestions();
+
+            if (!IsPostBack)
+            {
+
+                displayAllQuestions();
+
+            }
+            else
+            { }
+
         }
 
 
