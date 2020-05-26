@@ -84,62 +84,6 @@ namespace FPY_Homework_Management
 
 
 
-        //public ArrayList selectStudentsInClass() //fix this
-        //{
-        //    ArrayList arrAllInClass = new ArrayList();
-        //    //string query = "SELECT StudentsInClassID, StudentID, ClassID FROM StudentsInClass WHERE ClassID = @ClassID";
-        //    //string query = "SELECT StudentID FROM StudentsInClass WHERE ClassID = @ClassID";
-        //    //string query = "SELECT StudentID FROM StudentsInClass WHERE ClassID = 1";
-        //    //string query = "SELECT StudentID FROM StudentsInClass WHERE ClassID = " + selectedClass;
-        //    //conn.Open();
-        //    //SqlCommand cmd = new SqlCommand(query, conn);
-
-        //    //cmd.Parameters.AddWithValue("@ClassID", drpSelectClass.DataValueField);
-
-        //    //SqlDataReader re = cmd.ExecuteReader();
-
-        //    //if (arrAllInClass.Count != 0)
-        //    //    try
-        //    //    {
-        //    //        while (re.Read())
-        //    //        {
-        //    //            StudentsInClass stu = new StudentsInClass(re["StudentsInClassID"].ToString(), re["StudentID"].ToString(), re["ClassID"].ToString());
-        //    //            arrAllInClass.Add(stu);
-        //    //            allOtherStudents.Visible = true;
-        //    //        }
-        //    //    }
-        //    //    catch
-        //    //    {
-        //    //        //no students in this class yet
-        //    //        allOtherStudents.Visible = false;
-        //    //    }
-
-        //    //    //cmd.ExecuteNonQuery();                        
-        //    //    conn.Close();
-
-        //    Student student = new Student();
-        //    ArrayList allStu = student.readAllStudentIDs();
-        //    ArrayList allStuInClass = SelectAllStudentsInAClass();
-
-        //    for (int i = 0; i < allStu.Count; i++)
-        //    {
-        //        for (int s = 0; s < allStuInClass.Count; s++)
-        //        {
-        //            if (allStu[i].ToString() == allStuInClass[s].ToString())
-        //            {
-        //                allStu.RemoveAt(i);
-        //            }
-        //        }
-        //    }
-
-
-
-
-
-
-        //    return arrAllInClass;
-        //}
-
 
 
         public ArrayList selectStudentsNotInClass()
@@ -153,10 +97,14 @@ namespace FPY_Homework_Management
             {
                 for (int s = 0; s < allStuInClass.Count; s++)
                 {
-                    if (allStu[i].ToString() == allStuInClass[s].ToString())
+                    try
                     {
-                        allStu.RemoveAt(i);
+                        if (allStu[i].ToString() == allStuInClass[s].ToString())
+                        {
+                            allStu.RemoveAt(i);
+                        }
                     }
+                    catch { }
                 }
             }
 
