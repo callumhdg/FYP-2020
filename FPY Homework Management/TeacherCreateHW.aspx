@@ -60,7 +60,7 @@
     
                 
             <div id="divSuccessMessage" runat="server" class="row alert-success" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px; margin:0px">                
-                <asp:label ID="lblSuccessMessage" runat="server" style="font-weight:bold">Class creation successful</asp:label>
+                <asp:label ID="lblSuccessMessage" runat="server" style="font-weight:bold">Homework creation successful</asp:label>
             </div>
 
             <div id="divErrorMessage" runat="server" class="row alert-danger" style="width:100%; padding-left:5%; padding-right:5%; padding-bottom:10px; padding-top:25px; margin:0px">                

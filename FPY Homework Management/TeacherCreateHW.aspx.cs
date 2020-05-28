@@ -43,13 +43,17 @@ namespace FPY_Homework_Management
             Homework homework = new Homework(homeworkID, userID, minutesToCompleteInput.Text, CoreHomeworkTitleInput.Text);
             try
             {
-                homework.createCoreHomework();
+
 
                 bool validate = false;
-                validateInput(validate);
+                validate = validateInput();
 
                 if (validate == true)
                 {
+                    
+                    homework.createCoreHomework();
+                    utility.addCoreHomework();
+
 
                     //check to see if questions are empty so they dont have to be created if they arent filled in, sets the number of questions to the next question
                     //e.g., if numbers: 1,2,3,5 were filled in the question numbers will be saved as: 1,2,3,4
@@ -136,7 +140,7 @@ namespace FPY_Homework_Management
                     }
 
 
-                    utility.addCoreHomework();
+                    //utility.addCoreHomework();
                     //submissionFeedback.Text = "Homework was sucsesfully created";
                     clearInputs();
                     lblErrorMessage.Visible = false;
@@ -199,8 +203,10 @@ namespace FPY_Homework_Management
             }
         }
 
-        private bool validateInput(bool validate)
+        private bool validateInput()
         {
+            bool validate;
+
             if (CoreHomeworkTitleInput.Text != "" && minutesToCompleteInput.Text != "")
             {
                 validate = true;

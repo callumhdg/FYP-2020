@@ -28,25 +28,28 @@ namespace FPY_Homework_Management
 
         protected void btnCreateTeacher_Click(object sender, EventArgs e)
         {
-
-            string firstName = TeacherFirstNameIn.Text;
-            string lastName = TeacherLastNameIn.Text;
-            string fName = firstName.Substring(0, 1).ToUpper();
-            string lName1 = lastName.Substring(0, 1).ToUpper();
-            string lName2 = lastName.Substring(1, lastName.Length - 1).ToLower();
-
-            string username = fName + lName1 + lName2;
-
             bool validate = false;
             validate = inputChecker(validate);
 
-            bool b = false;
-            int c = 0;
-            //if username already exists + 1
-            //loop back to if
-
             if (validate == true)
             {
+
+                string firstName = TeacherFirstNameIn.Text;
+                string lastName = TeacherLastNameIn.Text;
+                string fName = firstName.Substring(0, 1).ToUpper();
+                string lName1 = lastName.Substring(0, 1).ToUpper();
+                string lName2 = lastName.Substring(1, lastName.Length - 1).ToLower();
+
+                string username = fName + lName1 + lName2;
+
+            
+
+
+                bool b = false;
+                int c = 0;
+                //if username already exists + 1
+                //loop back to if
+
 
                 while (b == false)
                 {

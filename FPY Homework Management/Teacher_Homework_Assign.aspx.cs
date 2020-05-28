@@ -42,7 +42,7 @@ namespace FPY_Homework_Management
 
             ArrayList studentsInSelectedClass = selectedClassStudentIDs(selectedClass);
 
-            if (dueDateIn.Text != null)
+            if (dueDateIn.Text != "")
             {
 
                 string timeToComplete = originalTimeToCompleteCopy();

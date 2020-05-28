@@ -24,6 +24,12 @@ namespace FPY_Homework_Management.Classes
             timeToComplete = timeToFin;
             hwTitle = title;
         }
+        public Homework(string lastEdit, string timeToFin, string title)
+        {
+            lastEditBy = lastEdit;
+            timeToComplete = timeToFin;
+            hwTitle = title;
+        }
 
         public Homework()
         {
